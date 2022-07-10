@@ -44,7 +44,37 @@ a, #logout, .username {
   
   }
 
+/* CHARACTER CREATOR  */
 
+.character-creator select {
+  width: 100%;
+  margin-bottom: 35px;
+  border-radius: 10px;
+}
+
+.character-creator input {
+  width: 100%;
+  margin-bottom: 35px;
+  border-radius: 10px;
+}
+
+.character-creator {
+  font-family: 'MedievalSharp';
+  text-align: center;
+  color: #ffbb33;
+
+
+}
+
+.create-submit {
+  font-family: arial;
+  margin-bottom: 35px;
+}
+
+#character-form {
+
+display: inline-block;
+}
 
 /* profile page style */
 

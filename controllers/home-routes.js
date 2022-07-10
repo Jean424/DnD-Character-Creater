@@ -15,5 +15,13 @@ router.get('/signup', async (req, res) => {
   res.render('signup')
 })
 
+// Direct to Charcter creator page
+router.get('/character-creator', (req, res) => {
+  res.render('character-creator', {
+    // loggedIn: req.session.loggedIn,
+  })
+
+});
+
 
 module.exports = router;
