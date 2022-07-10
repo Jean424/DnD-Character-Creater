@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #343a40;
+}
+
+.navbar-brand {
+
+  font-family: 'MedievalSharp'
+}
+
+
+body {
+  font-family: arial;
+}
+
+#form-signup {
+  margin-top: 20px;
+}
+
+#form-login {
+  margin-top: 20px;
+}
+
+#btn-login {
+  margin-left: 15px;
+} 
+
+#btn-signup {
+  margin-left: 15px;
+}
+
+
+
+a, #logout, .username {
+  font-size: 18px;
+}
+
+#header-welcome-container {
+  text-align: center;
+  font-family: 'MedievalSharp'
+  
+  }
+
+
+
+/* profile page style */
+

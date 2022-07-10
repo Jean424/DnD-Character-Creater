@@ -1,2 +1,3 @@
-DROP DATABASE IF EXISTS dnd_character_db;
-CREATE DATABASE dnd_character_db;
+DROP DATABASE IF EXISTS dish_db;
+
+CREATE DATABASE dish_db;
