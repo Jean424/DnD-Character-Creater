@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Jean424/Project_2#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
