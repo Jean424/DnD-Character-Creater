@@ -1,5 +1,3 @@
-
-
 const router = require('express').Router();
 
 //render homepage
@@ -11,7 +9,6 @@ router.get('/', async (req, res) => {
 router.get('/login', async (req, res) => {
   res.render('login');
 });
-
 
 //render signup page
 router.get('/signup', async (req, res) => {
