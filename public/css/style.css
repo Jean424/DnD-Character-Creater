@@ -44,6 +44,14 @@ a, #logout, .username {
   
   }
 
+
+ .btn-default {
+
+  width: 100%;
+  height: 20px;
+  margin-top: 280px;
+ }
+
 /* CHARACTER CREATOR  */
 
 .character-creator select {

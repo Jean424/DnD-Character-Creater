@@ -2,6 +2,8 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
+const multer  = require('multer')
+
 // Import express-handlebars
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
@@ -21,6 +23,9 @@ const PORT = process.env.PORT || 3001;
 // The following two lines of code are setting Handlebars.js as the default template engine.
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+app.use(express.static('assets/images')); 
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

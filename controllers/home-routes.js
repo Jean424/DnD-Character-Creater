@@ -23,5 +23,18 @@ router.get('/character-creator', (req, res) => {
 
 });
 
+//-- Character Sheet
+router.get('/character-sheet/', async (req, res) => {
+  // if(!req.session.loggedIn){
+  //     res.redirect('homepage');
+  //     return;
+  // }
+  
+  res.render('character-sheet', {
+      // loggedIn: req.session.loggedIn,
+  })
+
+});
+
 
 module.exports = router;
