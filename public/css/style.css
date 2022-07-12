@@ -3,8 +3,17 @@
 }
 
 body {
-  background-color: #343a40;
+  background-image: url('/images/woodtexture.jpg');
 }
+
+.navbar-brand {
+font-size:larger !important;
+}
+
+
+/* span  {
+  background-image: url('/images/button2off.jpg');
+} */
 
 .navbar-brand {
 
@@ -44,9 +53,12 @@ a, #logout, .username {
   
   }
 
+/* create char and char sheet buttons on homepage*/
 span button{
   margin-top: 200px;
 }
+
+
 
  
 
