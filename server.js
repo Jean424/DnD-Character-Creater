@@ -2,7 +2,9 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const multer  = require('multer')
+
+
+
 
 // Import express-handlebars
 const exphbs = require('express-handlebars');
@@ -24,7 +26,15 @@ const PORT = process.env.PORT || 3001;
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(express.static('assets/images')); 
+app.use(express.static('images'));
+
+
+
+
+
+
+
+
 
 
 app.use(express.json());

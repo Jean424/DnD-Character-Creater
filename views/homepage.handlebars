@@ -14,13 +14,22 @@
     <div class="col-12">
       <div id="header-welcome-container">
         <h2 class="text-warning" id="header-welcome">Welcome</h2>
-      </div>
-     <button class="btn btn-default">
-     <img src="./assets/button2off.jpg" width="20" /> CREATE NEW CHARACTER
-</button>
+          <span class="newcharbutton"> {{!-- if logged in to be added here evntually --}}
+            <button> <a  href="/character-creator">Create New Character</a> </button>
+          </span>
+
+          <span class="newcharsheet">
+            <button> <a  href="/character-sheet">New Character Sheet</a> </button>
+          </span>
+       </div>
     </div>
   </div>
 </div>
+      {{!-- <button class="newchar">CREATE NEW CHARACTER
+             <img class="image" src= "./images/button2off.jpg" ></button> --}}      
+    
+     
+
 
 
 <!-- to maybe use later -->
@@ -40,6 +49,5 @@
 
 
 {{#if loggedIn}}
-<script src="/js/add-post.js"></script>
-<script src="/js/search.js"></script>
+<script src="./js/search.js"></script>
 {{/if}}
