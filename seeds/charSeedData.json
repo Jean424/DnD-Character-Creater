@@ -1,0 +1,108 @@
+[
+  {
+    "charName": "Thava Alter",
+    "charId": 1,
+    "playerName": "Ivy Lovegood",
+    "class": "Paladin",
+    "level": 1,
+    "Background": "Noble",
+    "Race": "Dragonborn",
+    "Alignment": "Lawful Good",
+    "Experience": 0,
+    "charAbilityScores": [
+      {
+        "name": "Strength",
+        "score": 18,
+        "mod": 4
+      },
+      {
+        "name": "Dexterity",
+        "score": 9,
+        "mod": -1
+      },
+      {
+        "name": "Constitution",
+        "score": 14,
+        "mod": 2
+      },
+      {
+        "name": "Intelligence",
+        "score": 10,
+        "mod": 0
+      },
+      {
+        "name": "Wisdom",
+        "score": 10,
+        "mod": 0
+      },
+      {
+        "name": "Charisma",
+        "score": 18,
+        "mod": 4
+      }
+    ],
+    "charProfLang": [
+      {
+        "savingThrows": ["Wisdom", "Charisma"]
+      },
+      {
+        "skillproficiency": ["History", "Medicine", "Persuasion", "Religion"]
+      },
+      {
+        "toolproficiency": ["Dice Set"]
+      },
+      {
+        "armorproficiency": [
+          "Heavy Armor",
+          "Light Armor",
+          "Medium Armor",
+          "Shields"
+        ]
+      },
+      {
+        "weaponproficiency": ["Longsword", "Martial Weapons"]
+      },
+      {
+        "languages": ["Common", "Draconic", "Dwarvish"]
+      }
+    ],
+
+    "charCombat": [
+      {
+        "ArmorClass": 19,
+        "initiative": -1,
+        "speed": 30,
+        "hitDice": "d10",
+        "maxHP": 12
+      }
+    ],
+    "charEquipment": [
+      {
+        "Name": "Shield",
+        "Type": "Shield"
+      }
+    ],
+    "charFeatures": [
+      {
+        "classFeatures": [
+          {
+            "name": "Lay on Hands",
+            "description": "Include description"
+          }
+        ],
+        "racialTraits": [
+          {
+            "name": "Damage Resistance",
+            "description": "You have resistance to fire damage."
+          }
+        ],
+        "backgroundFeatures": [
+          {
+            "name": "Retainers",
+            "description": "ou have a set of three retainers loyal to your family. These retainers can be attendants or messengers, and one might be a majordomo. Your retainers are commoners who can perform mundane tasks for you, but they do not fight for you, will not follow you into obviously dangerous areas, and will lieave if they are frequently endangered or abused"
+          }
+        ]
+      }
+    ]
+  }
+]
