@@ -1,29 +1,54 @@
 const sequelize = require("../config/connection");
-const { Reader, Book, LibraryCard } = require("../models");
+const {
+  User,
+  Character,
+  Character_Score,
+  Character_Saving_Throw,
+  Character_Skill,
+  Character_Prof_Lang,
+} = require("../models");
 
-const readerSeedData = require("./readerSeedData.json");
-const bookSeedData = require("./bookSeedData.json");
+const charSeedData = require("./charSeedData.json");
+const charScoreSeedData = require("./charScoreSeedData.json");
+const charSavThrSeedData = require("./charSavThrSeedData.json");
+const charSkillSeedData = require("./charSkillSeedData.json");
+const charProfLangSeedData = require("./charProfLangSeedData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const readers = await Reader.bulkCreate(readerSeedData, {
+  const characters = await Character.bulkCreate(charSeedData, {
     individualHooks: true,
     returning: true,
   });
-
-  for (const { id } of readers) {
-    const newCard = await LibraryCard.create({
-      reader_id: id,
+  for (const project of projectData) {
+    await Project.create({
+      ...project,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
-
-  for (const book of bookSeedData) {
-    const newBook = await Book.create({
-      ...book,
-      reader_id: readers[Math.floor(Math.random() * readers.length)].id,
-    });
-  }
+  const character_scores = await Character_Score.bulkCreate(charScoreSeedData, {
+    individualHooks: true,
+    returning: true,
+  });
+  const character_saving_throws = await Character_Saving_Throw.bulkCreate(
+    charSavThrSeedData,
+    {
+      individualHooks: true,
+      returning: true,
+    }
+  );
+  const character_skills = await Character_Skill.bulkCreate(charSkillSeedData, {
+    individualHooks: true,
+    returning: true,
+  });
+  const character_prof_langs = await Character_Prof_Lang.bulkCreate(
+    charProfLangSeedData,
+    {
+      individualHooks: true,
+      returning: true,
+    }
+  );
 
   process.exit(0);
 };

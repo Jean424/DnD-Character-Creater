@@ -16,11 +16,11 @@ Character_Prof_Lang.init(
     character_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "character",
+        model: "Character",
         key: "id",
       },
     },
-    tools: {
+    tool: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -28,7 +28,7 @@ Character_Prof_Lang.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    weapons: {
+    weapon: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -42,7 +42,7 @@ Character_Prof_Lang.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "traveller",
+    modelName: "Character_Prof_Lang",
   }
 );
 

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Strength",
+    "score": 18
+  },
+  {
+    "name": "Dexterity",
+    "score": 9
+  },
+  {
+    "name": "Constitution",
+    "score": 14
+  },
+  {
+    "name": "Intelligence",
+    "score": 10
+  },
+  {
+    "name": "Wisdom",
+    "score": 10
+  },
+  {
+    "name": "Charisma",
+    "score": 18
+  }
+]

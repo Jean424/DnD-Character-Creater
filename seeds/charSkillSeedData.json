@@ -1,0 +1,56 @@
+[
+  {
+    "Acrobatics": false
+  },
+  {
+    "Animal Handling": false
+  },
+  {
+    "Arcana": false
+  },
+  {
+    "Athletics": false
+  },
+  {
+    "Deception": false
+  },
+  {
+    "History": true
+  },
+  {
+    "Insight": false
+  },
+  {
+    "Intimidation": false
+  },
+  {
+    "Investigation": false
+  },
+  {
+    "Medicine": true
+  },
+  {
+    "Nature": false
+  },
+  {
+    "Perception": false
+  },
+  {
+    "Performance": false
+  },
+  {
+    "Persuasion": true
+  },
+  {
+    "Religion": true
+  },
+  {
+    "Sleight of Hand": false
+  },
+  {
+    "Stealth": false
+  },
+  {
+    "Survival": false
+  }
+]

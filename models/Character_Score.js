@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const { beforeValidate } = require("./User");
 
 class Character_Score extends Model {}
 
@@ -14,11 +15,15 @@ Character_Score.init(
     character_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "character",
+        model: "Character",
         key: "id",
       },
     },
-    strength: {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    score: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
@@ -27,49 +32,19 @@ Character_Score.init(
         max: 20,
       },
     },
-    dexterity: {
+    mod: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 10,
-      validate: {
-        min: 1,
-        max: 20,
+      defaultValue: 0,
+      hooks: {
+        beforeValidate(newScoreData) {
+          newScoreData.mod = (newScoreData + 10) / 2;
+          return newScoreData.mod;
+        },
       },
-    },
-    constitution: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 10,
       validate: {
-        min: 1,
-        max: 20,
-      },
-    },
-    intelligence: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 10,
-      validate: {
-        min: 1,
-        max: 20,
-      },
-    },
-    wisdom: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 10,
-      validate: {
-        min: 1,
-        max: 20,
-      },
-    },
-    charisma: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 10,
-      validate: {
-        min: 1,
-        max: 20,
+        min: -5,
+        max: 5,
       },
     },
   },

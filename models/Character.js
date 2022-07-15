@@ -12,14 +12,7 @@ Character.init(
         key: "id",
       },
     },
-    user_name: {
-      type: DataTypes.STRING,
-      references: {
-        model: "user",
-        key: "name",
-      },
-    },
-    character_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -62,28 +55,28 @@ Character.init(
     char_score_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "char_score",
+        model: "Character_score",
         key: "id",
       },
     },
     char_prof_lang_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "char_prof_lang",
+        model: "Character_Prof_Lang",
         key: "id",
       },
     },
     char_sav_throw_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "char_sav_throw",
+        model: "Character_Saving_Throw",
         key: "id",
       },
     },
     char_skill_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "char_skill",
+        model: "Character_Skill",
         key: "id",
       },
     },

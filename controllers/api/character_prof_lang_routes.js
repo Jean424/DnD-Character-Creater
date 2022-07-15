@@ -8,7 +8,7 @@ const {
   Character_Prof_Lang,
 } = require("../../models");
 
-// GET all character scores
+// GET all character prof_langs
 router.get("/", async (req, res) => {
   try {
     const charProfLangData = await Character_Prof_Lang.findAll();
@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// CREATE a character score
+// CREATE a character prof_lang
 router.post("/", async (req, res) => {
   try {
     const charProfLangData = await Character_Prof_Lang.create(req.body);
@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// DELETE a character score
+// DELETE a character prof_lang
 router.delete("/:id", async (req, res) => {
   try {
     const charProfLangData = await Character_Prof_Lang.destroy({

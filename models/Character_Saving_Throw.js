@@ -14,7 +14,7 @@ Character_Saving_Throw.init(
     character_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "character",
+        model: "Character",
         key: "id",
       },
     },
