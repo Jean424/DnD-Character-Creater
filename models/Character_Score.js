@@ -16,7 +16,7 @@ Character_Score.init(
       type: DataTypes.INTEGER,
       references: {
         model: "Character",
-        key: "id",
+        key: "character_id",
       },
     },
     name: {

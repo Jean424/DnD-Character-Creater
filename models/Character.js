@@ -12,7 +12,7 @@ Character.init(
         key: "id",
       },
     },
-    id: {
+    character_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,

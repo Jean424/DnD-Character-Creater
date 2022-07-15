@@ -17,7 +17,7 @@ Character_Prof_Lang.init(
       type: DataTypes.INTEGER,
       references: {
         model: "Character",
-        key: "id",
+        key: "character_id",
       },
     },
     tool: {

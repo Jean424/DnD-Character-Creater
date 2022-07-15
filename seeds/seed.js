@@ -21,10 +21,11 @@ const seedDatabase = async () => {
     individualHooks: true,
     returning: true,
   });
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+  for (const character_scores of charScoreSeedData) {
+    await Character_Score.create({
+      ...character_scores,
+      character_id:
+        characters[Math.floor(Math.random() * characters.length)].id,
     });
   }
   const character_scores = await Character_Score.bulkCreate(charScoreSeedData, {
@@ -53,4 +54,4 @@ const seedDatabase = async () => {
   process.exit(0);
 };
 
-seedDatabase();
+// seedDatabase();

@@ -15,7 +15,7 @@ Character_Skill.init(
       type: DataTypes.INTEGER,
       references: {
         model: "Character",
-        key: "id",
+        key: "character_id",
       },
     },
     acrobatics: {

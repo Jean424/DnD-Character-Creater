@@ -38,7 +38,7 @@ router.delete("/:id", async (req, res) => {
     });
 
     if (!charSkillData) {
-      res.status(404).json({ message: "No score found!" });
+      res.status(404).json({ message: "No skill found!" });
       return;
     }
 
