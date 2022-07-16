@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('/images/woodtexture1.jpg');
+}
+
+.navbar-brand {
+font-size:larger !important;
+}
+
+
+/* span  {
+  background-image: url('/images/button2off.jpg');
+} */
+
+.navbar-brand {
+
+  font-family: 'MedievalSharp'
+}
+
+
+body {
+  font-family: arial;
+}
+
+#form-signup {
+  margin-top: 20px;
+}
+
+#form-login {
+  margin-top: 20px;
+}
+
+#btn-login {
+  margin-left: 15px;
+} 
+
+#btn-signup {
+  margin-left: 15px;
+}
+
+
+
+a, #logout, .username {
+  font-size: 18px;
+}
+
+#header-welcome-container {
+  text-align: center;
+  font-family: 'MedievalSharp'
+  
+  }
+
+/* create char and char sheet buttons on homepage*/
+span button{
+  margin-top: 200px;
+}
+
+
+
+ 
+
+/* CHARACTER CREATOR  */
+
+.character-creator select {
+  width: 100%;
+  margin-bottom: 35px;
+  border-radius: 10;
+}
+
+.character-creator input {
+  width: 100%;
+  margin-bottom: 35px;
+  border-radius: 10px;
+}
+
+.character-creator {
+  font-family: 'MedievalSharp';
+  text-align: center;
+  color: #ffbb33;
+
+
+}
+
+.create-submit {
+  font-family: arial;
+  margin-bottom: 35px;
+}
+
+#character-form {
+
+display: inline-block;
+}
+
+/* profile page style */
+
