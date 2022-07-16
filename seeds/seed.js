@@ -7,6 +7,7 @@ const {
   Character_Skill,
   Character_Prof_Lang,
   Character_Equipment,
+  Character_Spells,
 } = require("../models");
 
 const userData = require("./userData.json");
@@ -16,6 +17,7 @@ const charSavThrSeedData = require("./charSavThrSeedData.json");
 const charSkillSeedData = require("./charSkillSeedData.json");
 const charProfLangSeedData = require("./charProfLangSeedData.json");
 const charEquipmentSeedData = require("./charEquipmentSeedData.json");
+const charSpellSeedData = require("./charSpellSeedData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -57,6 +59,11 @@ const seedDatabase = async () => {
   for (const character_equipment of charEquipmentSeedData) {
     await Character_Equipment.create({
       ...character_equipment,
+    });
+  }
+  for (const character_spells of charSpellSeedData) {
+    await Character_Spells.create({
+      ...character_spells,
     });
   }
   process.exit(0);

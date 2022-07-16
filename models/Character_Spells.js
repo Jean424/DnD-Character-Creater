@@ -1,9 +1,9 @@
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes, Sequelize } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Character_Equipment extends Model {}
+class Character_Spells extends Model {}
 
-Character_Equipment.init(
+Character_Spells.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -28,54 +28,70 @@ Character_Equipment.init(
     },
     description: {
       type: DataTypes.STRING(5000),
-      allowNull: true,
+      allowNull: false,
     },
-    special: {
+    higher_level: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    equipment_category: {
+    level: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+
+    components: {
+      type: Sequelize.JSON,
+      allowNull: false,
+    },
+
+    range: {
       type: DataTypes.STRING,
       allowNull: false,
     },
 
-    tool_category: {
+    material: {
       type: DataTypes.STRING,
       allowNull: true,
     },
 
-    armor_category: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-
-    ac: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-
-    ac_dex_bonus: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-
-    str_minimum: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-
-    weapon_category: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-
-    weapon_melee: {
+    ritual: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+
+    duration: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    concentration: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+
+    casting_time: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    school: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    classes: {
+      type: Sequelize.JSON,
+      allowNull: false,
+    },
+    heal_at_slot_level: {
+      type: Sequelize.JSON,
       allowNull: true,
     },
 
-    weapon_range: {
-      type: DataTypes.INTEGER,
+    attack_type: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
 
@@ -89,23 +105,8 @@ Character_Equipment.init(
       allowNull: true,
     },
 
-    weight: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-
-    cost: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-
-    cost_unit: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-
-    properties: {
-      type: DataTypes.STRING,
+    damage_at_character_level: {
+      type: Sequelize.JSON,
       allowNull: true,
     },
   },
@@ -114,8 +115,8 @@ Character_Equipment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Character_Equipment",
+    modelName: "Character_Spells",
   }
 );
 
-module.exports = Character_Equipment;
+module.exports = Character_Spells;
