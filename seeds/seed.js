@@ -70,3 +70,4 @@ const seedDatabase = async () => {
 };
 
 seedDatabase();
+//Delete this

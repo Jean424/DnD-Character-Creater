@@ -1,25 +1,23 @@
-const router = require('express').Router();
-const { User } = require('../../models');
-const sequelize = require('../../config/connection');
-const bcrypt = require('bcrypt');
+const router = require("express").Router();
+const { User } = require("../../models");
+const sequelize = require("../../config/connection");
+const bcrypt = require("bcrypt");
 
 // all users
 router.get("/", (req, res) => {
-
   User.findAll({
-          include: { all: true, nested: true }
-      })
-      .then(dbUsers => {
-          res.json(dbUsers);
-      })
-      .catch(err => {
-          res.status(500).json({ msg: "An error occured!", err });
-      });
-
+    include: { all: true, nested: true },
+  })
+    .then((dbUsers) => {
+      res.json(dbUsers);
+    })
+    .catch((err) => {
+      res.status(500).json({ msg: "An error occured!", err });
+    });
 });
 
 // CREATE new user
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
@@ -34,7 +32,7 @@ router.post('/', async (req, res) => {
 });
 
 // // Login
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
@@ -45,7 +43,7 @@ router.post('/login', async (req, res) => {
     if (!dbUserData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
 
@@ -54,13 +52,12 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
     res
-    .status(200)
-    .json({ user: dbUserData, message: 'You are now logged in!' });
-
+      .status(200)
+      .json({ user: dbUserData, message: "You are now logged in!" });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -68,18 +65,20 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
-router.get('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
   if (req.session) {
-      req.session.destroy(err => {
-          if (err) {
-              res.status(400).send('Unable to log out')
-          } else {
-              res.redirect('/')
-          }
-      });
+    req.session.destroy((err) => {
+      if (err) {
+        res.status(400).send("Unable to log out");
+      } else {
+        res.redirect("/");
+      }
+    });
   } else {
-      res.end()
+    res.end();
   }
-})
+});
 
 module.exports = router;
+
+//Delete this

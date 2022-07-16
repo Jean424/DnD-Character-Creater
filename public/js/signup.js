@@ -24,28 +24,29 @@
 //   .querySelector('#btn-signup')
 //   .addEventListener('submit', signupFormHandler)
 
-
-document.querySelector("#btn-signup").addEventListener("submit", e => {
+document.querySelector("#btn-signup").addEventListener("submit", (e) => {
   e.preventDefault();
   const userObj = {
-      // username: document.querySelector("#usernameInput").value,
-      // password: document.querySelector("#passwordInput").value,
-      username: document.querySelector('#username-signup').value.trim(),
-      email: document.querySelector('#email-signup').value.trim(),
-      password: document.querySelector('#password-signup').value.trim(),
-  }
-  console.log(userObj)
+    // username: document.querySelector("#usernameInput").value,
+    // password: document.querySelector("#passwordInput").value,
+    username: document.querySelector("#username-signup").value.trim(),
+    email: document.querySelector("#email-signup").value.trim(),
+    password: document.querySelector("#password-signup").value.trim(),
+  };
+  console.log(userObj);
   fetch("/api/users", {
-      method: "POST",
-      body: JSON.stringify(userObj),
-      headers: {
-          "Content-Type": "application/json"
-      }
-  }).then(res => {
-      if (res.ok) {
-          location.href = "/"
-      } else {
-          alert("Error Signing Up")
-      }
-  })
-})
+    method: "POST",
+    body: JSON.stringify(userObj),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) => {
+    if (res.ok) {
+      location.href = "/";
+    } else {
+      alert("Error Signing Up");
+    }
+  });
+});
+
+//Delete this

@@ -5,13 +5,13 @@ class Character_Main extends Model {}
 
 Character_Main.init(
   {
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "User",
-    //     key: "id",
-    //   },
-    // },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "User",
+        key: "id",
+      },
+    },
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -96,3 +96,5 @@ Character_Main.init(
 );
 
 module.exports = Character_Main;
+
+//Delete this
