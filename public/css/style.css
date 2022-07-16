@@ -10,6 +10,10 @@ body {
 font-size:larger !important;
 }
 
+.form-horizontal {
+text-align: center;
+}
+
 
 /* span  {
   background-image: url('/images/button2off.jpg');
@@ -29,9 +33,9 @@ body {
   margin-top: 20px;
 }
 
-#form-login {
+/* #form-login {
   margin-top: 20px;
-}
+} */
 
 #btn-login {
   margin-left: 15px;
@@ -52,6 +56,28 @@ a, #logout, .username {
   font-family: 'MedievalSharp'
   
   }
+
+  input {
+    text-align: center;
+  }
+
+#password-login {
+  width: 200px !important;
+margin-left: 620px !important;
+}
+
+#email-login {
+  width: 200px !important;
+margin-left: 620px !important;
+}
+
+p {
+  color: #ffbb33
+}
+
+.form-horizontal {
+  margin-top: 10%;
+}
 
 /* create char and char sheet buttons on homepage*/
 span button{

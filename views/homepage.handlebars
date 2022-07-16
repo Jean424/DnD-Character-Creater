@@ -14,37 +14,24 @@
     <div class="col-12">
       <div id="header-welcome-container">
         <h1 class="text-warning" id="header-welcome">Welcome</h1>
-          <span class="newcharbutton"> {{!-- if logged in to be added here evntually --}}
-            <button> <a href="/character-creator">Create New Character </a> </button>
-          </span>
+        <p> Please login or signup to create your new Dungeons and Dragon Character!</p>
 
-          <span class="newcharsheet">
-             <button> <a href="/character-sheet">New Character Sheet </a> </button>
-          </span>
-       </div>
-    </div>
-  </div>
-</div>
-      {{!-- <button class="newchar">CREATE NEW CHARACTER
-             <img class="image" src= "./images/button2off.jpg" ></button> --}}      
+      <div>
+        {{> login}}
+      </div>
+
+<script src="/js/login.js"></script>
+<script src="/js/signup.js"></script>
+        
+
+  
+
+         
     
      
 
 
 
-<!-- to maybe use later -->
-{{!-- <ol class="character-list" style="height: 80vh; overflow-y: scroll"> --}}
-
-<!-- character array -->
-
-
-{{!-- {{#each characters as |characters|}}
-  <ul>
-      {{> character-info character }} 
-    </div>
-  </ul>
-{{/each}}
-</ol> --}}
 
 
 
