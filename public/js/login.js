@@ -1,4 +1,4 @@
-async function loginFormHandler(event){
+const loginFormHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from the login form
@@ -15,7 +15,7 @@ async function loginFormHandler(event){
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/character-creator');
+      document.location.replace('/profile');
     } else {
       alert(response.statusText);
     }
@@ -23,6 +23,6 @@ async function loginFormHandler(event){
 };
 
 document
-  .querySelector('#form-login')
+  .querySelector('#btn-login')
   .addEventListener('submit', loginFormHandler);
 

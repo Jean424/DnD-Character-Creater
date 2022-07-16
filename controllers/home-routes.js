@@ -7,10 +7,6 @@ router.get('/', async (req, res) => {
 
 //redirect to homepage once logged in 
 router.get('/login', async (req, res) => {
-  if(req.session.loggedIn) {
-    res.redirect('/character-creator');
-    return; 
-  }
   res.render('login');
 });
 
@@ -28,7 +24,7 @@ router.get('/character-creator', (req, res) => {
 });
 
 //-- Character Sheet
-router.get('/character-sheet', async (req, res) => {
+router.get('/character-sheet/', async (req, res) => {
   // if(!req.session.loggedIn){
   //     res.redirect('homepage');
   //     return;
