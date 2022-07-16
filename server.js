@@ -12,9 +12,9 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 // Import express-handlebars
-const exphbs = require('express-handlebars');
+// const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ helpers });
-const session = require('express-session');
+// const session = require('express-session');
 
 // Sets up the Express App
 const app = express();
