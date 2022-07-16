@@ -1,3 +1,4 @@
-DROP DATABASE IF EXISTS dish_db;
+DROP DATABASE IF EXISTS character_db;
 
-CREATE DATABASE dish_db;
+CREATE DATABASE character_db;
+USE character_db;
