@@ -3,23 +3,20 @@
 }
 
 body {
-  background-image: url('/images/woodtexture1.jpg');
+  background-image: url("/images/woodtexture1.jpg");
 }
 
 .navbar-brand {
-font-size:larger !important;
+  font-size: larger !important;
 }
-
 
 /* span  {
   background-image: url('/images/button2off.jpg');
 } */
 
 .navbar-brand {
-
-  font-family: 'MedievalSharp'
+  font-family: "MedievalSharp";
 }
-
 
 body {
   font-family: arial;
@@ -35,32 +32,27 @@ body {
 
 #btn-login {
   margin-left: 15px;
-} 
+}
 
 #btn-signup {
   margin-left: 15px;
 }
 
-
-
-a, #logout, .username {
+a,
+#logout,
+.username {
   font-size: 18px;
 }
 
 #header-welcome-container {
   text-align: center;
-  font-family: 'MedievalSharp'
-  
-  }
-
-/* create char and char sheet buttons on homepage*/
-span button{
-  margin-top: 200px;
+  font-family: "MedievalSharp";
 }
 
-
-
- 
+/* create char and char sheet buttons on homepage*/
+span button {
+  margin-top: 200px;
+}
 
 /* CHARACTER CREATOR  */
 
@@ -77,11 +69,9 @@ span button{
 }
 
 .character-creator {
-  font-family: 'MedievalSharp';
+  font-family: "MedievalSharp";
   text-align: center;
   color: #ffbb33;
-
-
 }
 
 .create-submit {
@@ -90,9 +80,9 @@ span button{
 }
 
 #character-form {
-
-display: inline-block;
+  display: inline-block;
 }
 
 /* profile page style */
 
+/* Delete this */

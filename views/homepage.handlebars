@@ -1,10 +1,7 @@
-
 <div class="container">
   <div class="row">
     <div class="col-12">
-{{#if loggedIn}}
-  
-{{/if}}
+      {{#if loggedIn}}{{/if}}
     </div>
   </div>
 </div>
@@ -14,29 +11,27 @@
     <div class="col-12">
       <div id="header-welcome-container">
         <h1 class="text-warning" id="header-welcome">Welcome</h1>
-          <span class="newcharbutton"> {{!-- if logged in to be added here evntually --}}
-            <button> <a href="/character-creator">Create New Character </a> </button>
-          </span>
+        <span class="newcharbutton">
+          {{! if logged in to be added here evntually }}
+          <button>
+            <a href="/character-creator">Create New Character </a>
+          </button>
+        </span>
 
-          <span class="newcharsheet">
-             <button> <a href="/character-sheet">New Character Sheet </a> </button>
-          </span>
-       </div>
+        <span class="newcharsheet">
+          <button> <a href="/character-sheet">New Character Sheet </a> </button>
+        </span>
+      </div>
     </div>
   </div>
 </div>
-      {{!-- <button class="newchar">CREATE NEW CHARACTER
-             <img class="image" src= "./images/button2off.jpg" ></button> --}}      
-    
-     
-
-
+{{! <button class="newchar">CREATE NEW CHARACTER
+             <img class="image" src= "./images/button2off.jpg" ></button> }}
 
 <!-- to maybe use later -->
-{{!-- <ol class="character-list" style="height: 80vh; overflow-y: scroll"> --}}
+{{! <ol class="character-list" style="height: 80vh; overflow-y: scroll"> }}
 
 <!-- character array -->
-
 
 {{!-- {{#each characters as |characters|}}
   <ul>
@@ -46,8 +41,8 @@
 {{/each}}
 </ol> --}}
 
-
-
 {{#if loggedIn}}
-<script src="./js/search.js"></script>
+  <script src="./js/search.js"></script>
 {{/if}}
+
+{{! //Delete this }}

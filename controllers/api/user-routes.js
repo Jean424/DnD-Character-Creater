@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+=======
+const router = require("express").Router();
+const { User } = require("../../models");
+const sequelize = require("../../config/connection");
+const bcrypt = require("bcrypt");
+>>>>>>> Ivy2
 
 // all users
 router.get("/", (req, res) => {
   User.findAll({
+<<<<<<< HEAD
         include: { all: true, nested: true }
     })
     .then(dbUsers => {
@@ -13,11 +21,20 @@ router.get("/", (req, res) => {
     })
     .catch(err => {
         res.status(500).json({ msg: "An error occured!", err });
+=======
+    include: { all: true, nested: true },
+  })
+    .then((dbUsers) => {
+      res.json(dbUsers);
+    })
+    .catch((err) => {
+      res.status(500).json({ msg: "An error occured!", err });
+>>>>>>> Ivy2
     });
 });
 
 // CREATE new user
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
@@ -32,7 +49,7 @@ router.post('/', async (req, res) => {
 });
 
 // // Login
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
@@ -43,7 +60,7 @@ router.post('/login', async (req, res) => {
     if (!dbUserData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
 
@@ -52,9 +69,10 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
+<<<<<<< HEAD
     req.session.save(() => {
       // declare session variables
       req.session.user_id = dbUserData.id;
@@ -64,6 +82,11 @@ router.post('/login', async (req, res) => {
       res.json({ user: dbUserData, message: 'You are now logged in!' });
   });
 
+=======
+    res
+      .status(200)
+      .json({ user: dbUserData, message: "You are now logged in!" });
+>>>>>>> Ivy2
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -71,6 +94,7 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
+<<<<<<< HEAD
 router.get('/logout', withAuth, (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -78,7 +102,22 @@ router.get('/logout', withAuth, (req, res) => {
     });
   } else {
     res.status(404).end();
+=======
+router.get("/logout", (req, res) => {
+  if (req.session) {
+    req.session.destroy((err) => {
+      if (err) {
+        res.status(400).send("Unable to log out");
+      } else {
+        res.redirect("/");
+      }
+    });
+  } else {
+    res.end();
+>>>>>>> Ivy2
   }
-})
+});
 
 module.exports = router;
+
+//Delete this
