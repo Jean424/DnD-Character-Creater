@@ -96,5 +96,3 @@ Character_Main.init(
 );
 
 module.exports = Character_Main;
-
-//Delete this

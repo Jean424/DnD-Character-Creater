@@ -1,4 +1,4 @@
-async function loginFormHandler(event){
+async function loginFormHandler(event) {
   event.preventDefault();
 
   // Collect values from the login form
@@ -15,24 +15,13 @@ async function loginFormHandler(event){
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-<<<<<<< HEAD
-      document.location.replace('/character-creator');
-=======
       document.location.replace("/profile");
->>>>>>> Ivy2
     } else {
       alert(response.statusText);
     }
   }
-};
+}
 
 document
-<<<<<<< HEAD
-  .querySelector('#form-login')
-  .addEventListener('submit', loginFormHandler);
-=======
   .querySelector("#btn-login")
   .addEventListener("submit", loginFormHandler);
->>>>>>> Ivy2
-
-//Delete this

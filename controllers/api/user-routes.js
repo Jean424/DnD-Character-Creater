@@ -1,27 +1,11 @@
-<<<<<<< HEAD
-const router = require('express').Router();
-const { User } = require('../../models');
-const withAuth = require('../../utils/auth');
-
-=======
 const router = require("express").Router();
 const { User } = require("../../models");
 const sequelize = require("../../config/connection");
 const bcrypt = require("bcrypt");
->>>>>>> Ivy2
 
 // all users
 router.get("/", (req, res) => {
   User.findAll({
-<<<<<<< HEAD
-        include: { all: true, nested: true }
-    })
-    .then(dbUsers => {
-        res.json(dbUsers);
-    })
-    .catch(err => {
-        res.status(500).json({ msg: "An error occured!", err });
-=======
     include: { all: true, nested: true },
   })
     .then((dbUsers) => {
@@ -29,7 +13,6 @@ router.get("/", (req, res) => {
     })
     .catch((err) => {
       res.status(500).json({ msg: "An error occured!", err });
->>>>>>> Ivy2
     });
 });
 
@@ -72,21 +55,9 @@ router.post("/login", async (req, res) => {
         .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
-<<<<<<< HEAD
-    req.session.save(() => {
-      // declare session variables
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
-
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
-  });
-
-=======
     res
       .status(200)
       .json({ user: dbUserData, message: "You are now logged in!" });
->>>>>>> Ivy2
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -94,15 +65,6 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout
-<<<<<<< HEAD
-router.get('/logout', withAuth, (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-=======
 router.get("/logout", (req, res) => {
   if (req.session) {
     req.session.destroy((err) => {
@@ -114,10 +76,7 @@ router.get("/logout", (req, res) => {
     });
   } else {
     res.end();
->>>>>>> Ivy2
   }
 });
 
 module.exports = router;
-
-//Delete this

@@ -5,19 +5,13 @@ router.get("/", async (req, res) => {
   res.render("homepage");
 });
 
-<<<<<<< HEAD
-//redirect to homepage once logged in 
-router.get('/login', async (req, res) => {
-  if(req.session.loggedIn) {
-    res.redirect('/character-creator');
-    return; 
-  }
-  res.render('login');
-=======
 //redirect to homepage once logged in
 router.get("/login", async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/character-creator");
+    return;
+  }
   res.render("login");
->>>>>>> Ivy2
 });
 
 //render signup page
@@ -33,11 +27,7 @@ router.get("/character-creator", (req, res) => {
 });
 
 //-- Character Sheet
-<<<<<<< HEAD
-router.get('/character-sheet', async (req, res) => {
-=======
 router.get("/character-sheet/", async (req, res) => {
->>>>>>> Ivy2
   // if(!req.session.loggedIn){
   //     res.redirect('homepage');
   //     return;
@@ -49,5 +39,3 @@ router.get("/character-sheet/", async (req, res) => {
 });
 
 module.exports = router;
-
-//Delete this

@@ -59,5 +59,3 @@ Character_Saving_Throw.init(
 );
 
 module.exports = Character_Saving_Throw;
-
-//Delete this
