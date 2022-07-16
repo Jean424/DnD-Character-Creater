@@ -1,12 +1,12 @@
 # Project_2
 ## Table of Contents
-- Description
-- Techologies
-- Usage
-- Contribution
-- License & Copyright
-- Questions
-- Link
+- [Description](#description)
+- [Techologies](#techologies)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [Copyright](#copyright)
+- [Questions](#questions)
+- [Link](#link)
 
 ## Description:
  This is a full-stack web application called D&D character generator. We designed and builded this app by using the skillls that we learned over the past units. We used MVC paradigm, D&D character server-side API, user authentication, and databases on this application. Finally, we deployed the application on the heroku.s
@@ -20,13 +20,13 @@
 - Use user authentication;
 - Use keroku to deploy the app;
 
-## Usage(Use for):
+## Usage:
 This application designed and buided for D&D character generate, users can generate their own character by using this App.
 
 ## Contribution:
 Contributed by: Ivy, Kelton, Jawid, Yousef and Jing
 
-## License & Copyright:
+## Copyright:
 Copyright © 2022 <Ivy, Kelton, Yousef, Jawid and Jing >. 
 Licensed under the [MIT License](LICENSE).
 
