@@ -1,21 +1,19 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const sequelize = require('../../config/connection');
-const bcrypt = require('bcrypt');
+const withAuth = require('../../utils/auth');
+
 
 // all users
 router.get("/", (req, res) => {
-
   User.findAll({
-          include: { all: true, nested: true }
-      })
-      .then(dbUsers => {
-          res.json(dbUsers);
-      })
-      .catch(err => {
-          res.status(500).json({ msg: "An error occured!", err });
-      });
-
+        include: { all: true, nested: true }
+    })
+    .then(dbUsers => {
+        res.json(dbUsers);
+    })
+    .catch(err => {
+        res.status(500).json({ msg: "An error occured!", err });
+    });
 });
 
 // CREATE new user
@@ -57,9 +55,14 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
-    res
-    .status(200)
-    .json({ user: dbUserData, message: 'You are now logged in!' });
+    req.session.save(() => {
+      // declare session variables
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
+
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
+  });
 
   } catch (err) {
     console.log(err);
@@ -68,17 +71,13 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
-router.get('/logout', (req, res) => {
-  if (req.session) {
-      req.session.destroy(err => {
-          if (err) {
-              res.status(400).send('Unable to log out')
-          } else {
-              res.redirect('/')
-          }
-      });
+router.get('/logout', withAuth, (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
   } else {
-      res.end()
+    res.status(404).end();
   }
 })
 
