@@ -6,6 +6,7 @@ const {
   Character_Saving_Throw,
   Character_Skill,
   Character_Prof_Lang,
+  Character_Equipment,
 } = require("../../models");
 // const withAuth = require('../../utils/auth');
 
@@ -18,6 +19,7 @@ router.get("/all", async (req, res) => {
         { model: Character_Saving_Throw },
         { model: Character_Skill },
         { model: Character_Prof_Lang },
+        { model: Character_Equipment },
       ],
     });
     res.status(200).json(characterData);

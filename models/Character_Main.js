@@ -5,13 +5,13 @@ class Character_Main extends Model {}
 
 Character_Main.init(
   {
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "User",
-    //     key: "id",
-    //   },
-    // },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "User",
+        key: "id",
+      },
+    },
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -53,38 +53,6 @@ Character_Main.init(
       allowNull: false,
       defaultValue: false,
     },
-    // char_score_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: "Character_Score",
-    //     key: "id",
-    //   },
-    // },
-    // char_prof_lang_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: "Character_Prof_Lang",
-    //     key: "id",
-    //   },
-    // },
-    // char_sav_throw_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: "Character_Saving_Throw",
-    //     key: "id",
-    //   },
-    // },
-    // char_skill_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: "Character_Skill",
-    //     key: "id",
-    //   },
-    // },
   },
   {
     sequelize,
