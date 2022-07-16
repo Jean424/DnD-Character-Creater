@@ -1,26 +1,12 @@
 [
   {
-    "name": "Strength",
-    "score": 18
-  },
-  {
-    "name": "Dexterity",
-    "score": 9
-  },
-  {
-    "name": "Constitution",
-    "score": 14
-  },
-  {
-    "name": "Intelligence",
-    "score": 10
-  },
-  {
-    "name": "Wisdom",
-    "score": 10
-  },
-  {
-    "name": "Charisma",
-    "score": 18
+    "character_id": 1,
+    "id": 1,
+    "strength": 18,
+    "dexterity": 9,
+    "constitution": 14,
+    "intelligence": 10,
+    "wisdom": 10,
+    "charisma": 18
   }
 ]

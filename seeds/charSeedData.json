@@ -1,7 +1,6 @@
 [
   {
-    "user_id": 1,
-    "character_id": 1,
+    "id": 1,
     "character_name": "Thava Alter",
     "class": "Paladin",
     "level": 1,

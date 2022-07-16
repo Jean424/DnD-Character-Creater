@@ -1,20 +1,12 @@
 [
   {
-    "Strength": false
-  },
-  {
-    "Dexterity": false
-  },
-  {
-    "Constitution": false
-  },
-  {
-    "Intelligence": false
-  },
-  {
-    "Wisdom": true
-  },
-  {
-    "Charisma": true
+    "character_id": 1,
+    "id": 1,
+    "strength": false,
+    "dexterity": false,
+    "constitution": false,
+    "intelligence": false,
+    "wisdom": true,
+    "charisma": true
   }
 ]

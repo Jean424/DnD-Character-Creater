@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes, Sequelize } = require("sequelize");
 const sequelize = require("../config/connection");
 
 // create our Character_Prof_Lang model
@@ -16,24 +16,24 @@ Character_Prof_Lang.init(
     character_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Character",
-        key: "character_id",
+        model: "Character_Main",
+        key: "id",
       },
     },
     tool: {
-      type: DataTypes.STRING,
+      type: Sequelize.JSON,
       allowNull: true,
     },
     armor: {
-      type: DataTypes.STRING,
+      type: Sequelize.JSON,
       allowNull: true,
     },
     weapon: {
-      type: DataTypes.STRING,
+      type: Sequelize.JSON,
       allowNull: true,
     },
     languages: {
-      type: DataTypes.STRING,
+      type: Sequelize.JSON,
       allowNull: true,
     },
   },

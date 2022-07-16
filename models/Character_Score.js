@@ -15,15 +15,11 @@ Character_Score.init(
     character_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Character",
-        key: "character_id",
+        model: "Character_Main",
+        key: "id",
       },
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    score: {
+    strength: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
@@ -32,19 +28,58 @@ Character_Score.init(
         max: 20,
       },
     },
-    mod: {
+    dexterity: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0,
-      hooks: {
-        beforeValidate(newScoreData) {
-          newScoreData.mod = (newScoreData + 10) / 2;
-          return newScoreData.mod;
-        },
-      },
+      defaultValue: 10,
       validate: {
-        min: -5,
-        max: 5,
+        min: 1,
+        max: 20,
+      },
+    },
+    constitution: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        min: 1,
+        max: 20,
+      },
+    },
+    intelligence: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        min: 1,
+        max: 20,
+      },
+    },
+    wisdom: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        min: 1,
+        max: 20,
+      },
+    },
+    charisma: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        min: 1,
+        max: 20,
+      },
+    },
+    score: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        min: 1,
+        max: 20,
       },
     },
   },

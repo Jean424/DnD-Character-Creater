@@ -1,56 +1,24 @@
 [
   {
-    "Acrobatics": false
-  },
-  {
-    "Animal Handling": false
-  },
-  {
-    "Arcana": false
-  },
-  {
-    "Athletics": false
-  },
-  {
-    "Deception": false
-  },
-  {
-    "History": true
-  },
-  {
-    "Insight": false
-  },
-  {
-    "Intimidation": false
-  },
-  {
-    "Investigation": false
-  },
-  {
-    "Medicine": true
-  },
-  {
-    "Nature": false
-  },
-  {
-    "Perception": false
-  },
-  {
-    "Performance": false
-  },
-  {
-    "Persuasion": true
-  },
-  {
-    "Religion": true
-  },
-  {
-    "Sleight of Hand": false
-  },
-  {
-    "Stealth": false
-  },
-  {
-    "Survival": false
+    "character_id": 1,
+    "id": 1,
+    "acrobatics": false,
+    "animal Handling": false,
+    "arcana": false,
+    "athletics": false,
+    "deception": false,
+    "history": true,
+    "insight": false,
+    "intimidation": false,
+    "investigation": false,
+    "medicine": true,
+    "nature": false,
+    "perception": false,
+    "performance": false,
+    "persuasion": true,
+    "religion": true,
+    "sleight of Hand": false,
+    "stealth": false,
+    "survival": false
   }
 ]

@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const {
   User,
-  Character,
+  Character_Main,
   Character_Score,
   Character_Saving_Throw,
   Character_Skill,
@@ -10,9 +10,16 @@ const {
 // const withAuth = require('../../utils/auth');
 
 // GET all characters
-router.get("/", async (req, res) => {
+router.get("/all", async (req, res) => {
   try {
-    const characterData = await Character.findAll();
+    const characterData = await Character_Main.findAll({
+      include: [
+        { model: Character_Score },
+        { model: Character_Saving_Throw },
+        { model: Character_Skill },
+        { model: Character_Prof_Lang },
+      ],
+    });
     res.status(200).json(characterData);
   } catch (err) {
     res.status(500).json(err);
@@ -22,7 +29,14 @@ router.get("/", async (req, res) => {
 // GET a single character
 router.get("/:id", async (req, res) => {
   try {
-    const characterData = await Character.findByPk(req.params.id);
+    const characterData = await Character_Main.findByPk(req.params.id, {
+      include: [
+        { model: Character_Score },
+        { model: Character_Saving_Throw },
+        { model: Character_Skill },
+        { model: Character_Prof_Lang },
+      ],
+    });
 
     if (!characterData) {
       res.status(404).json({ message: "No character found with this id!" });
@@ -38,7 +52,7 @@ router.get("/:id", async (req, res) => {
 // CREATE a character
 router.post("/", async (req, res) => {
   try {
-    const characterData = await Character.create(req.body);
+    const characterData = await Character_Main.create(req.body);
     res.status(200).json(characterData);
   } catch (err) {
     res.status(400).json(err);
@@ -48,7 +62,7 @@ router.post("/", async (req, res) => {
 // DELETE a character
 router.delete("/:id", async (req, res) => {
   try {
-    const characterData = await Character.destroy({
+    const characterData = await Character_Main.destroy({
       where: {
         id: req.params.id,
       },
