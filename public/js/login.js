@@ -15,7 +15,7 @@ async function loginFormHandler(event){
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/character-creator');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
