@@ -9,63 +9,7 @@
 <form class="charsheet">
   {{!-- Sheet Header --}}
   <header>
-    <section class="charname">
-      <label for="charname">Character Name</label>
-      <input type='text' value="{{name}}" name="charname" placeholder="Jane Doe"/>
-    </section>
-    <section class="misc">
-      <ul>
-        <li>
-          <label for="classlevel">Class Level</label>
-          <select id="char-class" name="char-class" required onchange="getClass(this);">
-            <option hidden></option>
-            <option value="barbarian">Barbarian</option>
-            <option value="bard">Bard</option>
-            <option value="cleric">Cleric</option>
-            <option value="druid">Druid</option>
-            <option value="fighter">Fighter</option>
-            <option value="monk">Monk</option>
-            <option value="paladin">Paladin</option>
-            <option value="ranger">Ranger</option>
-            <option value="rogue">Rogue</option>
-            <option value="sorcerer">Sorcerer</option>
-            <option value="warlock">Warlock</option>
-            <option value="wizard">Wizard</option>
-    </select>
-        </li>
-        <li>
-          <label for="background">Background</label>
-          <input type='text' value="{{background}}" name="background" placeholder="Char background" />
-        </li>
-        <li>
-          <label for="playername">Player Name</label>
-          <input type='text' value="{{username}}" name="playername" placeholder="Your Name Here" />
-        </li>
-        <li>
-          <label for="race">Race</label>
-          <select id="char-race" name="char-race" required onchange="getRace(this);">
-            <option hidden></option>
-            <option value="dragonborn">Dragonborn</option>
-            <option value="dwarf">Dwarf</option>
-            <option value="elf">Elf</option>
-            <option value="gnome">Gnome</option>
-            <option value="half-elf">Half-Elf</option>
-            <option value="half-orc">Half-Orc</option>
-            <option value="halfling">Halfling</option>
-            <option value="human">Human</option>
-            <option value="tiefling">Tiefling</option>
-        </select>
-        </li>
-        <li>
-          <label for="alignment">Alignment</label>
-          <input type='text' value="{{alignment}}" name="alignment" placeholder="Lawful Good" />
-        </li>
-        <li>
-          <label for="experiencepoints">Experience Points</label>
-          <input type='text' value="{{exp}}" name="experiencepoints" placeholder="0" />
-        </li>
-      </ul>
-    </section>
+{{> charsheet-header}}
   </header>
 
 
@@ -73,51 +17,60 @@
     <section>
       <section class="attributes"> 
         {{!-- CHARACTER SCORES --}}
-        <div class="scores">
+<div class="scores">
           <ul>
             <li>
               <div class="score">
                 <label for="Strengthscore">STR</label>
-                <input type='text' value="{{str}}"name="Strengthscore" placeholder="10" class="stat"/>
+                <input type='text' value="{{Character_Scores.[0].str}}"name="Strengthscore" placeholder="10" class="stat"/>
               </div>
               <div class="modifier">
-                <input type='text' value="{{str-mod}}" name="Strengthmod" placeholder="+0" class="statmod"/>
+                <input type='text' value="{{ get_mod Character_Scores.[0].str}}" name="Strengthmod" placeholder="+0" class="statmod"/>
               </div>
             </li>
             <li>
               <div class="score">
                 <label for="Dexterityscore">DEX</label>
-                <input type='text' value="{{dex}}" name="Dexterityscore" placeholder="10" class="stat"/>
+                <input type='text' value="{{Character_Scores.[0].dex}}" name="Dexterityscore" placeholder="10" class="stat"/>
               </div>
               <div class="modifier">
-                <input type='text' value="{{dex-mod}}" name="Dexteritymod" placeholder="+0" class="statmod"/>
+                <input type='text' value="{{get_mod Character_Scores.[0].dex}}" name="Dexteritymod" placeholder="+0" class="statmod"/>
               </div>
             </li>
             <li>
               <div class="score">
                 <label for="Constitutionscore">CON</label>
-                <input type='text' value="{{con}}" name="Constitutionscore" placeholder="10" class="stat"/>
+                <input type='text' value="{{Character_Scores.[0].con}}" name="Constitutionscore" placeholder="10" class="stat"/>
               </div>
               <div class="modifier">
-                <input type='text' value="{{con-mod}}" name="Constitutionmod" placeholder="+0" class="statmod"/>
+                <input type='text' value="{{get_mod Character_Scores.[0].con}}" name="Constitutionmod" placeholder="+0" class="statmod"/>
               </div>
             </li>
             <li>
               <div class="score">
-                <label for="Intelligencescore">INT</styl>
-                <input type='text' value="{{int}}" name="Intelligencescore" placeholder="10" class="stat"/>
+                <label for="Intelligencescore">INT</label>
+                <input type='text' value="{{Character_Scores.[0].int}}" name="Intelligencescore" placeholder="10" class="stat"/>
               </div>
               <div class="modifier">
-                <input type='text' value="{{int-mod}}" name="Intelligencemod" placeholder="+0" class="statmod"/>
+                <input type='text' value="{{get_mod Character_Scores.[0].int}}" name="Intelligencemod" placeholder="+0" class="statmod"/>
+              </div>
+            </li>
+            <li>
+              <div class="score">
+                <label for="Wisdomscore">WIS</label>
+                <input type='text' value="{{Character_Scores.[0].wis}}" name="Wisdomscore" placeholder="10" class="stat"/>
+              </div>
+              <div class="modifier">
+                <input type='text' value="{{get_mod Character_Scores.[0].wis}}" name="Wisdommod" placeholder="+0" class="statmod"/>
               </div>
             </li>
             <li>
               <div class="score">
                 <label for="Charismascore">CHA</label>
-                <input type='text' value="{{cha}}" name="Charismascore" placeholder="10" class="stat"/>
+                <input type='text' value="{{Character_Scores.[0].cha}}" name="Charismascore" placeholder="10" class="stat"/>
               </div>
               <div class="modifier">
-                <input type='text' value="{{cha-mod}} "name="Charismamod" placeholder="+0" class="statmod"/>
+                <input type='text' value="{{get_mod Character_Scores.[0].cha}} "name="Charismamod" placeholder="+0" class="statmod"/>
               </div>
             </li>
           </ul>
@@ -129,7 +82,7 @@
             <div class="label-container">
               <label for="inspiration">Inspiration</label>
             </div>
-            <input type='checkbox' value="{{insp}}" name="inspiration" placeholder="+2"/>
+            <input type='checkbox' value="{{inspiration}}" name="inspiration" placeholder="+2"/>
           </div>
           
           {{!-- PROF BONUSES --}}
@@ -288,8 +241,7 @@
       </div>
       <div class="otherprofs box textblock">
         <label for="otherprofs">Other Proficiencies and Languages</label>
-        <textarea name="otherprofs" id="char-prof">{{otherprofs}}</textarea>
-
+        <textarea name="otherprofs">{{otherprofs}}</textarea>
       </div>
     </section>
     {{!-- COLUMN 1 --> END --}}
@@ -312,7 +264,7 @@
         <div class="speed">
           <div>
             <label for="speed">Speed</label>
-            <input type="text" value="{{speed}}" name="speed" placeholder="30"  class="char-speed" />
+            <input type="text" value="{{speed}}" name="speed" placeholder="30" />
           </div>
         </div>
         <div class="hp">
@@ -335,7 +287,7 @@
           <div>
             <div class="total">
               <label onclick="totalhd_clicked()" for="totalhd">Total</label>
-              <input type="text" value="{{totalhd}}" name="totalhd" placeholder="2d10" id="hit-dice" />
+              <input type="text" value="{{totalhd}}" name="totalhd" placeholder="2d10" />
             </div>
             <div class="remaining">
               <label for="remaininghd">Hit Dice</label>
@@ -452,8 +404,7 @@
               </li>
             </ul>
           </div>
-          <textarea placeholder="Equipment list here" id="char-startEquip">{{equipmentlist}}</textarea>
-
+          <textarea placeholder="Equipment list here">{{equipmentlist}}</textarea>
         </div>
       </section>
     </section>
@@ -481,9 +432,6 @@
         <div>
           <label for="features">Features & Traits</label>
           <textarea name="features">{{features}}</textarea>
-          <p>size: Your size is <span id="char-size"></span>.</p>
-          <p>Language: You can speak and write in <span id="char-language"></span>.</p>
-          <p id="char-age"></p>
         </div>
       </section>
     </section>
@@ -493,4 +441,4 @@
 {{!-- Ability to edit char sheet manually --}}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/character-sheet-template.js"></script>
+<script src="../js/character-sheet.js"></script>

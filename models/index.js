@@ -19,7 +19,7 @@ Character_Main.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-Character_Main.hasOne(Character_Score, {
+Character_Main.hasMany(Character_Score, {
   foreignKey: "character_id",
   onDelete: "CASCADE",
 });

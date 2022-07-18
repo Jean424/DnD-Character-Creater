@@ -22,6 +22,10 @@ Character_Main.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    player_name: {
+      type: DataTypes.STRING,
+      allowNull:true
+    },
     class: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -30,6 +34,11 @@ Character_Main.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 1,
+    },
+    prof_bonus: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 2
     },
     race: {
       type: DataTypes.STRING,

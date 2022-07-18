@@ -1,4 +1,13 @@
 const router = require("express").Router();
+const {
+  Character_Main,
+  Character_Score,
+  Character_Saving_Throw,
+  Character_Skill,
+  Character_Prof_Lang,
+  Character_Equipment,
+  Character_Spells,
+} = require("../models");
 
 //render homepage
 router.get("/", async (req, res) => {
@@ -36,6 +45,38 @@ router.get("/character-sheet/", async (req, res) => {
   res.render("character-sheet", {
     // loggedIn: req.session.loggedIn,
   });
+});
+
+// view a single character sheet
+router.get("/characters/:id", async (req, res) => {
+  try {
+    const characterData = await Character_Main.findByPk(req.params.id, {
+      include: [
+        { model: Character_Score,
+        attributes: ['str', 'dex', 'con', 'int', 'wis', 'cha',] },
+        // { model: Character_Saving_Throw },
+        // { model: Character_Skill },
+        // { model: Character_Prof_Lang },
+        // { model: Character_Equipment },
+        // { model: Character_Spells},
+      ],
+    });
+
+    
+    // Serialize data so the template can read it
+    const character = characterData.get({ plain: true });
+    // Pass serialized data and session flag into template
+    res.render('character-sheet', character
+    );
+
+    if (!characterData) {
+      res.status(404).json({ message: "No character found with this id!" });
+      return;
+    }
+    // res.status(200).json(characterData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
