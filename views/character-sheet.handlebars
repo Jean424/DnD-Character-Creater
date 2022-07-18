@@ -17,7 +17,21 @@
       <ul>
         <li>
           <label for="classlevel">Class Level</label>
-          <input type='text' value="{{level}}" name="classlevel" placeholder="1" />
+          <select id="char-class" name="char-class" required onchange="getClass(this);">
+            <option hidden></option>
+            <option value="barbarian">Barbarian</option>
+            <option value="bard">Bard</option>
+            <option value="cleric">Cleric</option>
+            <option value="druid">Druid</option>
+            <option value="fighter">Fighter</option>
+            <option value="monk">Monk</option>
+            <option value="paladin">Paladin</option>
+            <option value="ranger">Ranger</option>
+            <option value="rogue">Rogue</option>
+            <option value="sorcerer">Sorcerer</option>
+            <option value="warlock">Warlock</option>
+            <option value="wizard">Wizard</option>
+    </select>
         </li>
         <li>
           <label for="background">Background</label>
@@ -29,7 +43,18 @@
         </li>
         <li>
           <label for="race">Race</label>
-          <input type='text' value="{{race}}" name="race" placeholder="Human" />
+          <select id="char-race" name="char-race" required onchange="getRace(this);">
+            <option hidden></option>
+            <option value="dragonborn">Dragonborn</option>
+            <option value="dwarf">Dwarf</option>
+            <option value="elf">Elf</option>
+            <option value="gnome">Gnome</option>
+            <option value="half-elf">Half-Elf</option>
+            <option value="half-orc">Half-Orc</option>
+            <option value="halfling">Halfling</option>
+            <option value="human">Human</option>
+            <option value="tiefling">Tiefling</option>
+        </select>
         </li>
         <li>
           <label for="alignment">Alignment</label>
@@ -263,7 +288,8 @@
       </div>
       <div class="otherprofs box textblock">
         <label for="otherprofs">Other Proficiencies and Languages</label>
-        <textarea name="otherprofs">{{otherprofs}}</textarea>
+        <textarea name="otherprofs" id="char-prof">{{otherprofs}}</textarea>
+
       </div>
     </section>
     {{!-- COLUMN 1 --> END --}}
@@ -286,7 +312,7 @@
         <div class="speed">
           <div>
             <label for="speed">Speed</label>
-            <input type="text" value="{{speed}}" name="speed" placeholder="30" />
+            <input type="text" value="{{speed}}" name="speed" placeholder="30"  class="char-speed" />
           </div>
         </div>
         <div class="hp">
@@ -309,7 +335,7 @@
           <div>
             <div class="total">
               <label onclick="totalhd_clicked()" for="totalhd">Total</label>
-              <input type="text" value="{{totalhd}}" name="totalhd" placeholder="2d10" />
+              <input type="text" value="{{totalhd}}" name="totalhd" placeholder="2d10" id="hit-dice" />
             </div>
             <div class="remaining">
               <label for="remaininghd">Hit Dice</label>
@@ -426,7 +452,8 @@
               </li>
             </ul>
           </div>
-          <textarea placeholder="Equipment list here">{{equipmentlist}}</textarea>
+          <textarea placeholder="Equipment list here" id="char-startEquip">{{equipmentlist}}</textarea>
+
         </div>
       </section>
     </section>
@@ -454,6 +481,9 @@
         <div>
           <label for="features">Features & Traits</label>
           <textarea name="features">{{features}}</textarea>
+          <p>size: Your size is <span id="char-size"></span>.</p>
+          <p>Language: You can speak and write in <span id="char-language"></span>.</p>
+          <p id="char-age"></p>
         </div>
       </section>
     </section>

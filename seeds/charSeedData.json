@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "character_name": "Thava Alter",
+    "class": "Paladin",
+    "level": 1,
+    "race": "Dragonborn",
+    "background": "Noble",
+    "alignment": "Lawful Good",
+    "experience": 0,
+    "inspiration": false
+  }
+]
