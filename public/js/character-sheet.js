@@ -61,3 +61,5 @@ function totalhd_clicked()
 {
   $("[name='remaininghd']").val($("[name='totalhd']").val())
 }
+
+
