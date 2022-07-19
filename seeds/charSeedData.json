@@ -5,6 +5,8 @@
     "player_name": "Ivy Lovegood",
     "class": "Paladin",
     "level": 1,
+    "prof_bonus": 2,
+    "speed": 30,
     "race": "Dragonborn",
     "background": "Noble",
     "alignment": "Lawful Good",

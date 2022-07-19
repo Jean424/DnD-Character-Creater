@@ -47,18 +47,36 @@ router.get("/character-sheet/", async (req, res) => {
   });
 });
 
+// GET all characters
+router.get("/characters/all", async (req, res) => {
+  try {
+    const characterData = await Character_Main.findAll({
+      include: [
+        { model: Character_Score },
+        { model: Character_Saving_Throw },
+        { model: Character_Skill },
+        { model: Character_Prof_Lang },
+        { model: Character_Equipment },
+        { model: Character_Spells },
+      ],
+    });
+    res.status(200).json(characterData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // view a single character sheet
 router.get("/characters/:id", async (req, res) => {
   try {
     const characterData = await Character_Main.findByPk(req.params.id, {
       include: [
-        { model: Character_Score,
-        attributes: ['str', 'dex', 'con', 'int', 'wis', 'cha',] },
-        // { model: Character_Saving_Throw },
-        // { model: Character_Skill },
-        // { model: Character_Prof_Lang },
-        // { model: Character_Equipment },
-        // { model: Character_Spells},
+        { model: Character_Score},
+        { model: Character_Saving_Throw},
+        { model: Character_Skill },
+        { model: Character_Prof_Lang },
+        { model: Character_Equipment },
+        { model: Character_Spells},
       ],
     });
 

@@ -40,6 +40,11 @@ Character_Main.init(
       allowNull: false,
       defaultValue: 2
     },
+    speed:{
+      type: DataTypes.INTEGER,
+      allowNull:false,
+      defaultValue: 30
+    },
     race: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -58,6 +58,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
+const { Character_Main } = require('./models');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -76,10 +77,41 @@ app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
 hbs.handlebars.registerHelper('get_mod', function(score) {
-  const mod = Math.floor((score-10)/2);
-  // const mod = (part1 / 2);
+  let mod = Math.floor((score-10)/2);
   return mod;
-})
+});
+hbs.handlebars.registerHelper('sign', function(mod) {
+  let sign = ""
+  if (mod > 0){
+    sign = "+" + mod
+  }
+  return sign;
+});
+hbs.handlebars.registerHelper('checked', function(prof) {
+  if (prof === true){
+  document.getElementsByName('AvButtonAutoGames').checked = true}
+});
+hbs.handlebars.registerHelper('passive', function(skill) {
+  let passive = "+" + (skill + 10);
+  return passive;}
+);
+hbs.handlebars.registerHelper('checked', function(isprof) {
+  if(isprof === true){
+    let checked = "checked";
+    return checked;
+  }
+  else {
+    return null;
+  }
+}  
+);
+hbs.handlebars.registerHelper('proficient', function(mod) {
+   let bonus = (mod + 2);
+    return bonus;
+  
+}  
+);
+
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

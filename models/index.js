@@ -28,7 +28,7 @@ Character_Score.belongsTo(Character_Main, {
   foreignKey: "character_id",
 });
 
-Character_Main.hasOne(Character_Saving_Throw, {
+Character_Main.hasMany(Character_Saving_Throw, {
   foreignKey: "character_id",
   onDelete: "CASCADE",
 });
@@ -36,7 +36,7 @@ Character_Saving_Throw.belongsTo(Character_Main, {
   foreignKey: "character_id",
 });
 
-Character_Main.hasOne(Character_Skill, {
+Character_Main.hasMany(Character_Skill, {
   foreignKey: "character_id",
   onDelete: "CASCADE",
 });
@@ -44,7 +44,7 @@ Character_Skill.belongsTo(Character_Main, {
   foreignKey: "character_id",
 });
 
-Character_Main.hasOne(Character_Prof_Lang, {
+Character_Main.hasMany(Character_Prof_Lang, {
   foreignKey: "character_id",
   onDelete: "CASCADE",
 });

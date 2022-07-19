@@ -3,7 +3,7 @@
     "character_id": 1,
     "id": 1,
     "acrobatics": false,
-    "animal Handling": false,
+    "animal_handling": false,
     "arcana": false,
     "athletics": false,
     "deception": false,
@@ -17,7 +17,7 @@
     "performance": false,
     "persuasion": true,
     "religion": true,
-    "sleight of Hand": false,
+    "sleight_of_hand": false,
     "stealth": false,
     "survival": false
   }
