@@ -1,36 +1,29 @@
 
-<div class="navbar navbar-expand-lg navbar-light ">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand text-warning" href="/"><h1>DnD Character Creator <i class="fa-brands fa-d-and-d"></i></h1></a>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    {{#if loggedIn}}
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/">Home</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link text-white" id="logout" href="/logout">Logout</a>
-      </li>
-    {{else}}
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/signup">Sign-up</a>
-      </li>
-    {{/if}}
-    </ul>
-    <form class="form-inline my-2 my-lg-0" id="search-form">
-          <input type="text" class="form-control mr-sm-2 bg-dark text-white" id="search-input" name="search-text" placeholder="Search" aria-label="Search">
-          <button type="submit" class="btn btn-outline-warning my-2 my-sm-0" id="btn-post">Search</button>
-    </form>
-  </div>
+
 </div>
 <div class="character-creator">
     <form id="character-form">
         <h1>Character Creator</h1>
+
+         <!-- Name input-->
+        <div>
+            <label for="char-name">Character Name: </label>
+            <input type="text" id="char-name" name="char-name" required>
+        </div>
+
+          <!-- Age selection -->
+        <div>
+            <label for="char-age">Age: </label>
+            <input type="number" id="char-age" name="char-age" required>
+        </div>
+
+        <!-- Character level -->
+        <div>
+            <label for="char-level">Character level: </label>
+            <input type="number" id="char-level" name="char-level" min="1" max="20" required>
+
+        </div>
+
 
         <!-- Race selection -->
         <div>
@@ -47,6 +40,49 @@
                 <option value="human">Human</option>
                 <option value="tiefling">Tiefling</option>
             </select>
+        </div>
+
+         <!-- Background selection -->
+        <div>
+            <label for="char-background">Background: </label>
+            <select id="char-race" name="char-race" required>
+                <option hidden></option>
+                <option value="Acolyte">Acolyte</option>
+                
+            </select>
+        </div>
+
+         <!-- Ability selection -->
+
+         <div>
+            <label for="char-strength">Ability Score: Strength: </label>
+            <input type="number" id="char-strength" name="char-strength" required>
+        </div>
+
+         <div>
+            <label for="char-dexterity">Ability Score: Dexterity: </label>
+            <input type="number" id="char-dex" name="char-dex" required>
+        </div>
+
+         <div>
+            <label for="char-constitution">Ability Score: Constitution: </label>
+            <input type="number" id="char-const" name="char-const" required>
+        </div>
+         <div>
+            <label for="char-intelligence">Ability Score: Intelligence </label>
+            <input type="number" id="char-int" name="char-int" required>
+        </div>
+         <div>
+            <label for="char-wisdom">Ability Score: Intelligence: </label>
+            <input type="number" id="char-int" name="char-int" required>
+        </div>
+         <div>
+            <label for="char-wisdom">Ability Score: Wisdom: </label>
+            <input type="number" id="char-wis" name="char-wis" required>
+        </div>
+         <div>
+            <label for="char-charisma">Ability Score: Charisma: </label>
+            <input type="number" id="char-charisma" name="char-charisma" required>
         </div>
 
         <!-- Class selection -->
@@ -69,12 +105,6 @@
         </div>
         </select>
 
-        <!-- Name input-->
-        <div>
-            <label for="char-name">Character Name: </label>
-            <input type="text" id="char-name" name="char-name" required>
-        </div>
-
         <!-- Gender selection -->
         <div>
             <label for="char-gender">Gender: </label>
@@ -85,20 +115,6 @@
                 <option value="other">Other</option>
             </select>
         </div>
-
-        <!-- Age selection -->
-        <div>
-            <label for="char-age">Age: </label>
-            <input type="number" id="char-age" name="char-age" required>
-        </div>
-
-        <!-- Character level -->
-        <div>
-            <label for="char-level">Character level: </label>
-            <input type="number" id="char-level" name="char-level" min="1" max="20" required>
-
-        </div>
-
         <div>
             <button class= "create-submit" type="submit">Create your character</button>
         </div>
