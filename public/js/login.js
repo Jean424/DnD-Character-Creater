@@ -15,11 +15,7 @@ async function loginFormHandler(event) {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-<<<<<<< HEAD
       document.location.replace("/profile");
-=======
-      document.location.replace('/');
->>>>>>> origin
     } else {
       alert(response.statusText);
     }

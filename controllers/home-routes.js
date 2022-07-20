@@ -1,5 +1,4 @@
-const router = require('express').Router();
-const withAuth = require('../utils/auth');
+const router = require("express").Router();
 const {
   Character_Main,
   Character_Score,
@@ -9,16 +8,17 @@ const {
   Character_Equipment,
   Character_Spells,
 } = require("../models");
+
 //render homepage
-router.get('/', async (req, res) => {
-  res.render('homepage', {loggedIn: req.session.loggedIn});
+router.get("/", async (req, res) => {
+  res.render("homepage");
 });
 
-//redirect to homepage once logged in 
-router.get('/login', async (req, res) => {
-  if(req.session.loggedIn) {
-    res.redirect('/');
-    return; 
+//redirect to homepage once logged in
+router.get("/login", async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/character-creator");
+    return;
   }
   res.render("login");
 });
@@ -29,27 +29,18 @@ router.get("/signup", async (req, res) => {
 });
 
 // Direct to Charcter creator page
-router.get('/character-creator',(req, res) => {
-  if(!req.session.loggedIn) {
-    res.redirect('/');
-    return; 
-  }
-  res.render('character-creator', {
-    loggedIn: req.session.loggedIn
-  })
-
+router.get("/character-creator", (req, res) => {
+  res.render("character-creator", {
+    // loggedIn: req.session.loggedIn,
+  });
 });
 
 //-- Character Sheet
-router.get('/character-sheet',async (req, res) => {
-  if(!req.session.loggedIn){
-      res.redirect('/');
-      return;
-  }
-  
-  res.render('character-sheet', {
-      loggedIn: req.session.loggedIn,
-  })
+router.get("/character-sheet/", async (req, res) => {
+  // if(!req.session.loggedIn){
+  //     res.redirect('homepage');
+  //     return;
+  // }
 
   res.render("character-sheet", {
     // loggedIn: req.session.loggedIn,

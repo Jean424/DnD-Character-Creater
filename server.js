@@ -1,3 +1,4 @@
+
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -13,8 +14,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-  secret: "super super secret",
-  cookie: { originalMaxAge: 6000000 },
+  secret: 'Super secret secret',
+  cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

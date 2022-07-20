@@ -65,7 +65,6 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout
-<<<<<<< HEAD
 router.get("/logout", (req, res) => {
   if (req.session) {
     req.session.destroy((err) => {
@@ -74,12 +73,6 @@ router.get("/logout", (req, res) => {
       } else {
         res.redirect("/");
       }
-=======
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
->>>>>>> origin
     });
   } else {
     res.end();
