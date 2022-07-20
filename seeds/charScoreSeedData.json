@@ -2,12 +2,11 @@
   {
     "character_id": 1,
     "id": 1,
-    "strength": 18,
-    "dexterity": 9,
-    "constitution": 14,
-    "intelligence": 10,
-    "wisdom": 10,
-    "charisma": 18
+    "str": 18,
+    "dex": 9,
+    "con": 14,
+    "int": 10,
+    "wis": 10,
+    "cha": 18
   }
 ]
-//Delete this

@@ -2,12 +2,11 @@
   {
     "character_id": 1,
     "id": 1,
-    "strength": false,
-    "dexterity": false,
-    "constitution": false,
-    "intelligence": false,
-    "wisdom": true,
-    "charisma": true
+    "str": false,
+    "dex": false,
+    "con": false,
+    "int": false,
+    "wis": true,
+    "cha": true
   }
 ]
-//Delete this

@@ -8,6 +8,8 @@ const Character_Equipment = require("./Character_Equipment");
 const Character_Spells = require("./Character_Spells");
 const sequelize = require("../config/connection");
 
+// sequelize.sync({ force: true });
+
 User.hasMany(Character_Main, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
@@ -17,7 +19,7 @@ Character_Main.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-Character_Main.hasOne(Character_Score, {
+Character_Main.hasMany(Character_Score, {
   foreignKey: "character_id",
   onDelete: "CASCADE",
 });
@@ -26,7 +28,7 @@ Character_Score.belongsTo(Character_Main, {
   foreignKey: "character_id",
 });
 
-Character_Main.hasOne(Character_Saving_Throw, {
+Character_Main.hasMany(Character_Saving_Throw, {
   foreignKey: "character_id",
   onDelete: "CASCADE",
 });
@@ -34,7 +36,7 @@ Character_Saving_Throw.belongsTo(Character_Main, {
   foreignKey: "character_id",
 });
 
-Character_Main.hasOne(Character_Skill, {
+Character_Main.hasMany(Character_Skill, {
   foreignKey: "character_id",
   onDelete: "CASCADE",
 });
@@ -42,7 +44,7 @@ Character_Skill.belongsTo(Character_Main, {
   foreignKey: "character_id",
 });
 
-Character_Main.hasOne(Character_Prof_Lang, {
+Character_Main.hasMany(Character_Prof_Lang, {
   foreignKey: "character_id",
   onDelete: "CASCADE",
 });
@@ -76,5 +78,3 @@ module.exports = {
   Character_Equipment,
   Character_Spells,
 };
-
-//Delete this

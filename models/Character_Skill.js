@@ -39,8 +39,13 @@ Character_Skill.init(
       allowNull: false,
       defaultValue: false,
     },
+    deception: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
 
-    DOMExceptionhistory: {
+    history: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
@@ -60,7 +65,12 @@ Character_Skill.init(
       allowNull: false,
       defaultValue: false,
     },
-    MediaStreamAudioSourceNodenature: {
+    medicine: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    nature: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
@@ -70,7 +80,12 @@ Character_Skill.init(
       allowNull: false,
       defaultValue: false,
     },
-    performancepersuasion: {
+    performance: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    persuasion: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
@@ -106,5 +121,3 @@ Character_Skill.init(
 );
 
 module.exports = Character_Skill;
-
-//Delete this

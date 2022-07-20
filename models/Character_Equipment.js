@@ -119,5 +119,3 @@ Character_Equipment.init(
 );
 
 module.exports = Character_Equipment;
-
-//Delete this

@@ -46,4 +46,3 @@ $("[name='totalhd']").bind("input", function () {
 function totalhd_clicked() {
   $("[name='remaininghd']").val($("[name='totalhd']").val());
 }
-//Delete this

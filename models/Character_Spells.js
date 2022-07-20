@@ -120,5 +120,3 @@ Character_Spells.init(
 );
 
 module.exports = Character_Spells;
-
-//Delete this

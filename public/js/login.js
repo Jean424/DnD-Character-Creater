@@ -1,4 +1,4 @@
-const loginFormHandler = async (event) => {
+async function loginFormHandler(event) {
   event.preventDefault();
 
   // Collect values from the login form
@@ -20,10 +20,8 @@ const loginFormHandler = async (event) => {
       alert(response.statusText);
     }
   }
-};
+}
 
 document
   .querySelector("#btn-login")
   .addEventListener("submit", loginFormHandler);
-
-//Delete this

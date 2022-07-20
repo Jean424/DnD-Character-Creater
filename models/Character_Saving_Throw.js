@@ -18,32 +18,32 @@ Character_Saving_Throw.init(
         key: "id",
       },
     },
-    strength: {
+    str: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
-    dexterity: {
+    dex: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
-    constitution: {
+    con: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
-    intelligence: {
+    int: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
-    wisdom: {
+    wis: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
-    charisma: {
+    cha: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
@@ -59,5 +59,3 @@ Character_Saving_Throw.init(
 );
 
 module.exports = Character_Saving_Throw;
-
-//Delete this
