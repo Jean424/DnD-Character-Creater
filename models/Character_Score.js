@@ -19,7 +19,7 @@ Character_Score.init(
         key: "id",
       },
     },
-    strength: {
+    str: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
@@ -28,7 +28,7 @@ Character_Score.init(
         max: 20,
       },
     },
-    dexterity: {
+    dex: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
@@ -37,7 +37,7 @@ Character_Score.init(
         max: 20,
       },
     },
-    constitution: {
+    con: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
@@ -46,7 +46,7 @@ Character_Score.init(
         max: 20,
       },
     },
-    intelligence: {
+    int: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
@@ -55,7 +55,7 @@ Character_Score.init(
         max: 20,
       },
     },
-    wisdom: {
+    wis: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
@@ -64,16 +64,7 @@ Character_Score.init(
         max: 20,
       },
     },
-    charisma: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 10,
-      validate: {
-        min: 1,
-        max: 20,
-      },
-    },
-    score: {
+    cha: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,

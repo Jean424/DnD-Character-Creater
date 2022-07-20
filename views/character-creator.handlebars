@@ -1,29 +1,8 @@
 
 
-</div>
 <div class="character-creator">
     <form id="character-form">
         <h1>Character Creator</h1>
-
-         <!-- Name input-->
-        <div>
-            <label for="char-name">Character Name: </label>
-            <input type="text" id="char-name" name="char-name" required>
-        </div>
-
-          <!-- Age selection -->
-        <div>
-            <label for="char-age">Age: </label>
-            <input type="number" id="char-age" name="char-age" required>
-        </div>
-
-        <!-- Character level -->
-        <div>
-            <label for="char-level">Character level: </label>
-            <input type="number" id="char-level" name="char-level" min="1" max="20" required>
-
-        </div>
-
 
         <!-- Race selection -->
         <div>
@@ -40,49 +19,6 @@
                 <option value="human">Human</option>
                 <option value="tiefling">Tiefling</option>
             </select>
-        </div>
-
-         <!-- Background selection -->
-        <div>
-            <label for="char-background">Background: </label>
-            <select id="char-race" name="char-race" required>
-                <option hidden></option>
-                <option value="Acolyte">Acolyte</option>
-                
-            </select>
-        </div>
-
-         <!-- Ability selection -->
-
-         <div>
-            <label for="char-strength">Ability Score: Strength: </label>
-            <input type="number" id="char-strength" name="char-strength" required>
-        </div>
-
-         <div>
-            <label for="char-dexterity">Ability Score: Dexterity: </label>
-            <input type="number" id="char-dex" name="char-dex" required>
-        </div>
-
-         <div>
-            <label for="char-constitution">Ability Score: Constitution: </label>
-            <input type="number" id="char-const" name="char-const" required>
-        </div>
-         <div>
-            <label for="char-intelligence">Ability Score: Intelligence </label>
-            <input type="number" id="char-int" name="char-int" required>
-        </div>
-         <div>
-            <label for="char-wisdom">Ability Score: Intelligence: </label>
-            <input type="number" id="char-int" name="char-int" required>
-        </div>
-         <div>
-            <label for="char-wisdom">Ability Score: Wisdom: </label>
-            <input type="number" id="char-wis" name="char-wis" required>
-        </div>
-         <div>
-            <label for="char-charisma">Ability Score: Charisma: </label>
-            <input type="number" id="char-charisma" name="char-charisma" required>
         </div>
 
         <!-- Class selection -->
@@ -105,6 +41,12 @@
         </div>
         </select>
 
+        <!-- Name input-->
+        <div>
+            <label for="char-name">Character Name: </label>
+            <input type="text" id="char-name" name="char-name" required>
+        </div>
+
         <!-- Gender selection -->
         <div>
             <label for="char-gender">Gender: </label>
@@ -115,12 +57,24 @@
                 <option value="other">Other</option>
             </select>
         </div>
+
+        <!-- Age selection -->
+        <div>
+            <label for="char-age">Age: </label>
+            <input type="number" id="char-age" name="char-age" required>
+        </div>
+
+        <!-- Character level -->
+        <div>
+            <label for="char-level">Character level: </label>
+            <input type="number" id="char-level" name="char-level" min="1" max="20" required>
+
+        </div>
+
         <div>
             <button class= "create-submit" type="submit">Create your character</button>
         </div>
     </form>
 </div>
-{{#if loggedIn}}
-<script src="./js/logout.js"></script>
-{{/if}}
-<script src="./js/character-creator.js"></script>
+
+<script src="../js/character-creator.js"></script>

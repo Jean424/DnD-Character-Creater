@@ -3,11 +3,11 @@
 }
 
 body {
-  background-image: url('/images/woodtexture1.jpg');
+  background-image: url("/images/woodtexture1.jpg");
 }
 
 .navbar-brand {
-font-size:larger !important;
+  font-size: larger !important;
 }
  
 .charbtnSubmit {
@@ -27,13 +27,12 @@ padding-right:2%;
     background-color:#ffbb33 !important;
   }
 
+
  
 
 .navbar-brand {
-
-  font-family: 'MedievalSharp'
+  font-family: "MedievalSharp";
 }
-
 
 body {
   font-family: arial;
@@ -49,29 +48,29 @@ body {
 
 #btn-login {
   margin-left: 15px;
-} 
+}
 
 #btn-signup {
   margin-left: 15px;
 }
 
-
-
-a, #logout, .username {
+a,
+#logout,
+.username {
   font-size: 18px;
 }
 
 #header-welcome-container {
   text-align: center;
-  font-family: 'MedievalSharp'
-  
-  }
+  font-family: "MedievalSharp";
+}
 
 
+/* create char and char sheet buttons on homepage*/
+span button {
+  margin-top: 200px;
+}
 
-
-
- 
 
 /* CHARACTER CREATOR  */
 
@@ -88,11 +87,9 @@ a, #logout, .username {
 }
 
 .character-creator {
-  font-family: 'MedievalSharp';
+  font-family: "MedievalSharp";
   text-align: center;
   color: #ffbb33;
-
-
 }
 
 .create-submit {
@@ -101,11 +98,11 @@ a, #logout, .username {
 }
 
 #character-form {
-
-display: inline-block;
+  display: inline-block;
 }
 
 /* profile page style */
+
 
 /* MEDIA QUERIES*/
 
@@ -121,7 +118,3 @@ display: inline-block;
   }
 
 }
-
- 
- 
-  
