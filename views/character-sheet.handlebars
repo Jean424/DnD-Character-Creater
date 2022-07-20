@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/character-sheet.css">
+<link rel="stylesheet" href="./character-sheet.css">
 
 <style>
   .charsheet{
@@ -45,30 +45,17 @@
         </div>
         <input type="text" value="{{passive (get_mod Character_Scores.[0].wis)}}" name="passiveperception" placeholder="10" />
       </div>
-
       <div class="otherprofs box textblock">
         <label for="otherprofs">Other Proficiencies and Languages</label>
         <textarea name="otherprofs">
-          Tools: 
-          {{#each Character_Prof_Langs.[0].tool as |tools|}}
-         {{tools}}
-         {{/each}}
-
-         Armor: 
-        {{#each Character_Prof_Langs.[0].armor as |armor|}}
-         {{armor}}
-         {{/each}}
-
-         Weapons: 
-         {{#each Character_Prof_Langs.[0].weapon as |weapons|}}
-         {{weapons}}
-         {{/each}}
-
-         Languages:
-         {{#each Character_Prof_Langs.[0].languages as |languages|}}
-         {{languages}}
-         {{/each}} 
-         
+          {{!-- {{#each (stringify Character_Prof_Langs.[0].tools) as |prof|}} 
+         Tools: {{prof}}
+         Armor: {{prof.armor}}
+         Weapon: {{prof.weapon}}
+         Languages:{{prof.Languages}}
+         {{/each}}  --}}
+         {{tostring (stringify Character_Prof_Langs.[0].tool)}}
+         {{Character_Scores.[0].wis}}
          </textarea>
       </div>
     </section>
@@ -232,11 +219,7 @@
               </li>
             </ul>
           </div>
-          <textarea placeholder="Equipment list here">
-            {{#each Character_Equipments}}
-            {{this.name}}
-            {{/each}}
-            </textarea>
+          <textarea placeholder="Equipment list here">{{equipmentlist}}</textarea>
         </div>
       </section>
     </section>
@@ -263,7 +246,11 @@
       <section class="features">
         <div>
           <label for="features">Features & Traits</label>
+<<<<<<< HEAD
+          <textarea name="features">{{features}}</textarea>
+=======
           <textarea name="features" class="char-feat">{{features}}</textarea>
+>>>>>>> origin
         </div>
       </section>
     </section>

@@ -63,11 +63,9 @@ hbs.handlebars.registerHelper('proficient', function(mod) {
 hbs.handlebars.registerHelper('stringify', function (Object) {
   return JSON.stringify(Object);
 });
-// hbs.handlebars.registerHelper('tostring', function (array) {
-//   string = "";
-//   string.join(" ", array);
-//   return string
-// });
+hbs.handlebars.registerHelper('tostring', function (array) {
+  return array.join(" ");
+});
 
 
 app.engine('handlebars', hbs.engine);
