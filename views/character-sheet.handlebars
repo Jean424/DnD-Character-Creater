@@ -47,7 +47,16 @@
       </div>
       <div class="otherprofs box textblock">
         <label for="otherprofs">Other Proficiencies and Languages</label>
-        <textarea name="otherprofs">{{otherprofs}}</textarea>
+        <textarea name="otherprofs">
+          {{!-- {{#each (stringify Character_Prof_Langs.[0].tools) as |prof|}} 
+         Tools: {{prof}}
+         Armor: {{prof.armor}}
+         Weapon: {{prof.weapon}}
+         Languages:{{prof.Languages}}
+         {{/each}}  --}}
+         {{tostring (stringify Character_Prof_Langs.[0].tool)}}
+         {{Character_Scores.[0].wis}}
+         </textarea>
       </div>
     </section>
     {{!-- COLUMN 1 --> END --}}
