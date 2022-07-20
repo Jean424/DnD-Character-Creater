@@ -18,10 +18,19 @@
           </button>
         </span>
 
-        <span class="newcharsheet">
-          <button> <a href="/character-sheet">New Character Sheet </a> </button>
-        </span>
-      </div>
+
+          {{!-- <span class="newcharsheet">
+            <button> <a href="/character-sheet">New Character Sheet </a> </button>
+          </span> --}}
+          
+        {{else}}
+        {{!-- <h3 class="text-white">Ready to build your Dungeons and Dragons character? Please login or signup. After you create your new character, 
+          your information will print to your character sheet for you to save or edit. Roll well and good luck!
+        </h3> --}}
+
+        <img src="/images/welcomescreen.png" alt="" id="welcome-screen-words">
+        {{/if}}
+       </div>
     </div>
   </div>
 </div>
