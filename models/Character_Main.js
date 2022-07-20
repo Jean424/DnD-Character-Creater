@@ -5,13 +5,13 @@ class Character_Main extends Model {}
 
 Character_Main.init(
   {
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "User",
-    //     key: "id",
-    //   },
-    // },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "User",
+        key: "id",
+      },
+    },
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -22,6 +22,10 @@ Character_Main.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    player_name: {
+      type: DataTypes.STRING,
+      allowNull:true
+    },
     class: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -30,6 +34,16 @@ Character_Main.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 1,
+    },
+    prof_bonus: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 2
+    },
+    speed:{
+      type: DataTypes.INTEGER,
+      allowNull:false,
+      defaultValue: 30
     },
     race: {
       type: DataTypes.STRING,

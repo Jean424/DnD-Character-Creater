@@ -1,0 +1,60 @@
+<div class="saves list-section box">
+            <ul>
+              <li>
+                <label for="Strength-save">Strength</label>
+                {{#if Character_Saving_Throws.[0].str}}
+                <input type='text' value="{{proficient (get_mod Character_Scores.[0].str)}}" name="Strength-save" placeholder="+0" />
+                {{else}}
+                <input type='text' value="{{get_mod Character_Scores.[0].str}}" name="Strength-save" placeholder="+0" />
+                {{/if}}
+                <input type='checkbox' class="proficient" {{checked Character_Saving_Throws.[0].str}} name="Strength-save-prof" />
+              </li>
+              <li>
+                <label for="Dexterity-save">Dexterity</label>
+                {{#if Character_Saving_Throws.[0].dex}}
+                <input type='text' value="{{sign (proficient (get_mod Character_Scores.[0].dex))}}" name="Dexterity-save" placeholder="+0" />
+                {{else}}
+                <input type='text' value="{{get_mod Character_Scores.[0].dex}}" name="Dexterity-save" placeholder="+0" />
+                {{/if}}                
+                <input type='checkbox' class="proficient" {{checked Character_Saving_Throws.[0].dex}} name="Dexterity-save-prof" />
+              </li>
+              <li>
+                <label for="Constitution-save">Constitution</label>
+                {{#if Character_Saving_Throws.[0].con}}
+                <input type='text' value="{{sign (proficient (get_mod Character_Scores.[0].con))}}" name="Constitution-save" placeholder="+0" />
+                {{else}}
+                <input type='text' value="{{get_mod Character_Scores.[0].con}}" name="Constitution-save" placeholder="+0" />
+                {{/if}}               
+                <input type='checkbox' class="proficient" {{checked Character_Saving_Throws.[0].con}} name="Constitution-save-prof" />
+              </li>
+              <li>
+                <label for="Wisdom-save">Wisdom</label>
+                {{#if Character_Saving_Throws.[0].wis}}
+                <input type='text' value="{{sign (proficient (get_mod Character_Scores.[0].wis))}}" name="Wisdom-save" placeholder="+0" />
+                {{else}}
+                <input type='text' value="{{get_mod Character_Scores.[0].wis}}" name="Wisdom-save" placeholder="+0" />
+                {{/if}}                
+                <input type='checkbox' class="proficient" {{checked Character_Saving_Throws.[0].wis}} name="Wisdom-save-prof" />
+              </li>
+              <li>
+                <label for="Intelligence-save">Intelligence</label>
+                {{#if Character_Saving_Throws.[0].int}}
+                <input type='text' value="{{sign (proficient (get_mod Character_Scores.[0].int))}}" name="Intelligence-save" placeholder="+0" />
+                {{else}}
+                <input type='text' value="{{get_mod Character_Scores.[0].int}}" name="Intelligence-save" placeholder="+0" />
+                {{/if}}<input type='checkbox' class="proficient" {{checked Character_Saving_Throws.[0].int}} name="Intelligence-save-prof" />
+              </li>
+              <li>
+                <label for="Charisma-save">Charisma</label>
+                {{#if Character_Saving_Throws.[0].cha}}
+                <input type='text' value="{{sign (proficient (get_mod Character_Scores.[0].cha))}}" name="Charisma-save" placeholder="+0" />
+                {{else}}
+                <input type='text' value="{{get_mod Character_Scores.[0].cha}}" name="Charisma-save" placeholder="+0" />
+                {{/if}}
+                <input type='checkbox' class="proficient" {{checked Character_Saving_Throws.[0].cha}} name="Charisma-save-prof" />
+              </li>
+            </ul>
+            <div class="label">
+              Saving Throwss
+            </div>
+          </div>
