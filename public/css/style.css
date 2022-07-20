@@ -9,6 +9,19 @@ body {
 .navbar-brand {
   font-size: larger !important;
 }
+ 
+.charbtnSubmit {
+max-width: 25%;
+max-height: 25%;
+padding-top: 10%;
+padding-right:2%;
+}
+.sheetbtnSubmit {
+  max-width: 25%;
+  max-height: 25%;
+  padding-top: 10%;
+  padding-left: 2%;
+  }
 
 /* span  {
   background-image: url('/images/button2off.jpg');

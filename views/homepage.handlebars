@@ -1,46 +1,36 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      {{#if loggedIn}}{{/if}}
-    </div>
-  </div>
-</div>
 
 <div class="container-title">
   <div class="row">
     <div class="col-12">
       <div id="header-welcome-container">
-        <h1 class="text-warning" id="header-welcome">Welcome</h1>
-        <span class="newcharbutton">
-          {{! if logged in to be added here evntually }}
-          <button>
-            <a href="/character-creator">Create New Character </a>
-          </button>
-        </span>
+        <h1 class="text-warning" id="header-welcome">WELCOME</h1>
+        {{#if loggedIn}}
+          {{!-- <span class="newcharbutton"> 
+            <button> <a href="/character-creator">Create New Character </a> </button>
+          </span> --}}
+          <a href="./character-creator">
+            <input type="image" src="./images/charbutton.png" name="create-character" class="charbtnSubmit" id="character-creator" href="/character-creator" /> </a>
+          <a href="./character-sheet">
+            <input type="image" src="./images/sheetbutton.png" name="sheet-character" class="sheetbtnSubmit" id="sheet-creator" href="/character-sheet"  /> </a>
 
-        <span class="newcharsheet">
-          <button> <a href="/character-sheet">New Character Sheet </a> </button>
-        </span>
-      </div>
+
+          {{!-- <span class="newcharsheet">
+            <button> <a href="/character-sheet">New Character Sheet </a> </button>
+          </span> --}}
+          
+        {{else}}
+        {{!-- <h3 class="text-white">Ready to build your Dungeons and Dragons character? Please login or signup. After you create your new character, 
+          your information will print to your character sheet for you to save or edit. Roll well and good luck!
+        </h3> --}}
+
+        <img src="/images/welcomescreen.png" alt="">
+        {{/if}}
+       </div>
     </div>
   </div>
 </div>
-{{! <button class="newchar">CREATE NEW CHARACTER
-             <img class="image" src= "./images/button2off.jpg" ></button> }}
+     
+    
+  
 
-<!-- to maybe use later -->
-{{! <ol class="character-list" style="height: 80vh; overflow-y: scroll"> }}
 
-<!-- character array -->
-
-{{!-- {{#each characters as |characters|}}
-  <ul>
-      {{> character-info character }} 
-    </div>
-  </ul>
-{{/each}}
-</ol> --}}
-
-{{#if loggedIn}}
-  <script src="./js/search.js"></script>
-{{/if}}

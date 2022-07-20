@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/character-sheet.css">
+<link rel="stylesheet" href="./character-sheet.css">
 
 <style>
   .charsheet{
@@ -246,7 +246,11 @@
       <section class="features">
         <div>
           <label for="features">Features & Traits</label>
+<<<<<<< HEAD
           <textarea name="features">{{features}}</textarea>
+=======
+          <textarea name="features" class="char-feat">{{features}}</textarea>
+>>>>>>> origin
         </div>
       </section>
     </section>
@@ -254,6 +258,8 @@
 </form>
 
 {{!-- Ability to edit char sheet manually --}}
-
+{{#if loggedIn}}
+<script src="./js/logout.js"></script>
+{{/if}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../js/character-sheet.js"></script>

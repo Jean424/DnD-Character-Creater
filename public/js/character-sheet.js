@@ -11,6 +11,7 @@ $(".stat").bind("input", function () {
   var scoreName = inputName.slice(0, inputName.indexOf("score"));
   var modName = scoreName + "mod";
 
+<<<<<<< HEAD
   $("[name='" + modName + "']").val(mod);
 });
 
@@ -46,3 +47,11 @@ $("[name='totalhd']").bind("input", function () {
 function totalhd_clicked() {
   $("[name='remaininghd']").val($("[name='totalhd']").val());
 }
+=======
+function totalhd_clicked()
+{
+  $("[name='remaininghd']").val($("[name='totalhd']").val())
+}
+
+
+>>>>>>> origin
