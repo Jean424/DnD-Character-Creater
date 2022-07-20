@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="../css/character-sheet.css">
 <style>
   .charsheet{
@@ -91,7 +92,7 @@
         <div class="speed">
           <div>
             <label for="speed">Speed</label>
-            <input type="text" value="{{speed}}" name="speed" placeholder="30" />
+            <input type="text" value="{{speed}}" name="speed" placeholder="30"  class="char-speed" />
           </div>
         </div>
         <div class="hp">
@@ -114,7 +115,7 @@
           <div>
             <div class="total">
               <label onclick="totalhd_clicked()" for="totalhd">Total</label>
-              <input type="text" value="{{totalhd}}" name="totalhd" placeholder="2d10" />
+              <input type="text" value="{{totalhd}}" name="totalhd" placeholder="2d10" id="hit-dice" />
             </div>
             <div class="remaining">
               <label for="remaininghd">Hit Dice</label>
