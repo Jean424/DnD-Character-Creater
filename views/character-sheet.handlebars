@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/character-sheet.css">
+<link rel="stylesheet" href="./character-sheet.css">
 
 <style>
   .charsheet{
@@ -146,11 +146,11 @@
               <li>
                 <label for="Strength-save">Strength</label>
                 <input type='text' value="{{str-save}}" name="Strength-save" placeholder="+0" />
-                <input type="checkbox" value="{{str-save-prof}} name="Strength-save-prof" "/>
+                <input type="checkbox" value="{{str-save-prof}}" name="Strength-save-prof" id="str-check" />
               </li>
               <li>
                 <label for="Dexterity-save">Dexterity</label>
-                <input type="text" value="{{dex-save}}"" name="Dexterity-save" placeholder="+0" " />
+                <input type="text" value="{{dex-save}}" name="Dexterity-save" placeholder="+0"  />
                 <input type='checkbox' value="{{dex-save-prof}}" name="Dexterity-save-prof" />
               </li>
               <li>
@@ -480,10 +480,7 @@
       <section class="features">
         <div>
           <label for="features">Features & Traits</label>
-          <textarea name="features">{{features}}</textarea>
-          <p>size: Your size is <span id="char-size"></span>.</p>
-          <p>Language: You can speak and write in <span id="char-language"></span>.</p>
-          <p id="char-age"></p>
+          <textarea name="features" class="char-feat">{{features}}</textarea>
         </div>
       </section>
     </section>
