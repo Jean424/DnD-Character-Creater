@@ -7,7 +7,16 @@ function getRace(option) {
             console.log(data);
             const chaSize = data.size;
             console.log(chaSize)
-            document.querySelector('#char-size').innerHTML = chaSize;
+
+            const chaLanguage0 = data.languages;
+            var chaLanguage = [];
+            for (let i = 0; i < chaLanguage0.length; i++) {
+                chaLanguage.push(chaLanguage0[i].name);
+                console.log(chaLanguage);
+            }
+            document.querySelector('.char-feat').innerHTML = `Size: Your size is ` + chaSize + '.' + `
+            ` +
+            "Language: You can speake and write in " + chaLanguage + '.';
            
             const chaSpeed = data.speed;
             console.log(chaSpeed);
@@ -16,8 +25,6 @@ function getRace(option) {
             // const chaAge = data.age;
             // console.log(chaAge);
             // document.querySelector('#char-age').innerHTML = chaAge;
-            
-            
             
             const chaSubRace0 = data.subraces;
             for (let i = 0; i < chaSubRace0.length; i++) {
@@ -34,13 +41,6 @@ function getRace(option) {
                 const chaTraits = chaTraits0[i].name;
                 console.log(chaTraits);
             }
-            const chaLanguage0 = data.languages;
-            var chaLanguage = [];
-            for (let i = 0; i < chaLanguage0.length; i++) {
-                chaLanguage.push(chaLanguage0[i].name);
-                console.log(chaLanguage);
-            }
-            document.querySelector('#char-language').innerHTML = chaLanguage;
 
         })
         .catch(function (error) {
@@ -88,8 +88,28 @@ function getClass(option) {
             const savingThrows0 = data.saving_throws;
             for (let i = 0; i < savingThrows0.length; i++) {
                 const savingThrows = savingThrows0[i].name;
-                console.log(savingThrows);
+                console.log(savingThrows)
+                if (savingThrows == 'STR') {
+                    $('input[name="Strength-save-prof"]').prop('checked', true);
+                }
+                if (savingThrows == 'CON') {
+                    $('input[name="Constitution-save-prof"]').prop('checked', true);
+                }
+                if (savingThrows == 'DEX') {
+                    $('input[name="Dexterity-save-prof"]').prop('checked', true);
+                }
+                if (savingThrows == 'WIS') {
+                    $('input[name="Wisdom-save-prof"]').prop('checked', true);
+                }
+                if (savingThrows == 'INT') {
+                    $('input[name="Intelligence-save-prof"]').prop('checked', true);
+                }
+                if (savingThrows == 'CHA') {
+                    $('input[name="Charisma-save-prof"]').prop('checked', true);
+                }
             }
+
+
 
             const startingEquipmentOptions0 = data.starting_equipment_options;
             for (let i = 0; i < startingEquipmentOptions0.length; i++) {
