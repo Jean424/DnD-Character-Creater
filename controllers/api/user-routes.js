@@ -65,21 +65,10 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout
-<<<<<<< HEAD
-router.get("/logout", (req, res) => {
-  if (req.session) {
-    req.session.destroy((err) => {
-      if (err) {
-        res.status(400).send("Unable to log out");
-      } else {
-        res.redirect("/");
-      }
-=======
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
->>>>>>> origin
     });
   } else {
     res.end();
