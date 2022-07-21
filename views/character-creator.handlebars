@@ -2,31 +2,42 @@
 
 </div>
 <div class="character-creator">
-    <form id="character-form">
+    <form id="character-form form2">
         <h1>Character Creator</h1>
 
          <!-- Name input-->
-        <div>
+        <div class="form2">
             <label for="char-name">Character Name: </label>
             <input type="text" id="char-name" name="char-name" required>
         </div>
-
+<div class="agegen form2">
           <!-- Age selection -->
         <div>
             <label for="char-age">Age: </label>
             <input type="number" id="char-age" name="char-age" required>
         </div>
+        <!-- Gender selection -->
+        <div>
+            <label for="char-gender">Gender: </label>
+            <select id="char-gender" name="char-gender" required>
+                <option hidden></option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        </div>
+        {{!-- <div class="form2">
 
         <!-- Character level -->
         <div>
             <label for="char-level">Character level: </label>
             <input type="number" id="char-level" name="char-level" min="1" max="20" required>
 
-        </div>
-
+        </div> --}}
 
         <!-- Race selection -->
-        <div>
+        <div class="form2">
             <label for="char-race">Race: </label>
             <select id="char-race" name="char-race" required>
                 <option hidden></option>
@@ -42,48 +53,8 @@
             </select>
         </div>
 
-         <!-- Background selection -->
-        <div>
-            <label for="char-background">Background: </label>
-            <select id="char-race" name="char-race" required>
-                <option hidden></option>
-                <option value="Acolyte">Acolyte</option>
-                
-            </select>
-        </div>
-
-         <!-- Ability selection -->
-
-         <div>
-            <label for="char-strength">Ability Score: Strength: </label>
-            <input type="number" id="char-strength" name="char-strength" required>
-        </div>
-
-         <div>
-            <label for="char-dexterity">Ability Score: Dexterity: </label>
-            <input type="number" id="char-dex" name="char-dex" required>
-        </div>
-
-         <div>
-            <label for="char-constitution">Ability Score: Constitution: </label>
-            <input type="number" id="char-const" name="char-const" required>
-        </div>
-         <div>
-            <label for="char-intelligence">Ability Score: Intelligence </label>
-            <input type="number" id="char-int" name="char-int" required>
-        </div>
-       
-         <div>
-            <label for="char-wisdom">Ability Score: Wisdom: </label>
-            <input type="number" id="char-wis" name="char-wis" required>
-        </div>
-         <div>
-            <label for="char-charisma">Ability Score: Charisma: </label>
-            <input type="number" id="char-charisma" name="char-charisma" required>
-        </div>
-
-        <!-- Class selection -->
-        <div>
+<!-- Class selection -->
+        <div class="form2">
             <label for="char-class">Classes: </label>
             <select id="char-class" name="char-class" required>
                 <option hidden></option>
@@ -102,18 +73,48 @@
         </div>
         </select>
 
-        <!-- Gender selection -->
-        <div>
-            <label for="char-gender">Gender: </label>
-            <select id="char-gender" name="char-gender" required>
+         <!-- Background selection -->
+        <div class="form2">
+            <label for="char-background">Background: </label>
+            <select id="char-background" name="char-background" required>
                 <option hidden></option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-                <option value="other">Other</option>
+                <option value="Acolyte">Acolyte</option>
+                
             </select>
         </div>
-        <div>
-            <button class= "create-submit" type="submit">Create your character</button>
+
+         <!-- Ability selection -->
+        <div class="scores form2">
+         <div>
+            <label for="char-strength">Ability Score: Strength: </label>
+            <input type="number" id="char-str" name="char-strength" required>
+        </div>
+
+         <div>
+            <label for="char-dexterity">Ability Score: Dexterity: </label>
+            <input type="number" id="char-dex" name="char-dex" required>
+        </div>
+
+         <div>
+            <label for="char-constitution">Ability Score: Constitution: </label>
+            <input type="number" id="char-con" name="char-const" required>
+        </div>
+         <div>
+            <label for="char-intelligence">Ability Score: Intelligence </label>
+            <input type="number" id="char-int" name="char-int" required>
+        </div>
+       
+         <div>
+            <label for="char-wisdom">Ability Score: Wisdom: </label>
+            <input type="number" id="char-wis" name="char-wis" required>
+        </div>
+         <div>
+            <label for="char-charisma">Ability Score: Charisma: </label>
+            <input type="number" id="char-cha" name="char-charisma" required>
+        </div>
+        </div>
+        
+            <input id="submitbtn" class= "form2 create-submit" onclick="javascript:continueCharacter()" type="submit">Create your character</input>
         </div>
     </form>
 </div>

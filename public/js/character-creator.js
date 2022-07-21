@@ -1,3 +1,39 @@
+// function setCookies(name, value){
+    // app.get('/', function(req, res) {
+        // var sessData = req.session;
+        // sessData.token = form1;
+        // char_name = document.querySelector("#character-form").querySelector("#char-name").value
+        // char_age = document.querySelector("#character-form").querySelector("#char-age").value
+        // char_gen = document.querySelector("#character-form").querySelector("#char-gen").value
+        // char_race = document.querySelector("#character-form").querySelector("#char-race").value
+        // char_class = document.querySelector("#character-form").querySelector("#char-class").value
+        // char_background = document.querySelector("#character-form").querySelector("#char-background").value
+        // char_str = document.querySelector("#character-form").querySelector("#char-str").value
+        // char_dex = document.querySelector("#character-form").querySelector("#char-dex").value
+        // char_con = document.querySelector("#character-form").querySelector("#char-con").value
+        // char_int = document.querySelector("#character-form").querySelector("#char-int").value
+        // char_wis = document.querySelector("#character-form").querySelector("#char-wis").value
+        // char_cha = document.querySelector("#character-form").querySelector("#char-cha").value
+        
+        // res.render('character-creator', req.session);
+    //     session.save();
+    //     console.log(form1);
+    //   });
+// }
+
+// function continueCharacter(){
+//    const form = document.querySelector("#character-form");
+//    const form1 = form.getElementsByClassName("form1")
+//    for (let i = 0; i < form1.length; i++) {
+//     const element = form1[i];
+//     element.classList.add("hidden")
+    
+//    }
+// }
+
+
+
+// char_race = document.querySelector("#character-form").querySelector("#char-race").value
 function getRace(option) {
     const chaRace = option.value;
     let racesURL = `https://www.dnd5eapi.co/api/races/${chaRace}/`
@@ -48,6 +84,7 @@ function getRace(option) {
         });
 }
 
+// char_class = document.querySelector("#character-form").querySelector("#char-class").value
 function getClass(option) {
     const chaClass = option.value;
     let classURL = `https://www.dnd5eapi.co/api/classes/${chaClass}`

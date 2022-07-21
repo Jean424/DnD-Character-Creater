@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{#each character}}
+    <section class="charname">
+      <label for="charname">Character Name</label>
+      <input type='text' value="{{character_name}}" name="charname" placeholder="Jane Doe"/>
+    </section>
+    <section class="misc">
+      <ul>
+        <li>
+          <label for="classlevel">Class Level</label>
+          <input type='text' value="{{level}}" name="classlevel" placeholder="1" />
+        </li>
+        <li>
+          <label for="background">Background</label>
+          <input type='text' value="{{background}}" name="background" placeholder="Char background" />
+        </li>
+        <li>
+          <label for="playername">Player Name</label>
+          <input type='text' value="{{player_name}}" name="playername" placeholder="Your Name Here" />
+        </li>
+        <li>
+          <label for="race">Race</label>
+          <input type='text' value="{{race}}" name="race" placeholder="Human" />
+        </li>
+        <li>
+          <label for="alignment">Alignment</label>
+          <input type='text' value="{{alignment}}" name="alignment" placeholder="Lawful Good" />
+        </li>
+        <li>
+          <label for="experiencepoints">Experience Points</label>
+          <input type='text' value="{{exp}}" name="experiencepoints" placeholder="0" />
+        </li>
+      </ul>
+    </section>
+    {{/each}}
+</body>
+</html>

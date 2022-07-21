@@ -92,6 +92,8 @@ a,
   font-family: "MedievalSharp";
   text-align: center;
   color: #ffbb33;
+  font-size: x-large;
+  text-shadow: 3px 3px 4px black,-3px -3px 4px black;
 }
 
 .create-submit {
@@ -103,8 +105,15 @@ a,
   display: inline-block;
 }
 
+#agegen {
+  display: flex;
+  flex-flow: row nowrap;
+}
+#agegen children{
+  width: 35%;
+}
+
 /* profile page style */
-<<<<<<< .merge_file_a02716
 
 
 /* MEDIA QUERIES*/
@@ -121,5 +130,3 @@ a,
   }
 
 }
-=======
->>>>>>> .merge_file_a01456
