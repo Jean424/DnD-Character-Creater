@@ -12,7 +12,7 @@ const {
 // const withAuth = require('../../utils/auth');
 
 // CREATE a character
-router.post("/", async (req, res) => {
+router.post("/newcharacter", async (req, res) => {
   try {
     const characterData = await Character_Main.create(req.body);
     res.status(200).json(characterData);

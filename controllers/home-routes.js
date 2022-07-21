@@ -55,6 +55,14 @@ router.get('/character-sheet',async (req, res) => {
 });
 
 
+//-- TESTING Character Sheet
+router.get('/character-sheet/test',async (req, res) => { 
+  res.render('character-sheet-test', {
+      loggedIn: req.session.loggedIn,
+  })
+
+});
+
 // GET all characters
 router.get("/characters/all", async (req, res) => {
   try {

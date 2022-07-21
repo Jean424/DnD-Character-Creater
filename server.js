@@ -9,6 +9,7 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 const { Character_Main } = require('./models');
+const submitCharacter = require('./public/js/character-submit');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -67,6 +68,9 @@ hbs.handlebars.registerHelper('stringify', function (Object) {
 hbs.handlebars.registerHelper('tostring', function (array) {
   return array.join(" ");
 });
+hbs.handlebars.registerHelper('submitcharacter', function () {
+  return submitCharacter()})
+
 
 
 app.engine('handlebars', hbs.engine);
