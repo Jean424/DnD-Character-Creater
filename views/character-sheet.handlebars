@@ -48,7 +48,7 @@
 
       <div class="otherprofs box textblock">
         <label for="otherprofs">Other Proficiencies and Languages</label>
-        <textarea name="otherprofs">
+        <textarea name="otherprofs" id="char-prof">
           Tools: 
           {{#each Character_Prof_Langs.[0].tool as |tools|}}
          {{tools}}
@@ -119,7 +119,7 @@
             </div>
             <div class="remaining">
               <label for="remaininghd">Hit Dice</label>
-              <input type="text" value="{{hitdice}}" name="remaininghd" />
+              <input type="text" value="{{hitdice}}" name="remaininghd" id="hit-dice"/>
             </div>
           </div>
         </div>
@@ -232,7 +232,7 @@
               </li>
             </ul>
           </div>
-          <textarea placeholder="Equipment list here">
+          <textarea placeholder="Equipment list here" id="char-startEquip">
             {{#each Character_Equipments}}
             {{this.name}}
             {{/each}}
