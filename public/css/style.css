@@ -66,10 +66,12 @@ a,
 }
 
 
-/* create char and char sheet buttons on homepage*/
-span button {
-  margin-top: 200px;
-}
+#header-welcome-container {
+  text-align: center;
+
+  font-family: 'MedievalSharp'
+  
+  }
 
 
 /* CHARACTER CREATOR  */
