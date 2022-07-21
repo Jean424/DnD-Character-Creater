@@ -15,6 +15,8 @@ router.get('/', async (req, res) => {
   res.render('homepage', {loggedIn: req.session.loggedIn});
 });
 
+
+
 //redirect to homepage once logged in 
 router.get('/login', async (req, res) => {
   if(req.session.loggedIn) {
@@ -29,6 +31,20 @@ router.get('/signup', async (req, res) => {
   res.render('signup')
 })
 
+router.get('/profile',(req, res) => {
+  if(!req.session.loggedIn) {
+    res.redirect('/');
+    return; 
+  }
+  res.render('profile', {
+    loggedIn: req.session.loggedIn
+  })
+
+});
+
+
+
+
 // Direct to Charcter creator page
 router.get('/character-creator',(req, res) => {
   if(!req.session.loggedIn) {
@@ -40,6 +56,7 @@ router.get('/character-creator',(req, res) => {
   })
 
 });
+
 
 //-- Character Sheet
 router.get('/character-sheet',async (req, res) => {
