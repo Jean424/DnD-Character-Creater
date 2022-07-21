@@ -43,7 +43,7 @@ Licensed under the [MIT License](LICENSE).
 
 ## Link
 
-- Link to the heroku:
+- Link to the heroku: https://character-build.herokuapp.com/
 - Screen_Shot of app_homepage:![Screenshot of application](/images/ScreenShot_HomePage.png)
 - Screen_Shot of app_homepage:![Screenshot of application](/images/ScreenShot_SignUp.png)
 - Screen_Shot of app_homepage:![Screenshot of application](/images/ScreenShot_Login.png)
