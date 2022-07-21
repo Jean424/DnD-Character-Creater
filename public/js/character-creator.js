@@ -31,7 +31,19 @@
 //    }
 // }
 
-
+//pass these into the creator2 handlebars
+const language = []
+const langchoices = []
+const trait = []
+const traitchoices = []
+const prof = []
+const profchoices = []
+const skill = []
+const skillchoices = []
+const equip = []
+const equipchoices = []
+const spell = []
+const spellchoices = []
 
 // char_race = document.querySelector("#character-form").querySelector("#char-race").value
 function getRace(option) {
@@ -118,8 +130,14 @@ function getClass(option) {
                 const proficiencyChoices = proficiencyChoices0[i];
                 for (let j = 0; j < proficiencyChoices.from.length; j++) { 
                     var proficiencyList = proficiencyChoices0[i].from[j].name;
-                    console.log(proficiencyList);}
+                    console.log(proficiencyList);
+                prof.push(proficiencyList)}
             }
+            for (let i = 0; i < data.proficiency_choices.choose; i++) {
+                const option = choose[i];
+                profchoices.push[{choice: option}]
+            }
+            
 
 
             const savingThrows0 = data.saving_throws;
@@ -152,7 +170,8 @@ function getClass(option) {
             for (let i = 0; i < startingEquipmentOptions0.length; i++) {
                 for (let j = 0; j < 1; j++) { 
                     const startingEquipmentList = startingEquipmentOptions0[i].from[j].equipment.name;
-                    console.log(startingEquipmentList);}
+                    console.log(startingEquipmentList);
+                equip.push(startingEquipmentList)}
             }
 
             const chaSubClass = data.subclasses[0].name;
@@ -162,3 +181,56 @@ function getClass(option) {
             console.log(error);
         });
 }
+
+function getBackground(option) {
+    const chaBackground = option.value;
+    let backgroundURL = `https://www.dnd5eapi.co/api/races/${chaBackround}/`
+    fetch(backgroundURL)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const proficiencies0 = data.proficiencies;
+            var proficiencies = [];
+            for (let i = 0; i < proficiencies0.length; i++) {
+                proficiencies.push(proficiencies0[i].name);
+                console.log(proficiencies);
+            }
+            const languageChoices0 = data.language_options;
+            for (let i = 0; i < data.language_options.choose; i++) {
+                const option = choose[i];
+                choices.push[{choice: option}]
+            }
+            for (let i = 0; i < languageChoices0.length; i++) {
+                const languageChoices = languageChoices0[i];
+                for (let j = 0; j < languageChoices.from.length; j++) { 
+                    var languageList = languageChoices0[i].from[j].name;
+                    console.log(languageList);
+                language.push(languageList)}
+            }
+            const startingEquipment0 = data.starting_equipment;
+            var startingEquipment = [];
+            for (let i = 0; i < startingEquipment0.length; i++) {
+                startingEquipment.push(startingEquipment0[i].equipment.name);
+                console.log(startingEquipment);
+            }
+            document.querySelector('#char-startEquip').innerHTML = startingEquipment;
+
+            const startingEquipmentOptions0 = data.starting_equipment_options;
+            
+            for (let i = 0; i < data.starting_equipment_options.choose; i++) {
+                const option = choose[i];
+                equipchoices.push[{choice: option}]
+            }
+            for (let i = 0; i < startingEquipmentOptions0.length; i++) {
+                for (let j = 0; j < 1; j++) { 
+                    const startingEquipmentList = startingEquipmentOptions0[i].from[j].equipment.name;
+                    console.log(startingEquipmentList);
+                equip.push(startingEquipmentList)}
+            }
+            const backgroundFeature = data.feature.name;
+            console.log(backgroundFeature)})}
+
+            for (let i = 0; i < data.choose; i++) {
+                const option = choose[i];
+                choices.push[{choice: option}]
+            }

@@ -68,16 +68,16 @@ router.get('/test',async (req, res) => {
 router.get("/characters/all", async (req, res) => {
   try {
     const characterData = await Character_Main.findAll({
-      include: [
-        { model: Character_Score },
-        { model: Character_Saving_Throw },
-        { model: Character_Skill },
-        { model: Character_Prof_Lang },
-        { model: Character_Equipment },
-        { model: Character_Spells },
+      where: [
+        user_id = req.user.id
       ],
     });
-    res.status(200).json(characterData);
+    const character = characterData.get({ plain: true });
+    res.render('user-characters', character);
+    if (!characterData) {
+      res.status(404).json({ message: "No characters found belonging to this user!" });
+      return;
+    }
   } catch (err) {
     res.status(500).json(err);
   }

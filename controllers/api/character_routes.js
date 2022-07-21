@@ -14,7 +14,16 @@ const {
 // CREATE a character
 router.post("/", async (req, res) => {
   try {
-    const characterData = await Character_Main.create(req.body);
+    const characterData = await Character_Main.create(req.body,{
+      include: [
+        { model: Character_Score},
+        { model: Character_Saving_Throw},
+        { model: Character_Skill },
+        { model: Character_Prof_Lang },
+        { model: Character_Equipment },
+        { model: Character_Spells},
+      ],
+    });
     res.status(200).json(characterData);
   } catch (err) {
     res.status(400).json(err);
