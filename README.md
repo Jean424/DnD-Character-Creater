@@ -40,12 +40,17 @@ Licensed under the [MIT License](LICENSE).
 ## Questions:
 
 - GitHub: https://github.com/Jean424/Project_2
-- Email:
 
 ## Link
 
 - Link to the heroku:
-- Screen_Shot of app_homepage:![Screenshot of application]()
+- Screen_Shot of app_homepage:![Screenshot of application](/images/ScreenShot_HomePage.png)
+- Screen_Shot of app_homepage:![Screenshot of application](/images/ScreenShot_SignUp.png)
+- Screen_Shot of app_homepage:![Screenshot of application](/images/ScreenShot_Login.png)
+- Screen_Shot of app_homepage:![Screenshot of application](/images/ScreenShot_CreateNewCharater.png)
+- Screen_Shot of app_homepage:![Screenshot of application](/images/ScreenShot_DefineOwnCharater.png)
+- Screen_Shot of app_homepage:![Screenshot of application](/images/ScreenShot_CharacterSheet.png)
+
 <<<<<<< HEAD
 =======
 
