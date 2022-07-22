@@ -1,0 +1,73 @@
+
+
+</div>
+<div class="character-creator">
+    <form id="character-form form2">
+        <h1>Character Creator</h1>
+
+         <!-- Language selection -->
+         {{#each langchoices}}
+        <div>
+            <label for="char-lang">Known Languages: </label>
+            <select id="char-lang" name="char-lang" required>
+                {{#each language as |language|}}
+                <option value="{{language}}"></option>
+                {{#each}}
+            </select>
+        </div>
+        {{/each}}
+
+{{#each traitchoices}}
+         <!-- Trait selection -->
+        <div>
+            <label for="char-trait">Traits: </label>
+            <select id="char-trait" name="char-trait" required>
+                {{#each trait as |trait|}}
+                <option value="{{trait}}"></option>
+                {{#each}}
+            </select>
+        </div>
+{{/each}}
+
+        <!-- Proficiency selection -->
+        {{#each profchoices}}
+        <div>
+            <label for="char-prof">Proficiencies: </label>
+            <select id="char-prof" name="char-prof" required>
+                {{#each prof as |prof|}}
+                <option value="{{prof}}"></option>
+                {{#each}}
+            </select>
+        </div>
+{{/each}}
+
+        <!--Skill selection -->
+        {{#each skillchoices}}
+        <div>
+            <label for="char-skill">Skills: </label>
+            <select id="char-skill" name="char-skill" required>
+                {{#each skill as |skill|}}
+                <option value="{{skill}}"></option>
+                {{#each}}
+            </select>
+        </div>
+        {{/each}}
+
+        <!-- Equipment selection -->
+        {{#each equipchoices}}
+        <div>
+            <label for="char-equip">Equipment: </label>
+            <select id="char-equip" name="char-equip" required>
+                {{#each equip as |equip|}}
+                <option value="{{equip}}"></option>
+                {{#each}}
+            </select>
+        </div>
+        {{/each}}
+
+    </form>
+</div>
+{{#if loggedIn}}
+<script src="./js/logout.js"></script>
+{{/if}}
+<script src="./js/character-creator.js"></script>

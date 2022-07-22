@@ -12,23 +12,25 @@ const {
 // const withAuth = require('../../utils/auth');
 
 // CREATE a character
-router.post("/", async (req, res) => {
-  try {
-    const characterData = await Character_Main.create(req.body,{
-      include: [
-        { model: Character_Score},
-        { model: Character_Saving_Throw},
-        { model: Character_Skill },
-        { model: Character_Prof_Lang },
-        { model: Character_Equipment },
-        { model: Character_Spells},
-      ],
+    router.post("/addcharacter", async (req, res) => { 
+      try {
+        const characterData = await Character_Main.create({
+          character_name: req.body.character_name,
+          //  player_name: req.session.user.username
+          class: req.body.class,
+          level : req.body.level,
+          age: req.body.age,
+          gender: req.body.gender,
+          race: req.body.race,
+          background: req.body.background,
+        });
+        res.json(characterData);
+        res.redirect('/characters/' + characterData.id)
+      } catch (err) { 
+        console.log(err);
+        res.status(500).json(err);
+      }
     });
-    res.status(200).json(characterData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 // DELETE a character
 router.delete("/:id", async (req, res) => {

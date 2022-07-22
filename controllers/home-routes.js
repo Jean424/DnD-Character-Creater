@@ -30,14 +30,9 @@ router.get('/signup', async (req, res) => {
 })
 
 // Direct to Charcter creator page
-router.get('/character-creator',(req, res) => {
-  if(!req.session.loggedIn) {
-    res.redirect('/');
-    return; 
-  }
-  
+router.get('/character-creator', (req, res) => {
   res.render('character-creator', {
-    loggedIn: req.session.loggedIn
+    loggedIn: req.session.loggedIn,
   })
 
 });

@@ -2,69 +2,120 @@
 
 </div>
 <div class="character-creator">
-    <form id="character-form form2">
+    <form id="character-creator1">
         <h1>Character Creator</h1>
 
-         <!-- Language selection -->
-         {{#each langchoices}}
+         <!-- Name input-->
+        <div class="form1">
+            <label for="char-name">Character Name: </label>
+            <input type="text" id="char-name" name="character-name" required>
+        </div>
+<div class="agegen form1">
+          <!-- Age selection -->
         <div>
-            <label for="char-lang">Known Languages: </label>
-            <select id="char-lang" name="char-lang" required>
-                {{#each language as |language|}}
-                <option value="{{language}}"></option>
-                {{#each}}
+            <label for="char-age">Age: </label>
+            <input type="number" id="char-age" name="age" required>
+        </div>
+        <!-- Gender selection -->
+        <div>
+            <label for="char-gender">Gender: </label>
+            <select id="char-gender" name="gender" required>
+                <option hidden></option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="other">Other</option>
             </select>
         </div>
-        {{/each}}
+        </div>
+        {{!-- <div class="form1">
 
-{{#each traitchoices}}
-         <!-- Trait selection -->
+        <!-- Character level -->
         <div>
-            <label for="char-trait">Traits: </label>
-            <select id="char-trait" name="char-trait" required>
-                {{#each trait as |trait|}}
-                <option value="{{trait}}"></option>
-                {{#each}}
+            <label for="char-level">Character level: </label>
+            <input type="number" id="char-level" name="char-level" min="1" max="20" required>
+
+        </div> --}}
+
+        <!-- Race selection -->
+        <div class="form1">
+            <label for="char-race">Race: </label>
+            <select id="char-race" name="race" required>
+                <option hidden></option>
+                <option value="dragonborn">Dragonborn</option>
+                <option value="dwarf">Dwarf</option>
+                <option value="elf">Elf</option>
+                <option value="gnome">Gnome</option>
+                <option value="half-elf">Half-Elf</option>
+                <option value="half-orc">Half-Orc</option>
+                <option value="halfling">Halfling</option>
+                <option value="human">Human</option>
+                <option value="tiefling">Tiefling</option>
             </select>
         </div>
-{{/each}}
 
-        <!-- Proficiency selection -->
-        {{#each profchoices}}
-        <div>
-            <label for="char-prof">Proficiencies: </label>
-            <select id="char-prof" name="char-prof" required>
-                {{#each prof as |prof|}}
-                <option value="{{prof}}"></option>
-                {{#each}}
+<!-- Class selection -->
+        <div class="form1">
+            <label for="char-class">Classes: </label>
+            <select id="char-class" name="class" required>
+                <option hidden></option>
+                <option value="barbarian">Barbarian</option>
+                <option value="bard">Bard</option>
+                <option value="cleric">Cleric</option>
+                <option value="druid">Druid</option>
+                <option value="fighter">Fighter</option>
+                <option value="monk">Monk</option>
+                <option value="paladin">Paladin</option>
+                <option value="ranger">Ranger</option>
+                <option value="rogue">Rogue</option>
+                <option value="sorcerer">Sorcerer</option>
+                <option value="warlock">Warlock</option>
+                <option value="wizard">Wizard</option>
+        </div>
+        </select>
+
+         <!-- Background selection -->
+        <div class="form1">
+            <label for="char-background">Background: </label>
+            <select id="char-background" name="background" required>
+                <option hidden></option>
+                <option value="Acolyte">Acolyte</option>
+                
             </select>
         </div>
-{{/each}}
 
-        <!--Skill selection -->
-        {{#each skillchoices}}
-        <div>
-            <label for="char-skill">Skills: </label>
-            <select id="char-skill" name="char-skill" required>
-                {{#each skill as |skill|}}
-                <option value="{{skill}}"></option>
-                {{#each}}
-            </select>
+         <!-- Ability selection -->
+        <div class="scores form1">
+         <div>
+            <label for="char-strength">Ability Score: Strength: </label>
+            <input type="number" id="char-str" name="char-strength" required>
         </div>
-        {{/each}}
 
-        <!-- Equipment selection -->
-        {{#each equipchoices}}
-        <div>
-            <label for="char-equip">Equipment: </label>
-            <select id="char-equip" name="char-equip" required>
-                {{#each equip as |equip|}}
-                <option value="{{equip}}"></option>
-                {{#each}}
-            </select>
+         <div>
+            <label for="char-dexterity">Ability Score: Dexterity: </label>
+            <input type="number" id="char-dex" name="char-dex" required>
         </div>
-        {{/each}}
 
+         <div>
+            <label for="char-constitution">Ability Score: Constitution: </label>
+            <input type="number" id="char-con" name="char-const" required>
+        </div>
+         <div>
+            <label for="char-intelligence">Ability Score: Intelligence </label>
+            <input type="number" id="char-int" name="char-int" required>
+        </div>
+       
+         <div>
+            <label for="char-wisdom">Ability Score: Wisdom: </label>
+            <input type="number" id="char-wis" name="char-wis" required>
+        </div>
+         <div>
+            <label for="char-charisma">Ability Score: Charisma: </label>
+            <input type="number" id="char-cha" name="char-charisma" required>
+        </div>
+        </div>
+        
+            <button type="submit" id="submitbtn" class= "form1 create-submit" >Create your character</button>
+        </div>
     </form>
 </div>
 {{#if loggedIn}}
