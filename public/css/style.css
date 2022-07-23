@@ -103,7 +103,77 @@ a,
   display: inline-block;
 }
 
-/* profile page style */
+
+
+
+/* new css*/
+.character-card {
+  margin: 1rem;
+  padding: 0;
+  flex: 25%;
+
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width:50%;
+  border: rgb(69, 66, 66) solid 4px;
+  border-radius: 5px;
+  background-color: white;
+}
+.character-card a {
+  width: 100%;
+}
+
+.character-banner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.character-name-sheet {
+  
+  font-weight: 400;
+  font-size: 1.5rem;
+  background-color: rgb(104, 96, 96);
+  color: white;
+  flex: 100%;
+  padding: .25rem 2rem;
+}
+
+.character-card:hover {
+  filter: brightness(120%) saturate(105%);
+  transform: scale(1.02);
+}
+
+.character-level-class{
+  flex: 100%;
+  justify-content: space-between;
+  padding: .5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.character-stats{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: transparent;
+  font-weight: 400;
+  font-size: 1.25rem;
+  padding: 1rem;
+}
+
+
+.profile-banner-username p {
+  background-color: white;
+  border: 3px solid rgb(52, 51, 51);
+  border-radius: 4px;
+  margin: 0px;
+  font-weight: bold;
+}
 
 
 /* MEDIA QUERIES*/

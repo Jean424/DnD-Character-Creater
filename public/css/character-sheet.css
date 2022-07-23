@@ -1,14 +1,4 @@
-/* .red {
-    background: red;
-  }
-  
-  .blue {
-    background: blue;
-  } */
 
-/* .hide {
-    display: none !important;
-  } */
 
   form {
     font-family: "MedievalSharp";
@@ -25,9 +15,7 @@
     font-size: 1.5rem;
   }
   
-  /* .charsheet{
-      display: none;
-    } */
+ 
   
   textarea {
     font-size: 12px;
@@ -798,4 +786,3 @@
     padding: 5px;
     height: 43em;
   }
-  
