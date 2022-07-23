@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const withAuth = require('../utils/auth');
+const withAuth = require("../utils/auth");
 const {
   Character_Main,
   Character_Score,
@@ -11,102 +11,48 @@ const {
 } = require("../models");
 
 //render homepage
-router.get('/', async (req, res) => {
-  res.render('homepage', {loggedIn: req.session.loggedIn});
+router.get("/", async (req, res) => {
+  res.render("homepage", { loggedIn: req.session.loggedIn });
 });
 
-//redirect to homepage once logged in 
-router.get('/login', async (req, res) => {
-  if(req.session.loggedIn) {
-    res.redirect('/');
-    return; 
+//redirect to homepage once logged in
+router.get("/login", async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
   }
-  res.render('login');
+  res.render("login");
 });
 
 //render signup page
-router.get('/signup', async (req, res) => {
-  res.render('signup')
-})
+router.get("/signup", async (req, res) => {
+  res.render("signup");
+});
 
 // Direct to Charcter creator page
-router.get('/character-creator', (req, res) => {
-  res.render('character-creator', {
+router.get("/character/add", (req, res) => {
+  res.render("character-creator", {
     loggedIn: req.session.loggedIn,
-  })
-
+  });
 });
 
 //-- Character Sheet
-router.get('/character-sheet',async (req, res) => {
-  if(!req.session.loggedIn){
-      res.redirect('/');
-      return;
+router.get("/character-sheet", async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/");
+    return;
   }
-  
-  res.render('character-sheet', {
-      loggedIn: req.session.loggedIn,
-  })
 
+  res.render("character-sheet", {
+    loggedIn: req.session.loggedIn,
+  });
 });
-
 
 //-- TESTING
-router.get('/test',async (req, res) => { 
-  res.render('test', {
-      loggedIn: req.session.loggedIn,
-  })
-
-});
-
-// GET all characters
-router.get("/characters/all", async (req, res) => {
-  try {
-    const characterData = await Character_Main.findAll({
-      where: [
-        user_id = req.user.id
-      ],
-    });
-    const character = characterData.get({ plain: true });
-    res.render('user-characters', character);
-    if (!characterData) {
-      res.status(404).json({ message: "No characters found belonging to this user!" });
-      return;
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// view a single character sheet
-router.get("/characters/:id", async (req, res) => {
-  try {
-    const characterData = await Character_Main.findByPk(req.params.id, {
-      include: [
-        { model: Character_Score},
-        { model: Character_Saving_Throw},
-        { model: Character_Skill },
-        { model: Character_Prof_Lang },
-        { model: Character_Equipment },
-        { model: Character_Spells},
-      ],
-    });
-
-    
-    // Serialize data so the template can read it
-    const character = characterData.get({ plain: true });
-    // Pass serialized data and session flag into template
-    res.render('character-sheet', character
-    );
-
-    if (!characterData) {
-      res.status(404).json({ message: "No character found with this id!" });
-      return;
-    }
-    // res.status(200).json(characterData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get("/test", async (req, res) => {
+  res.render("test", {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 module.exports = router;

@@ -46,8 +46,3 @@ Licensed under the [MIT License](LICENSE).
 
 - Link to the heroku:
 - Screen_Shot of app_homepage:![Screenshot of application]()
-<<<<<<< HEAD
-=======
-
-<!-- //Delete this -->
->>>>>>> Ivy2

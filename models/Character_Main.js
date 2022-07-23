@@ -24,9 +24,9 @@ Character_Main.init(
     },
     player_name: {
       type: DataTypes.STRING,
-      allowNull:true
+      allowNull: true,
     },
-    class: {
+    char_class: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -38,12 +38,12 @@ Character_Main.init(
     prof_bonus: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 2
+      defaultValue: 2,
     },
-    speed:{
+    speed: {
       type: DataTypes.INTEGER,
-      allowNull:false,
-      defaultValue: 30
+      allowNull: false,
+      defaultValue: 30,
     },
     race: {
       type: DataTypes.STRING,
@@ -55,7 +55,7 @@ Character_Main.init(
     },
     age: {
       type: INTEGER,
-      allowNull:true,
+      allowNull: true,
     },
     gender: {
       type: DataTypes.STRING,
