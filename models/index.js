@@ -2,8 +2,8 @@
 //-- Modules for Sequelize ORM
 
 const User = require('./user');
-const Character = require('./Character');
-const Ability = require('./Ability')
+const Character = require('./character');
+const Ability = require('./ability')
 
 //------------------------------------------------------------------------------
 //-- Associations between tables
