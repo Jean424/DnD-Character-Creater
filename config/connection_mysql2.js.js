@@ -13,7 +13,5 @@ const db = mysql.createPool({
   console.log(`//-- Connection MYSQL database with npm package mysql2 success!`)
 );
 
-
-
 //-- exporting created sequelize obj
 module.exports = db;
