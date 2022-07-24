@@ -10,7 +10,7 @@
     "seed": "node seeds/seed.js"
   },
   "repository": {
-    "type": "git",
+    "type": "module",
     "url": "git+https://github.com/Jean424/Project_2.git"
   },
   "keywords": [],
