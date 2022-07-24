@@ -3,7 +3,7 @@ const { render } = require('express/lib/response');
 const sequelize = require('../config/connection');
 const { User, Character, Ability } = require('../models');
 const withAuth = require('../utils/auth');
-const contentManager = require('../utils/contentManager');
+const contentManager = require('../utils/contentmanager');
 
 
 //GET request to show all characters and include their usernames

@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 //-- Modules for Sequelize ORM
 
-const User = require('./User');
+const User = require('./user');
 const Character = require('./Character');
 const Ability = require('./Ability')
 
