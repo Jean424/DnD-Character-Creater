@@ -46,15 +46,7 @@ Licensed under the [MIT License](LICENSE).
 - Link to the heroku: https://character-build.herokuapp.com/
 
 - App_Homepage:![Screenshot of application](/images/ScreenShot_HomePage.png)
-- App_SignUp:![Screenshot of application](/images/ScreenShot_SignUp.png)
-- App_Login:![Screenshot of application](/images/ScreenShot_Login.png)
+- App_SignUp&Login:![Screenshot of application](/images/ScreenShot_Login.png)
 - Character_CreateHome:![Screenshot of application](/images/ScreenShot_CreateNewCharater.png)
 - CreateByDefine:![Screenshot of application](/images/ScreenShot_DefineOwnCharater.png)
 - CreateBySheet:![Screenshot of application](/images/ScreenShot_CharacterSheet.png)
-
-
-<<<<<<< HEAD
-=======
-
-<!-- //Delete this -->
->>>>>>> Ivy2
