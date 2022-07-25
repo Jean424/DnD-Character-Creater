@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const path = require("path");
 const {
   User,
   Character_Main,
@@ -9,7 +10,11 @@ const {
   Character_Equipment,
   Character_Spells,
 } = require("../../models");
-// const withAuth = require('../../utils/auth');
+const {
+  getAPI,
+  allchoices,
+  allresults,
+} = require("../../public/js/character-creator");
 
 // GET all characters
 router.get("/all", async (req, res) => {
@@ -63,33 +68,15 @@ router.get("/:id", async (req, res) => {
 router.post("/add", async (req, res) => {
   console.log("click");
   try {
-    const characterData = await Character_Main.create(
-      {
-        character_name: req.body.character_name,
-        char_class: req.body.char_class,
-        level: req.body.level,
-        age: req.body.age,
-        gender: req.body.gender,
-        race: req.body.race,
-        background: req.body.background,
-        // Character_Score: {
-        //   str: req.body.str,
-        //   dex: req.body.dex,
-        //   con: req.body.con,
-        //   int: req.body.int,
-        //   wis: req.body.wis,
-        //   cha: req.body.cha,
-        // },
-      }
-      // {
-      //   include: [
-      //     {
-      //       association: Character_Score.belongsTo(Character_Main),
-      //       include: [Character_Main.hasMany(Character_Score)],
-      //     },
-      //   ],
-      // }
-    );
+    const characterData = await Character_Main.create({
+      character_name: req.body.character_name,
+      char_class: req.body.char_class,
+      level: req.body.level,
+      age: req.body.age,
+      gender: req.body.gender,
+      race: req.body.race,
+      background: req.body.background,
+    });
     const scoreData = await Character_Score.create({
       character_id: characterData.id,
       str: req.body.str,
@@ -99,8 +86,14 @@ router.post("/add", async (req, res) => {
       wis: req.body.wis,
       cha: req.body.cha,
     });
-
-    res.redirect(characterData.id);
+    console.log("stored");
+    getAPI(
+      characterData.race,
+      characterData.char_class,
+      characterData.background
+    );
+    res.render("character-creator2", { allchoices });
+    // res.redirect("character-creator2", characterData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
