@@ -3,9 +3,8 @@ const exphbs = require("express-handlebars");
 const path = require("path");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const bodyParser = require("body-parser");
-const fetch = require("node-fetch");
 const app = express();
+const fetch = require("node-fetch");
 
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
@@ -25,7 +24,6 @@ const sess = {
 };
 
 app.use(session(sess));
-app.use(bodyParser.urlencoded({ extended: false }));
 
 const hbs = exphbs.create({ helpers });
 hbs.handlebars.registerHelper("get_mod", function (score) {

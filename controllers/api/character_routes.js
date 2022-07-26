@@ -12,7 +12,7 @@ const {
 } = require("../../models");
 const {
   getAPI,
-  allchoices,
+  datareturn,
   allresults,
 } = require("../../public/js/character-creator");
 
@@ -71,6 +71,45 @@ router.post("/add", async (req, res) => {
     const characterData = await Character_Main.create({
       character_name: req.body.character_name,
       char_class: req.body.char_class,
+      age: req.body.age,
+      gender: req.body.gender,
+      race: req.body.race,
+      background: req.body.background,
+    });
+    const scoreData = await Character_Score.create({
+      character_id: characterData.id,
+      str: req.body.str,
+      dex: req.body.dex,
+      con: req.body.con,
+      int: req.body.int,
+      wis: req.body.wis,
+      cha: req.body.cha,
+    });
+    req.session.characterid = characterData.id;
+    console.log("Character ID is " + characterData.id);
+    // await getAPI(
+    //   characterData.race,
+    //   characterData.char_class,
+    //   characterData.background
+    // );
+    res.redirect("/character/add2");
+
+    // res.render("character-creator2", { langchoices });
+    // res.redirect("character-creator2", characterData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// continue CREATE a character
+router.post("/add2", async (req, res) => {
+  let success = req.session.characterid;
+  console.log(success);
+  try {
+    const characterData = await Character_Main.create({
+      character_name: req.body.character_name,
+      char_class: req.body.char_class,
       level: req.body.level,
       age: req.body.age,
       gender: req.body.gender,
@@ -87,12 +126,14 @@ router.post("/add", async (req, res) => {
       cha: req.body.cha,
     });
     console.log("stored");
-    getAPI(
-      characterData.race,
-      characterData.char_class,
-      characterData.background
-    );
-    res.render("character-creator2", { allchoices });
+    // await getAPI(
+    //   characterData.race,
+    //   characterData.char_class,
+    //   characterData.background
+    // );
+    res.redirect("/add2");
+
+    // res.render("character-creator2", { langchoices });
     // res.redirect("character-creator2", characterData);
   } catch (err) {
     console.log(err);

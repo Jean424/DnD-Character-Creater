@@ -1,5 +1,9 @@
-
-<form class="form-horizontal" id="form-signup">
+<form
+  action="/user/signup"
+  method="POST"
+  class="form-horizontal"
+  id="form-signup"
+>
 
   <div class="form-group">
     <label
@@ -9,6 +13,7 @@
     <div class="col-sm-4">
       <input
         type="text"
+        name="username"
         class="form-control bg-dark text-white"
         id="username-signup"
         placeholder="Required"
@@ -23,6 +28,7 @@
     <div class="col-sm-4">
       <input
         type="email"
+        name="email"
         class="form-control bg-dark text-white"
         id="email-signup"
         placeholder="Required"
@@ -38,6 +44,7 @@
     <div class="col-sm-4">
       <input
         type="password"
+        name="password"
         class="form-control bg-dark text-white"
         id="password-signup"
         placeholder="Required"
@@ -47,10 +54,11 @@
   <div>
     <button
       type="submit"
+      href="/user/signup"
       class="btn btn-warning"
       id="btn-signup"
     >Sign-up</button>
   </div>
 </form>
 
-<script src="/js/signup.js"></script>
+{{! <script src="/js/signup.js"></script> }}

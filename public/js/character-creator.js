@@ -17,7 +17,7 @@
 
 // res.render('character-creator', req.session);
 //     session.save();
-//     console.log(form1);
+// console.log(form1);
 //   });
 // }
 
@@ -30,9 +30,7 @@
 
 //    }
 // }
-
-const fetch = require("node-fetch");
-
+// var fetch = require("node-fetch");
 //pass these into the creator2 handlebars
 const language = [];
 const langchoices = [];
@@ -51,8 +49,8 @@ const allresults = {};
 
 // char_race = document.querySelector("#character-form").querySelector("#char-race").value
 async function getAPI(race, char_class, background) {
-  console.log("getAPI");
-  console.log(race, char_class, background);
+  // console.log("getAPI");
+  // console.log(race, char_class, background);
   function getRace(race) {
     const chaRace = race;
     let racesURL = `https://www.dnd5eapi.co/api/races/${chaRace}/`;
@@ -61,13 +59,13 @@ async function getAPI(race, char_class, background) {
       .then((data) => {
         // console.log(data);
         const chaSize = data.size;
-        console.log(chaSize);
+        // console.log(chaSize);
 
         const chaLanguage0 = data.languages;
         var chaLanguage = [];
         for (let i = 0; i < chaLanguage0.length; i++) {
           chaLanguage.push(chaLanguage0[i].name);
-          console.log(chaLanguage);
+          // console.log(chaLanguage);
         }
         // document.querySelector(".char-feat").innerHTML =
         //   `Size: Your size is ` +
@@ -80,7 +78,7 @@ async function getAPI(race, char_class, background) {
         //   ".";
 
         const chaSpeed = data.speed;
-        console.log(chaSpeed);
+        // console.log(chaSpeed);
         // document.querySelector(".char-speed").value = chaSpeed;
 
         // const chaAge = data.age;
@@ -90,21 +88,21 @@ async function getAPI(race, char_class, background) {
         const chaSubRace0 = data.subraces;
         for (let i = 0; i < chaSubRace0.length; i++) {
           const chaSubRace = chaSubRace0[i].name;
-          console.log(chaSubRace);
+          // console.log(chaSubRace);
         }
         const startingProficiencies0 = data.starting_proficiencies;
         for (let i = 0; i < startingProficiencies0.length; i++) {
           const startingProficiencies = startingProficiencies0[i].name;
-          console.log(startingProficiencies);
+          // console.log(startingProficiencies);
         }
         const chaTraits0 = data.traits;
         for (let i = 0; i < chaTraits0.length; i++) {
           const chaTraits = chaTraits0[i].name;
-          console.log(chaTraits);
+          // console.log(chaTraits);
         }
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   }
 
@@ -115,16 +113,16 @@ async function getAPI(race, char_class, background) {
     fetch(classURL)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const hitDice = data.hit_die;
         // // document.querySelector("#hit-dice").value = "1d" + hitDice;
-        console.log(hitDice);
+        // console.log(hitDice);
 
         const proficiencies0 = data.proficiencies;
         var proficiencies = [];
         for (let i = 0; i < proficiencies0.length; i++) {
           proficiencies.push(proficiencies0[i].name);
-          console.log(proficiencies);
+          // console.log(proficiencies);
         }
         // // document.querySelector("#char-prof").innerHTML = proficiencies;
 
@@ -132,7 +130,7 @@ async function getAPI(race, char_class, background) {
         var startingEquipment = [];
         for (let i = 0; i < startingEquipment0.length; i++) {
           startingEquipment.push(startingEquipment0[i].equipment.name);
-          console.log(startingEquipment);
+          // console.log(startingEquipment);
         }
         // // document.querySelector("#char-startEquip").innerHTML =
         // //   startingEquipment;
@@ -142,12 +140,12 @@ async function getAPI(race, char_class, background) {
           const proficiencyChoices = proficiencyChoices0[i];
           for (let j = 0; j < proficiencyChoices.from.length; j++) {
             var proficiencyList = proficiencyChoices0[i].from[j].name;
-            console.log(proficiencyList);
+            // console.log(proficiencyList);
             prof.push(proficiencyList);
           }
         }
         for (let i = 0; i < data.proficiency_choices.choose; i++) {
-          const option = choose[i];
+          const option = data.proficiency_choices.choose[i];
           profchoices.push[{ choice: option }];
         }
         allchoices.push(profchoices);
@@ -155,7 +153,7 @@ async function getAPI(race, char_class, background) {
         const savingThrows0 = data.saving_throws;
         for (let i = 0; i < savingThrows0.length; i++) {
           const savingThrows = savingThrows0[i].name;
-          console.log(savingThrows);
+          // console.log(savingThrows);
           if (savingThrows == "STR") {
             $('input[name="Strength-save-prof"]').prop("checked", true);
           }
@@ -181,16 +179,16 @@ async function getAPI(race, char_class, background) {
           for (let j = 0; j < 1; j++) {
             const startingEquipmentList =
               startingEquipmentOptions0[i].from[j].equipment.name;
-            console.log(startingEquipmentList);
+            // console.log(startingEquipmentList);
             equip.push(startingEquipmentList);
           }
         }
 
         const chaSubClass = data.subclasses[0].name;
-        console.log(chaSubClass);
+        // console.log(chaSubClass);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   }
 
@@ -200,19 +198,19 @@ async function getAPI(race, char_class, background) {
     fetch(backgroundURL)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const proficiencies0 = data.starting_proficiencies;
         var proficiencies = [];
         for (let i = 0; i < proficiencies0.length; i++) {
           proficiencies.push(proficiencies0[i].name);
-          console.log(proficiencies);
+          // console.log(proficiencies);
         }
         const languageChoices0 = data.language_options;
         for (let i = 0; i < languageChoices0.length; i++) {
           const languageChoices = languageChoices0[i];
           for (let j = 0; j < languageChoices.from.length; j++) {
             var languageList = languageChoices0[i].from[j].name;
-            console.log(languageList);
+            // console.log(languageList);
             language.push(languageList);
           }
           const langoptions = data.language_options.choose;
@@ -226,38 +224,41 @@ async function getAPI(race, char_class, background) {
         var startingEquipment = [];
         for (let i = 0; i < startingEquipment0.length; i++) {
           startingEquipment.push(startingEquipment0[i].equipment.name);
-          console.log(startingEquipment);
+          // console.log(startingEquipment);
         }
         // document.querySelector("#char-startEquip").innerHTML =
         //   startingEquipment;
 
-        const startingEquipmentOptions0 = data.starting_equipment_options;
+        //CURRENT API HAS NO EQUIPMENT OPTIONS
+        // const startingEquipmentOptions0 =
+        //   data.starting_equipment_options[0].from;
+        // console.log("--------------");
+        // console.log(startingEquipmentOptions0);
+        // for (let i = 0; i < startingEquipmentOptions0.length; i++) {
+        //   const startingEquipmentList =
+        //     startingEquipmentOptions0[i].equipment.equipment_category.name;
+        // console.log(startingEquipmentList);
+        //   equip.push(startingEquipmentList);
+        // }
+        // let choose = data.starting_equipment_options[0].choose;
+        // for (let i = 0; i < choose; i++) {
+        //   const option = choose[i];
+        //   equipchoices.push[{ choice: option }];
+        // }
+        // allchoices.push(equipchoices);
 
-        for (let i = 0; i < data.starting_equipment_options.choose; i++) {
-          const option = choose[i];
-          equipchoices.push[{ choice: option }];
-        }
-        allchoices.push(equipchoices);
-        for (let i = 0; i < startingEquipmentOptions0.length; i++) {
-          for (let j = 0; j < 1; j++) {
-            const startingEquipmentList =
-              startingEquipmentOptions0[i].from[j].equipment.name;
-            console.log(startingEquipmentList);
-            equip.push(startingEquipmentList);
-          }
-        }
         const backgroundFeature = data.feature.name;
-        console.log(backgroundFeature);
+        // console.log(backgroundFeature);
       });
   }
   getRace(race);
-  getClass(char_class);
-  getBackground(background);
-  return allchoices;
+  // getClass(char_class);
+  // getBackground(background);
+  // return langchoices;
 }
 // for (let i = 0; i < data.choose; i++) {
 //     const option = choose[i];
 //     choices.push[{choice: option}]
 // }
 
-module.exports = { getAPI, allchoices, allresults };
+exports = { getAPI, langchoices, allresults };

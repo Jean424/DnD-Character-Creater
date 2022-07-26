@@ -1,4 +1,9 @@
-<form class="form-horizontal" id="form-login">
+<form
+  action="/user/login"
+  method="POST"
+  class="form-horizontal"
+  id="form-login"
+>
 
   <div class="form-group">
     <label
@@ -8,6 +13,7 @@
     <div class="col-sm-4">
       <input
         type="email"
+        name="email"
         class="form-control bg-dark text-white"
         id="email-login"
         placeholder="Enter your email"
@@ -23,6 +29,7 @@
     <div class="col-sm-4">
       <input
         type="password"
+        name="password"
         class="form-control bg-dark text-white"
         id="password-login"
         placeholder="Enter your password"
@@ -31,8 +38,13 @@
   </div>
 
   <div>
-    <button type="submit" class="btn btn-warning" id="btn-login">Login</button>
+    <button
+      type="submit"
+      href="/user/login"
+      class="btn btn-warning"
+      id="btn-login"
+    >Login</button>
   </div>
 </form>
 
-<script src="/js/login.js"></script>
+{{! <script src="/js/login.js"></script> }}

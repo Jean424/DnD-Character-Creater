@@ -1,7 +1,9 @@
 <div class="character-creator">
   <form id="character-form form2">
-    <h1>Character Creator</h1>
-
+    <h1>Character Creator page 2</h1>
+    <p>{{character_main.name}}</p>
+    <p>{{race}}</p>
+    <p>{{data.size}}</p>
     <!-- Language selection -->
     {{#each langchoices}}
       <div>
@@ -64,7 +66,7 @@
 
   </form>
 </div>
-{{#if loggedIn}}
+{{!-- {{#if loggedIn}}
   <script src="./js/logout.js"></script>
 {{/if}}
-<script src="./js/character-creator.js"></script>
+<script src="./js/character-creator.js"></script> --}}
