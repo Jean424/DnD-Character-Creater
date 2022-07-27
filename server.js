@@ -8,6 +8,7 @@ const app = express();
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const helpers = require("./utils/helpers");
+const repeat = require("handlebars-helper-repeat");
 
 const PORT = process.env.PORT || 3001;
 
@@ -62,6 +63,7 @@ hbs.handlebars.registerHelper("stringify", function (Object) {
 hbs.handlebars.registerHelper("tostring", function (array) {
   return array.join(" ");
 });
+hbs.handlebars.registerHelper("repeat", repeat);
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");

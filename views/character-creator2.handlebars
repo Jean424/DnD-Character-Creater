@@ -2,73 +2,87 @@
   <form action="/characters/add2" method="POST" id="character-form form2">
     <h1>Character Creator page 2</h1>
     <h2>Race: {{racedata.name}}</h2>
-    <p>speed: {{racedata.speed}}</p>
-    {{#each langchoices as |language|}}
-      <p>{{language}}</p>
-    {{/each}}
-    <!-- Language selection -->
-    {{#each langchoice}}
+    <p name="charsize">{{racedata.size_description}}</p>
+    <p name="charspeed">Your speed is {{racedata.speed}}</p>
+    <h3>You gain the following ability bonuses: </h3>
+    <p>you gain {{#each racedata.ability_bonuses as |bonus|}} 
+      a +{{bonus.bonus}} to {{bonus.ability_score.name}}</p>
+      {{/each}}
+    {{#if racedata.starting_proficiencies}}
+<h3>You have proficiency in the following skills:</h3>
+<p>{{#each racedata.starting_proficiencies as |skill|}}
+{{skill.name}}{{#unless @last}},{{/unless}} 
+{{/each}}</p>
+{{/if}}
+<h3>You speak the following languages:</h3>
+<p></p>{{#each racedata.languages as |language|}}
+{{language.name}}{{#unless @last}},{{/unless}}  
+{{/each}}</p>
+<h3>and gain the following features:</h3>
+<p></p>{{#each racedata.traits as |trait|}}
+{{trait.name}}{{#unless @last}},{{/unless}}  
+{{/each}}</p>
+
+
+<h2>Class: {{classdata.name}}</h2>
+<p>You have proficiency with {{#each classdata.proficiencies as |prof|}}{{prof.name}}{{#unless @last}}, {{/unless}}{{/each}},
+  and {{#each classdata.saving_throws as |save|}}{{save.name}}{{#unless @last}}, {{/unless}}{{/each}} Saving Throws.
+<p>In addition, you may choose the following proficiencies:</p>
+
+<!-- Proficiency selection -->
+{{#each classdata.proficiency_choices as |selection|}}
+        <label for="class-prof">Pick {{selection.choose}}: </label>
+    {{#repeat selection.choose}}
       <div>
-        <label for="char-lang">Known Languages: </label>
-        <select id="char-lang" name="char-lang" required>
-          {{#each language}}
-            <option value="{{language}}"></option>
+        <select id="class-prof" name="class-prof" required>
+          {{#each selection.from as |choice|}}
+            <option value="{{choice.name}}">{{choice.name}}</option>
           {{/each}}
         </select>
       </div>
+    {{/repeat}}
     {{/each}}
 
-    {{#each traitchoices}}
-      <!-- Trait selection -->
-      <div>
-        <label for="char-trait">Traits: </label>
-        <select id="char-trait" name="char-trait" required>
-          {{#each trait as |trait|}}
-            <option value="{{trait}}"></option>
-          {{/each}}
-        </select>
-      </div>
-    {{/each}}
 
-    <!-- Proficiency selection -->
-    {{#each profchoices}}
-      <div>
-        <label for="char-prof">Proficiencies: </label>
-        <select id="char-prof" name="char-prof" required>
-          {{#each prof as |prof|}}
-            <option value="{{prof}}"></option>
-          {{/each}}
-        </select>
-      </div>
-    {{/each}}
-
-    <!--Skill selection -->
-    {{#each skillchoices}}
-      <div>
-        <label for="char-skill">Skills: </label>
-        <select id="char-skill" name="char-skill" required>
-          {{#each skill as |skill|}}
-            <option value="{{skill}}"></option>
-          {{/each}}
-        </select>
-      </div>
-    {{/each}}
-
+<h3>You begin with the following equipment:</h3>
+<p>{{#each classdata.starting_equipment as |equip|}}{{equip.equipment.name}}{{#if equip.quantity}} X{{equip.quantity}}{{/if}}{{#unless @last}}, {{/unless}}{{/each}}</p>
+<h3>and you may choose</h3>
     <!-- Equipment selection -->
-    {{#each equipchoices}}
+    {{#each classdata.starting_equipment_options as |selection|}}
+        <label for="class-equip">Pick {{selection.choose}}: </label>
+    {{#repeat selection.choose}}
       <div>
-        <label for="char-equip">Equipment: </label>
-        <select id="char-equip" name="char-equip" required>
-          {{#each equip as |equip|}}
-            <option value="{{equip}}"></option>
+        <select id="class-equip" name="class-equip" required>
+          {{#each selection.from as |choice|}}
+            <option value="{{choice.equipment.name}}">{{choice.equipment.name}}</option>
           {{/each}}
         </select>
       </div>
+    {{/repeat}}
     {{/each}}
+<p>{{backdata.language_options.from.[0].name}}</p>
+<h2>Background: {{backdata.name}}</h2>
+<p>{{backdata.feature.desc}}</p>
+<h3>Your background gives you proficiency in: </h3>
+  <p> {{#each backdata.starting_proficiencies as |prof|}}{{prof.name}}{{#unless @last}}, {{/unless}}{{/each}}</p> 
+  <h3>in addition, you learn {{backdata.language_options.choose}} languages of your choice</h3>
+        <label for="back-lang">Pick {{backdata.language_options.choose}}: </label>
+  {{#repeat backdata.language_options.choose}}
+      <div>
+        <select id="back-lang" name="back-lang" required>
+          {{#each backdata.language_options.from as |choice|}}
+            <option value="{{choice.name}}">{{choice.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+    {{/repeat}}
+    <h3>You gain the following equipment from your background:</h3>
+    {{#each backdata.starting_equipment as |start|}}
+<p>{{start.equipment.name}} X{{start.quantity}}{{#unless @last}}, {{/unless}}{{/each}}</p>
+  
+        
+            <button type="submit" id="submitbtn" href="/characters/add2" class= " create-submit" >Create your character</button>
+        </div>
 
   </form>
 </div>
-{{!-- {{#if loggedIn}}
-  <script src="./js/logout.js"></script>
-{{/if}}
-<script src="./js/character-creator.js"></script> --}}

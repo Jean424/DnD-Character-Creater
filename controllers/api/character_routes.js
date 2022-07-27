@@ -103,26 +103,59 @@ router.post("/add", async (req, res) => {
 
 // continue CREATE a character
 router.post("/add2", async (req, res) => {
-  let success = req.session.characterid;
-  console.log(success);
+  let characterid = req.session.characterid;
+  console.log(characterid);
+  console.log(req.body.charspeed);
   try {
-    const characterData = await Character_Main.create({
-      character_name: req.body.character_name,
-      char_class: req.body.char_class,
-      level: req.body.level,
-      age: req.body.age,
-      gender: req.body.gender,
-      race: req.body.race,
-      background: req.body.background,
-    });
-    const scoreData = await Character_Score.create({
-      character_id: characterData.id,
+    const characterSave = await Character_Saving_Throw.create({
+      character_id: characterid,
       str: req.body.str,
       dex: req.body.dex,
       con: req.body.con,
       int: req.body.int,
       wis: req.body.wis,
       cha: req.body.cha,
+    });
+    const characterSkill = await Character_Skill.create({
+      character_id: characterid,
+      acrobatics: false,
+      animal_handling: false,
+      arcana: false,
+      athletics: false,
+      deception: false,
+      history: true,
+      insight: false,
+      intimidation: false,
+      investigation: false,
+      medicine: true,
+      nature: false,
+      perception: false,
+      performance: false,
+      persuasion: true,
+      religion: true,
+      sleight_of_hand: false,
+      stealth: false,
+      survival: false,
+    });
+    const characterProf = await Character_Prof_Lang.create({
+      character_id: characterid,
+      tool,
+      armor,
+      weapon,
+      languages,
+    });
+    const characterEquip = await Character_Equipment.bulkCreate({
+      character_id: characterid,
+      index: "chain-mail",
+      name: "Chain Mail",
+      equipment_category: "armor",
+      armor_category: "fill",
+      ac: 16,
+      ac_dex_bonus: false,
+      str_minimum: 13,
+      weight: 55,
+      cost: 75,
+      cost_unit: "gp",
     });
     console.log("stored");
     // await getAPI(
