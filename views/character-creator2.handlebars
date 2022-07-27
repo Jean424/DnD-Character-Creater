@@ -1,15 +1,17 @@
 <div class="character-creator">
-  <form id="character-form form2">
+  <form action="/characters/add2" method="POST" id="character-form form2">
     <h1>Character Creator page 2</h1>
-    <p>{{character_main.name}}</p>
-    <p>{{race}}</p>
-    <p>{{data.size}}</p>
+    <h2>Race: {{racedata.name}}</h2>
+    <p>speed: {{racedata.speed}}</p>
+    {{#each langchoices as |language|}}
+      <p>{{language}}</p>
+    {{/each}}
     <!-- Language selection -->
-    {{#each langchoices}}
+    {{#each langchoice}}
       <div>
         <label for="char-lang">Known Languages: </label>
         <select id="char-lang" name="char-lang" required>
-          {{#each language as |language|}}
+          {{#each language}}
             <option value="{{language}}"></option>
           {{/each}}
         </select>

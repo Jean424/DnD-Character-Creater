@@ -1,10 +1,5 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-// const {
-//   getAPI,
-//   datareturn,
-//   allresults,
-// } = require("../public/js/character-creator");
 const {
   Character_Main,
   Character_Score,
@@ -14,6 +9,12 @@ const {
   Character_Equipment,
   Character_Spells,
 } = require("../models");
+const {
+  getRace,
+  getClass,
+  getBackground,
+  getAPI,
+} = require("../public/js/character-creator.js");
 
 //render homepage
 router.get("/", async (req, res) => {
@@ -38,20 +39,6 @@ router.get("/user/signup", async (req, res) => {
   res.render("signup");
 });
 
-// Direct to Charcter creator page
-router.get("/character/add", (req, res) => {
-  res.render("character-creator", {
-    loggedIn: req.session.loggedIn,
-  });
-});
-
-// Character Creator 2
-router.get("/character/add2", async (req, res) => {
-  let success = req.session.characterid;
-  console.log("SUCCESS! Character ID is " + success);
-  res.render("character-creator2");
-});
-
 //-- Character Sheet
 router.get("/character-sheet", async (req, res) => {
   if (!req.session.loggedIn) {
@@ -64,11 +51,24 @@ router.get("/character-sheet", async (req, res) => {
   });
 });
 
-//-- TESTING
-router.get("/test", async (req, res) => {
-  res.render("test", {
-    loggedIn: req.session.loggedIn,
+router.get("/characters/add", async (req, res) => {
+  res.render("character-creator", {
+    // loggedIn: req.session.loggedIn,
   });
+});
+
+router.get("/characters/add2", async (req, res) => {
+  let charid = req.session.characterid;
+  let charrace = req.session.charrace;
+  let charclass = req.session.charclass;
+  let charback = req.session.charback;
+  const apiGet = await getAPI(charrace, charclass, charback, { plain: true });
+  // const apiClass = await getClass(charclass);
+  // const apiBackground = await getBackground(charback);
+  // const parseRace = JSON.parse(apiRace);
+  console.log(apiGet);
+  console.log("-----------");
+  res.render("character-creator2", apiGet);
 });
 
 module.exports = router;

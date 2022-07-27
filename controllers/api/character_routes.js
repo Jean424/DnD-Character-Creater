@@ -10,11 +10,6 @@ const {
   Character_Equipment,
   Character_Spells,
 } = require("../../models");
-const {
-  getAPI,
-  datareturn,
-  allresults,
-} = require("../../public/js/character-creator");
 
 // GET all characters
 router.get("/all", async (req, res) => {
@@ -48,9 +43,9 @@ router.get("/:id", async (req, res) => {
         { model: Character_Spells },
       ],
     });
-
     // Serialize data so the template can read it
     const character = characterData.get({ plain: true });
+    console.log(character);
     // Pass serialized data and session flag into template
     res.render("character-sheet", character);
 
@@ -63,6 +58,7 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+// Direct to Charcter creator page
 
 // CREATE a character
 router.post("/add", async (req, res) => {
@@ -86,13 +82,16 @@ router.post("/add", async (req, res) => {
       cha: req.body.cha,
     });
     req.session.characterid = characterData.id;
+    req.session.charrace = characterData.race;
+    req.session.charclass = characterData.char_class;
+    req.session.charback = characterData.background;
     console.log("Character ID is " + characterData.id);
     // await getAPI(
     //   characterData.race,
     //   characterData.char_class,
     //   characterData.background
     // );
-    res.redirect("/character/add2");
+    res.redirect("/characters/add2");
 
     // res.render("character-creator2", { langchoices });
     // res.redirect("character-creator2", characterData);

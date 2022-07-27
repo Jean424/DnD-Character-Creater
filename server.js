@@ -4,12 +4,10 @@ const path = require("path");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
-const fetch = require("node-fetch");
 
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const helpers = require("./utils/helpers");
-const { Character_Main } = require("./models");
 
 const PORT = process.env.PORT || 3001;
 
@@ -67,7 +65,7 @@ hbs.handlebars.registerHelper("tostring", function (array) {
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
-app.use(express.json());
+app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
