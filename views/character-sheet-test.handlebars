@@ -1,0 +1,292 @@
+
+<link rel="stylesheet" href="../css/character-sheet.css">
+<style>
+  .charsheet{
+      display: block;
+    }
+</style>
+
+<form class="charsheet">
+  {{!-- Sheet Header --}}
+  <header>
+{{> charsheet-header}}
+  </header>
+
+
+  <main>
+    <section>
+      <section class="attributes"> 
+        {{!-- CHARACTER SCORES --}}
+{{> charsheet-scores}}
+
+        <div class="attr-applications">
+           <div class="inspiration box">
+            <div class="label-container">
+              <label for="inspiration">Inspiration</label>
+            </div>
+            <input type='checkbox' checked value="{{inspiration}}" name="inspiration"/>
+          </div>
+          
+          {{!-- PROF BONUSES --}}
+          <div class="proficiencybonus box">
+            <div class="label-container">
+              <label for="proficiencybonus">Proficiency Bonus</label>
+            </div>
+            <input type='text' value="{{sign prof_bonus}}" name="proficiencybonus" placeholder="+2" />
+          </div>
+
+          {{> charsheet-savthrows}}
+          
+          {{> charsheet-skills}}
+
+      <div class="passive-perception box">
+        <div class="label-container">
+          <label for="passiveperception">Passive Wisdom (Perception)</label>
+        </div>
+        <input type="text" value="{{passive (get_mod Character_Scores.[0].wis)}}" name="passiveperception" placeholder="10" />
+      </div>
+
+      <div class="otherprofs box textblock">
+        <label for="otherprofs">Other Proficiencies and Languages</label>
+        <textarea name="otherprofs">
+          Tools: 
+          {{#each Character_Prof_Langs.[0].tool as |tools|}}
+         {{tools}}
+         {{/each}}
+
+         Armor: 
+        {{#each Character_Prof_Langs.[0].armor as |armor|}}
+         {{armor}}
+         {{/each}}
+
+         Weapons: 
+         {{#each Character_Prof_Langs.[0].weapon as |weapons|}}
+         {{weapons}}
+         {{/each}}
+
+         Languages:
+         {{#each Character_Prof_Langs.[0].languages as |languages|}}
+         {{languages}}
+         {{/each}} 
+         
+         </textarea>
+      </div>
+    </section>
+    {{!-- COLUMN 1 --> END --}}
+
+    {{!-- COLUMN 2 --> START --}}
+    <section>
+      <section class="combat">
+        <div class="armorclass">
+          <div>
+            <label for="ac">Armor Class</label>
+            <input type="text" value="{{ac}}" name="ac" placeholder="10" />
+          </div>
+        </div>
+        <div class="initiative">
+          <div>
+            <label for="initiative">Initiative</label>
+            <input type="text" value="{{get_mod Character_Scores.[0].dex}}" name="initiative" placeholder="+0" />
+          </div>
+        </div>
+        <div class="speed">
+          <div>
+            <label for="speed">Speed</label>
+            <input type="text" value="{{speed}}" name="speed" placeholder="30"  class="char-speed" />
+          </div>
+        </div>
+        <div class="hp">
+          <div class="regular">
+            <div class="max">
+              <label for="maxhp">Hit Point Maximum</label>
+              <input type="text" value="{{maxhp}}" name="maxhp" placeholder="10" />
+            </div>
+            <div class="current">
+              <label for="currenthp">Current Hit Points</label>
+              <input type="text" value="{{currenthp}}" name="currenthp" />
+            </div>
+          </div>
+          <div class="temporary">
+            <label for="temphp">Temporary Hit Points</label>
+            <input type="text" value="{{temphp}}" name="temphp" />
+          </div>
+        </div>
+        <div class="hitdice">
+          <div>
+            <div class="total">
+              <label onclick="totalhd_clicked()" for="totalhd">Total</label>
+              <input type="text" value="{{totalhd}}" name="totalhd" placeholder="2d10" id="hit-dice" />
+            </div>
+            <div class="remaining">
+              <label for="remaininghd">Hit Dice</label>
+              <input type="text" value="{{hitdice}}" name="remaininghd" />
+            </div>
+          </div>
+        </div>
+        <div class="deathsaves">
+          <div>
+            <div class="label">
+              <label>Death Saves</label>
+            </div>
+            <div class="marks">
+              <div class="deathsuccesses">
+                <label>Successes</label>
+                <div class="bubbles">
+                  <input value="{{deathsuccess1}}" name="deathsuccess1" type="checkbox" />
+                  <input value="{{deathsuccess2}}" name="deathsuccess2" type="checkbox" />
+                  <input value="{{deathsuccess3}}" name="deathsuccess3" type="checkbox" />
+                </div>
+              </div>
+              <div class="deathfails">
+                <label>Failures</label>
+                <div class="bubbles">
+                  <input value="{{deathfail1}}" name="deathfail1" type="checkbox" />
+                  <input value="{{deathfail2}}" name="deathfail2" type="checkbox" />
+                  <input value="{{deathfail3}}" name="deathfail3" type="checkbox" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="attacksandspellcasting">
+        <div>
+          <label>Attacks & Spellcasting</label>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Atk Bonus
+                </th>
+                <th>
+                  Damage/Type
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input value="{{atkname1}}" name="atkname1" type="text" />
+                </td>
+                <td>
+                  <input value="{{atkbonus1}}" name="atkbonus1" type="text" />
+                </td>
+                <td>
+                  <input value="{{atkdamage1}}" name="atkdamage1" type="text" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input value="{{atkname2}}" name="atkname2" type="text" />
+                </td>
+                <td>
+                  <input value="{{atkbonus2}}" name="atkbonus2" type="text" />
+                </td>
+                <td>
+                  <input value="{{atkdamage2}}" name="atkdamage2" type="text" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input value="{{atkname3}}" name="atkname3" type="text" />
+                </td>
+                <td>
+                  <input value="{{atkbonus3}}" name="atkbonus3" type="text" />
+                </td>
+                <td>
+                  <input value="{{atkdamage3}}" name="atkdamage3" type="text" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <textarea></textarea>
+        </div>
+      </section>
+      <section class="equipment">
+        <div>
+          <label>Equipment</label>
+          <div class="money">
+            <ul>
+              <li>
+                <label for="cp">cp</label>
+                <input value="{{cp}}" name="cp" />
+              </li>
+              <li>
+                <label for="sp">sp</label>
+                <input value="{{sp}}" name="sp" />
+              </li>
+              <li>
+                <label for="ep">ep</label>
+                <input value="{{ep}}" name="ep" />
+              </li>
+              <li>
+                <label for="gp">gp</label>
+                <input value="{{gp}}" name="gp" />
+              </li>
+              <li>
+                <label for="pp">pp</label>
+                <input value="{{pp}}" name="pp" />
+              </li>
+            </ul>
+          </div>
+          <textarea placeholder="Equipment list here">
+            {{#each Character_Equipments}}
+            {{this.name}}
+            {{/each}}
+            </textarea>
+        </div>
+      </section>
+    </section>
+    {{!-- COLUMN 3 --}}
+    <section>
+      <section class="flavor">
+        <div class="personality">
+          <label for="personality">Personality</label>
+          <textarea name="personality">{{personality}}</textarea>
+        </div>
+        <div class="ideals">
+          <label for="ideals">Ideals</label>
+          <textarea name="ideals">{{ideals}}</textarea>
+        </div>
+        <div class="bonds">
+          <label for="bonds">Bonds</label>
+          <textarea name="bonds">{{bonds}}</textarea>
+        </div>
+        <div class="flaws">
+          <label for="flaws">Flaws</label>
+          <textarea name="flaws">{{flaws}}</textarea>
+        </div>
+      </section>
+      <section class="features">
+        <div>
+          <label for="features">Features & Traits</label>
+          <textarea name="features" class="char-feat">{{features}}</textarea>
+        </div>
+      </section>
+    </section>
+  </main>
+</form>
+
+
+<div class="container-title">
+  <div class="row">
+    <div class="col-12">
+      <div id="submitbutton">
+        <h1 class="text-warning" id="header-welcome">WELCOME</h1>
+            <button type="button" id="charsubmitbtn" onclick="javascript:submitCharacter()" src="../images/charbutton.png" name="create-character" class="charbtnSubmit" id="character-submit"/> </a>
+        </div>
+    </div>
+  </div>
+</div>
+     
+    
+{{!-- Ability to edit char sheet manually --}}
+{{#if loggedIn}}
+<script src="./js/logout.js"></script>
+{{/if}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="../js/character-submit.js"></script>
+

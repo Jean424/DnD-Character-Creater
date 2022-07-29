@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "character_name": "Thava Alter",
+    "player_name": "Ivy Lovegood",
+    "char_class": "Paladin",
+    "level": 1,
+    "age": 27,
+    "gender": "female",
+    "prof_bonus": 2,
+    "speed": 30,
+    "race": "Dragonborn",
+    "background": "Noble",
+    "alignment": "Lawful Good",
+    "experience": 0,
+    "inspiration": false
+  }
+]

@@ -9,26 +9,23 @@ body {
 .navbar-brand {
   font-size: larger !important;
 }
- 
+
 .charbtnSubmit {
-max-width: 25%;
-max-height: 25%;
-padding-top: 10%;
-padding-right:2%;
+  max-width: 25%;
+  max-height: 25%;
+  padding-top: 10%;
+  padding-right: 2%;
 }
 .sheetbtnSubmit {
   max-width: 25%;
   max-height: 25%;
   padding-top: 10%;
   padding-left: 2%;
-  }
+}
 
-  .navbar-toggler{
-    background-color:#ffbb33 !important;
-  }
-
-
- 
+.navbar-toggler {
+  background-color: #ffbb33 !important;
+}
 
 .navbar-brand {
   font-family: "MedievalSharp";
@@ -65,14 +62,11 @@ a,
   font-family: "MedievalSharp";
 }
 
-
 #header-welcome-container {
   text-align: center;
 
-  font-family: 'MedievalSharp'
-  
-  }
-
+  font-family: "MedievalSharp";
+}
 
 /* CHARACTER CREATOR  */
 
@@ -92,6 +86,8 @@ a,
   font-family: "MedievalSharp";
   text-align: center;
   color: #ffbb33;
+  font-size: x-large;
+  text-shadow: 3px 3px 4px black, -3px -3px 4px black;
 }
 
 .create-submit {
@@ -103,9 +99,6 @@ a,
   display: inline-block;
 }
 
-
-
-
 /* new css*/
 .character-card {
   margin: 1rem;
@@ -115,7 +108,7 @@ a,
   text-align: center;
   justify-content: center;
   align-items: center;
-  width:50%;
+  width: 50%;
   border: rgb(69, 66, 66) solid 4px;
   border-radius: 5px;
   background-color: white;
@@ -133,13 +126,12 @@ a,
 }
 
 .character-name-sheet {
-  
   font-weight: 400;
   font-size: 1.5rem;
   background-color: rgb(104, 96, 96);
   color: white;
   flex: 100%;
-  padding: .25rem 2rem;
+  padding: 0.25rem 2rem;
 }
 
 .character-card:hover {
@@ -147,15 +139,15 @@ a,
   transform: scale(1.02);
 }
 
-.character-level-class{
+.character-level-class {
   flex: 100%;
   justify-content: space-between;
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 1.25rem;
   font-weight: 600;
 }
 
-.character-stats{
+.character-stats {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -166,7 +158,6 @@ a,
   padding: 1rem;
 }
 
-
 .profile-banner-username p {
   background-color: white;
   border: 3px solid rgb(52, 51, 51);
@@ -174,19 +165,26 @@ a,
   margin: 0px;
   font-weight: bold;
 }
+#agegen {
+  display: flex;
+  flex-flow: row nowrap;
+}
+#agegen children {
+  width: 35%;
+}
 
+/* profile page style */
 
 /* MEDIA QUERIES*/
 
 @media (max-width: 600px) {
   .charbtnSubmit {
-    max-width:50%;
-    max-height:50%;
+    max-width: 50%;
+    max-height: 50%;
   }
   .sheetbtnSubmit {
     max-width: 50%;
-    max-height:50%;
-    padding-left:0;
+    max-height: 50%;
+    padding-left: 0;
   }
-
 }

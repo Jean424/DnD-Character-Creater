@@ -1,25 +1,38 @@
-
 <div class="container-title">
   <div class="row">
     <div class="col-12">
       <div id="header-welcome-container">
         <h1 class="text-warning" id="header-welcome">WELCOME</h1>
         {{#if loggedIn}}
-         
-          <a href="./character-creator">
-            <input type="image" src="./images/charbutton.png" name="create-character" class="charbtnSubmit" id="character-creator" href="/character-creator" /> </a>
+
+          <a href="/characters/add">
+            <input
+              type="image"
+              src="./images/charbutton.png"
+              name="create-character"
+              class="charbtnSubmit"
+              id="character-creator"
+            />
+          </a>
           <a href="./character-sheet">
-            <input type="image" src="./images/sheetbutton.png" name="sheet-character" class="sheetbtnSubmit" id="sheet-creator" href="/character-sheet"  /> </a>
+            <input
+              type="image"
+              src="./images/sheetbutton.png"
+              name="sheet-character"
+              class="sheetbtnSubmit"
+              id="sheet-creator"
+            />
+          </a>
 
         {{else}}
-        
 
-        <img src="./images/welcomescreen.png" alt="" id="welcome-screen-words">
+          <img
+            src="/images/welcomescreen.png"
+            alt=""
+            id="welcome-screen-words"
+          />
         {{/if}}
-       </div>
+      </div>
     </div>
   </div>
 </div>
-     
-    
-  

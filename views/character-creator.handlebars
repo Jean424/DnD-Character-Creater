@@ -1,11 +1,42 @@
-<div class="character-creator">
-    <form id="character-form">
+<form action="/characters/add" method="POST" id="character-creator" class="character-creator">
+    <div >
         <h1>Character Creator</h1>
 
-        <!-- Race selection -->
+         <!-- Name input-->
+        <div class="form1">
+            <label for="char-name">Character Name: </label>
+            <input type="text" id="char-name" name="character_name" required>
+        </div>
+<div class="agegen form1">
+          <!-- Age selection -->
         <div>
+            <label for="char-age">Age: </label>
+            <input type="number" id="char_age" name="age" required>
+        </div>
+        <!-- Gender selection -->
+        <div>
+            <label for="char-gender">Gender: </label>
+            <select id="char-gender" name="gender" required>
+                <option hidden></option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        </div>
+        <div class="form1">
+
+        <!-- Character level -->
+        {{!-- <div>
+            <label for="char-level">Character level: </label>
+            <input type="number" id="char-level" name="char-level" min="1" max="20" required>
+
+        </div> --}}
+
+        <!-- Race selection -->
+        <div class="form1">
             <label for="char-race">Race: </label>
-            <select id="char-race" name="char-race" required>
+            <select id="char-race" name="race" required>
                 <option hidden></option>
                 <option value="dragonborn">Dragonborn</option>
                 <option value="dwarf">Dwarf</option>
@@ -19,10 +50,10 @@
             </select>
         </div>
 
-        <!-- Class selection -->
-        <div>
+<!-- Class selection -->
+        <div class="form1">
             <label for="char-class">Classes: </label>
-            <select id="char-class" name="char-class" required>
+            <select id="char-class" name="char_class" required>
                 <option hidden></option>
                 <option value="barbarian">Barbarian</option>
                 <option value="bard">Bard</option>
@@ -39,40 +70,52 @@
         </div>
         </select>
 
-        <!-- Name input-->
-        <div>
-            <label for="char-name">Character Name: </label>
-            <input type="text" id="char-name" name="char-name" required>
-        </div>
-
-        <!-- Gender selection -->
-        <div>
-            <label for="char-gender">Gender: </label>
-            <select id="char-gender" name="char-gender" required>
+         <!-- Background selection -->
+        <div class="form1">
+            <label for="char-background">Background: </label>
+            <select id="char-background" name="background" required>
                 <option hidden></option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-                <option value="other">Other</option>
+                <option value="acolyte">Acolyte</option>
+                
             </select>
         </div>
 
-        <!-- Age selection -->
-        <div>
-            <label for="char-age">Age: </label>
-            <input type="number" id="char-age" name="char-age" required>
+         <!-- Ability selection -->
+        <div class="scores form1">
+         <div>
+            <label for="char-strength">Ability Score: Strength: </label>
+            <input type="number" id="char-str" name="str" required>
         </div>
 
-        <!-- Character level -->
-        <div>
-            <label for="char-level">Character level: </label>
-            <input type="number" id="char-level" name="char-level" min="1" max="20" required>
-
+         <div>
+            <label for="char-dexterity">Ability Score: Dexterity: </label>
+            <input type="number" id="char-dex" name="dex" required>
         </div>
 
-        <div>
-            <button type="submit">Create your character</button>
+         <div>
+            <label for="char-constitution">Ability Score: Constitution: </label>
+            <input type="number" id="char-con" name="con" required>
         </div>
-    </form>
-</div>
-
-<script src="javascript/character-creator.js"></script>
+         <div>
+            <label for="char-intelligence">Ability Score: Intelligence </label>
+            <input type="number" id="char-int" name="int" required>
+        </div>
+       
+         <div>
+            <label for="char-wisdom">Ability Score: Wisdom: </label>
+            <input type="number" id="char-wis" name="wis" required>
+        </div>
+         <div>
+            <label for="char-charisma">Ability Score: Charisma: </label>
+            <input type="number" id="char-cha" name="cha" required>
+        </div>
+        </div>
+        
+            <button type="submit" id="submitbtn" href="/characters/add" class= "form1 create-submit" >Continue</button>
+        </div>
+    </div>
+</form>
+{{!-- {{#if loggedIn}}
+<script src="./js/logout.js"></script>
+{{/if}} --}}
+{{!-- <script src="./js/submit.js"></script> --}}

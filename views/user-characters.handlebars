@@ -1,0 +1,16 @@
+
+<div class="container-title">
+  <div class="row">
+    <div class="col-12">
+      <div id="all-characters-container">
+        {{#each character_main as |character|}}
+        <div class="character card">
+            <h3 class="character-name">{{character.character_name}}</h3>
+            <p class="character-desc">{{character.race}} {{character.class}}, level {{character.level}}</p>
+        </div>
+        {{/each}}
+       </div>
+    </div>
+  </div>
+</div>
+     
