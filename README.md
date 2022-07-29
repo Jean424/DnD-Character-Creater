@@ -1,4 +1,4 @@
-# Project_2
+# DND CHARACTER CREATER
 
 ## Table of Contents
 
@@ -39,10 +39,9 @@ Licensed under the [MIT License](LICENSE).
 
 ## Questions:
 
-- GitHub: https://github.com/Jean424/Project_2
-- Email:
+- GitHub: https://github.com/Jean424/DnD-Character-Creater
 
 ## Link
 
-- Link to the heroku:
-- Screen_Shot of app_homepage:![Screenshot of application]()
+- Link to the heroku:https://guarded-bayou-66527.herokuapp.com/
+- Screen_Shot of app_homepage:![Screenshot of application](/images/ScreenShot_HomePage.png)
