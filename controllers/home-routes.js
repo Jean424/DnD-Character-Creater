@@ -9,12 +9,7 @@ const {
   Character_Equipment,
   Character_Spells,
 } = require("../models");
-const {
-  getRace,
-  getClass,
-  getBackground,
-  getAPI,
-} = require("../public/js/character-creator.js");
+const { getAPI } = require("../public/js/character-creator.js");
 
 //render homepage
 router.get("/", async (req, res) => {
@@ -62,6 +57,8 @@ router.get("/characters/add2", async (req, res) => {
   let charclass = req.session.charclass;
   let charback = req.session.charback;
   const apiGet = await getAPI(charrace, charclass, charback, { plain: true });
+  let apistring = JSON.stringify(apiGet);
+  req.session.apidata = apistring;
   res.render("character-creator2", apiGet);
 });
 

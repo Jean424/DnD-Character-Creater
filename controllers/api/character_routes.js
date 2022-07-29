@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { getCipherInfo } = require("crypto");
 const path = require("path");
 const {
   User,
@@ -10,6 +11,12 @@ const {
   Character_Equipment,
   Character_Spells,
 } = require("../../models");
+const {
+  getAPI,
+  getSaves,
+  getSkills,
+  getProf,
+} = require("../../public/js/character-creator.js");
 
 // GET all characters
 router.get("/all", async (req, res) => {
@@ -45,7 +52,7 @@ router.get("/:id", async (req, res) => {
     });
     // Serialize data so the template can read it
     const character = characterData.get({ plain: true });
-    console.log(character);
+    // console.log(character);
     // Pass serialized data and session flag into template
     res.render("character-sheet", character);
 
@@ -104,66 +111,102 @@ router.post("/add", async (req, res) => {
 // continue CREATE a character
 router.post("/add2", async (req, res) => {
   let characterid = req.session.characterid;
-  console.log(characterid);
-  console.log(req.body.charspeed);
+  let apistring = req.session.apidata;
+  const apiGet = JSON.parse(apistring);
+  // console.log(apiGet);
   try {
-    const characterSave = await Character_Saving_Throw.create({
-      character_id: characterid,
-      str: req.body.str,
-      dex: req.body.dex,
-      con: req.body.con,
-      int: req.body.int,
-      wis: req.body.wis,
-      cha: req.body.cha,
+    const characterData = await Character_Main.findByPk(
+      req.params.characterid,
+      {
+        include: [
+          { model: Character_Score },
+          // { model: Character_Saving_Throw },
+          // { model: Character_Skill },
+          // { model: Character_Prof_Lang },
+          // { model: Character_Equipment },
+          // { model: Character_Spells },
+        ],
+      }
+    );
+    const charid = characterid;
+    const saveGet = await getSaves(apiGet, charid, { plain: true });
+    const sendskills = req.body.class_prof;
+    const skillGet = await getSkills(sendskills, apiGet, charid, {
+      plain: true,
     });
-    const characterSkill = await Character_Skill.create({
-      character_id: characterid,
-      acrobatics: false,
-      animal_handling: false,
-      arcana: false,
-      athletics: false,
-      deception: false,
-      history: true,
-      insight: false,
-      intimidation: false,
-      investigation: false,
-      medicine: true,
-      nature: false,
-      perception: false,
-      performance: false,
-      persuasion: true,
-      religion: true,
-      sleight_of_hand: false,
-      stealth: false,
-      survival: false,
+    const sendprofchoice = req.body.class_prof;
+    const sendlangchoices = req.body.back_lang;
+    const profGet = await getProf(
+      sendprofchoice,
+      sendlangchoices,
+      apiGet,
+      charid
+      // {
+      //   plain: true,
+      // }
+    );
+    console.log("------");
+    const characterSave = await Character_Saving_Throw.create(saveGet);
+    const characterSkill = await Character_Skill.create(skillGet);
+    const characterProf = await Character_Prof_Lang.create(profGet, {
+      // plain: true,
     });
-    const characterProf = await Character_Prof_Lang.create({
-      character_id: characterid,
-      tool,
-      armor,
-      weapon,
-      languages,
-    });
-    const characterEquip = await Character_Equipment.bulkCreate({
-      character_id: characterid,
-      index: "chain-mail",
-      name: "Chain Mail",
-      equipment_category: "armor",
-      armor_category: "fill",
-      ac: 16,
-      ac_dex_bonus: false,
-      str_minimum: 13,
-      weight: 55,
-      cost: 75,
-      cost_unit: "gp",
-    });
+    console.log("Character Saves", characterSave);
+    console.log("Character Skills", characterSkill);
+    console.log("Character ProfLang", characterProf);
+    // function getSave(){apiGet.classdata.saving_throws.forEach(element => {
+    //       console.log(element.name.toLowerCase())
+    //      return element.name.toLowerCase() = true;
+
+    //     });}
+    // const characterSkill = await Character_Skill.create({
+    //   character_id: characterid,
+    //   acrobatics: false,
+    //   animal_handling: false,
+    //   arcana: false,
+    //   athletics: false,
+    //   deception: false,
+    //   history: true,
+    //   insight: false,
+    //   intimidation: false,
+    //   investigation: false,
+    //   medicine: true,
+    //   nature: false,
+    //   perception: false,
+    //   performance: false,
+    //   persuasion: true,
+    //   religion: true,
+    //   sleight_of_hand: false,
+    //   stealth: false,
+    //   survival: false,
+    // });
+    // const characterProf = await Character_Prof_Lang.create({
+    //   character_id: characterid,
+    //   tool,
+    //   armor,
+    //   weapon,
+    //   languages,
+    // });
+    // const characterEquip = await Character_Equipment.bulkCreate({
+    //   character_id: characterid,
+    //   index: "chain-mail",
+    //   name: "Chain Mail",
+    //   equipment_category: "armor",
+    //   armor_category: "fill",
+    //   ac: 16,
+    //   ac_dex_bonus: false,
+    //   str_minimum: 13,
+    //   weight: 55,
+    //   cost: 75,
+    //   cost_unit: "gp",
+    // });
     console.log("stored");
     // await getAPI(
     //   characterData.race,
     //   characterData.char_class,
     //   characterData.background
     // );
-    res.redirect("/add2");
+    res.redirect("/characters/" + characterid);
 
     // res.render("character-creator2", { langchoices });
     // res.redirect("character-creator2", characterData);
