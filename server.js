@@ -28,9 +28,6 @@ const hbs = exphbs.create({ helpers }); //-- creating with helpers
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-//------------------------------------------------------------------------------
-//-- Express Session and Connection-Session Sequelize onboarding
-
 const session = require("express-session");
 
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -47,7 +44,7 @@ const sess = {
 
 app.use(session(sess));
 
-const hbs = exphbs.create({ helpers });
+//handlebars helpers
 hbs.handlebars.registerHelper("get_mod", function (score) {
   let mod = Math.floor((score - 10) / 2);
   return mod;
