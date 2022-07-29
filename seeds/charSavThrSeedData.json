@@ -1,0 +1,12 @@
+[
+  {
+    "character_id": 1,
+    "id": 1,
+    "str": false,
+    "dex": false,
+    "con": false,
+    "int": false,
+    "wis": true,
+    "cha": true
+  }
+]

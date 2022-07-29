@@ -1,0 +1,10 @@
+[
+  {
+    "character_id": 1,
+    "id": 1,
+    "tool": ["Dice Set"],
+    "armor": ["Heavy Armor", "Light Armor", "Medium Armor", "Shields"],
+    "weapon": ["Longsword", "Martial Weapons"],
+    "languages": ["Common", "Draconic", "Dwarvish"]
+  }
+]

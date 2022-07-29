@@ -5,20 +5,16 @@ const withAuth = require("../../utils/auth");
 const { Session } = require("express-session");
 const session = require("express-session");
 
-// importing User and character models
-const { User, Character } = require("../../models/index");
-
-// confirms user is logged in before executing function
-const withAuth = require("../../utils/auth");
-
-// Get all users
+// all users
 router.get("/", (req, res) => {
   User.findAll({
-    attributes: { exclude: ["password"] },
+    include: { all: true, nested: true },
   })
-    .then((userData) => res.json(userData))
+    .then((dbUsers) => {
+      res.json(dbUsers);
+    })
     .catch((err) => {
-      res.status(500).json(err);
+      res.status(500).json({ msg: "An error occured!", err });
     });
 });
 

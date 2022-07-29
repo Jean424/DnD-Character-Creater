@@ -12,26 +12,6 @@ const repeat = require("handlebars-helper-repeat");
 
 const PORT = process.env.PORT || 3001;
 
-//-- Feeding Express server info it needs to be used
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-//-- this MUST be above routes
-app.use(express.static(path.join(__dirname, "public")));
-
-//-- Defining APP template engine - Using Handelbars
-const exphbs = require("express-handlebars");
-const helpers = require("./utils/helpers"); //-- importing helpers
-const hbs = exphbs.create({ helpers }); //-- creating with helpers
-
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
-
-const session = require("express-session");
-
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
-
 const sess = {
   secret: "super super secret",
   cookie: { originalMaxAge: 6000000 },
@@ -44,7 +24,7 @@ const sess = {
 
 app.use(session(sess));
 
-//handlebars helpers
+const hbs = exphbs.create({ helpers });
 hbs.handlebars.registerHelper("get_mod", function (score) {
   let mod = Math.floor((score - 10) / 2);
   return mod;

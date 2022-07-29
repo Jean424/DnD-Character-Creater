@@ -9,12 +9,7 @@ const {
   Character_Equipment,
   Character_Spells,
 } = require("../models");
-const {
-  getRace,
-  getClass,
-  getBackground,
-  getAPI,
-} = require("../public/js/character-creator.js");
+const { getAPI } = require("../public/js/character-creator.js");
 
 //render homepage
 router.get("/", async (req, res) => {
@@ -62,73 +57,9 @@ router.get("/characters/add2", async (req, res) => {
   let charclass = req.session.charclass;
   let charback = req.session.charback;
   const apiGet = await getAPI(charrace, charclass, charback, { plain: true });
+  let apistring = JSON.stringify(apiGet);
+  req.session.apidata = apistring;
   res.render("character-creator2", apiGet);
-});
-
-router.get("/profile", async (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect("homepage");
-    return;
-  }
-
-  try {
-    // console.log(req.session.User)
-    const characterData = await Character.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
-      attributes: [
-        "id",
-        "user_id",
-        "name",
-        "race",
-        "class",
-        "gender",
-        "name",
-        "race",
-        "class",
-        "gender",
-        "age",
-        "player_level",
-        "proficiency_bonus",
-        "alignment",
-        "languages",
-        "proficiencies",
-      ],
-    });
-
-    const characters = characterData.map((character) =>
-      character.get({ plain: true })
-    );
-
-    res.render("profile", {
-      characters,
-      loggedIn: req.session.loggedIn,
-      username: req.session.username,
-    });
-  } catch (err) {
-    // console.log(err);
-    res.status(500).json(String(err));
-  }
-});
-
-//-- if gets here when routing, throw 404
-router.use((req, res) => {
-  res
-    .status(404)
-    .json({
-      request: {
-        method: req.method,
-        params: req.params,
-        body: req.body,
-        path: "./home-routes",
-      },
-      response: {
-        status: 404,
-        message: "Request failure. Page not found.",
-      },
-    })
-    .end();
 });
 
 module.exports = router;

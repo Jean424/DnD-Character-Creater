@@ -1,12 +1,9 @@
-    <section class="profile-banner-username">
-        <p>{{username}}'s Characters</p>
-    </section>
-    
-    <section class="character-list">
-        {{#each characters as |character|}}
-            <div class="character-card">
-                {{> character-details}}
-            </div>
-        {{/each}}
-    </section>
+{{#each user}}
+  {{> profile-card}}
+{{/each}}
+{{!-- <section>
+  <div id="profile-header-container">
+    <h2 class="text-warning" id="profile-header">Your Characters</h2>
+  </div>
+</section> --}}
 
