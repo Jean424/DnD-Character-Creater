@@ -1,21 +1,75 @@
-const { Store } = require("express-session");
-const session = require("express-session");
-var fetch = require("node-fetch");
-const {
-  User,
-  Character_Main,
-  Character_Score,
-  Character_Saving_Throw,
-  Character_Skill,
-  Character_Prof_Lang,
-  Character_Equipment,
-  Character_Spells,
-} = require("../../models");
+// function setCookies(name, value){
+// app.get('/', function(req, res) {
+// var sessData = req.session;
+// sessData.token = form1;
+// char_name = document.querySelector("#character-form").querySelector("#char-name").value
+// char_age = document.querySelector("#character-form").querySelector("#char-age").value
+// char_gen = document.querySelector("#character-form").querySelector("#char-gen").value
+// char_race = document.querySelector("#character-form").querySelector("#char-race").value
+// char_class = document.querySelector("#character-form").querySelector("#char-class").value
+// char_background = document.querySelector("#character-form").querySelector("#char-background").value
+// char_str = document.querySelector("#character-form").querySelector("#char-str").value
+// char_dex = document.querySelector("#character-form").querySelector("#char-dex").value
+// char_con = document.querySelector("#character-form").querySelector("#char-con").value
+// char_int = document.querySelector("#character-form").querySelector("#char-int").value
+// char_wis = document.querySelector("#character-form").querySelector("#char-wis").value
+// char_cha = document.querySelector("#character-form").querySelector("#char-cha").value
 
+// res.render('character-creator', req.session);
+//     session.save();
+// console.log(form1);
+//   });
+// }
+
+// function continueCharacter(){
+//    const form = document.querySelector("#character-form");
+//    const form1 = form.getElementsByClassName("form1")
+//    for (let i = 0; i < form1.length; i++) {
+//     const element = form1[i];
+//     element.classList.add("hidden")
+
+//    }
+// }
+var fetch = require("node-fetch");
+
+// char_race = document.querySelector("#character-form").querySelector("#char-race").value
+// async function getAPI(race, char_class, background) {
+
+var racespeed;
+var racescorebonus;
+var racesize;
+var raceprof;
+var raceprofoptions;
+var racelang;
+var racetraits;
+var classhitdice;
+var classprofoptions;
+var classprofoptions;
+var classsavthrow;
+var classequip;
+var classequipoptions;
+var backprof;
+var backlangoptions;
+var backequip;
+var backequipoptions;
+var backfeature;
+var langchoices;
+var trait = [];
+var traitchoices = [];
+var prof = [];
+var profchoices = [];
+var skill = [];
+var skillchoices = [];
+var equip = [];
+var equipchoices = [];
+var spell = [];
+var spellchoices = [];
 var racedata;
 var classdata;
 var backdata;
+var langoptions;
 async function getAPI(charrace, charclass, charback) {
+  var language = [];
   console.log("getAPI");
   console.log(charrace, charclass, charback);
   // const charrace = charrace;
@@ -221,118 +275,17 @@ async function getAPI(charrace, charclass, charback) {
     });
   return { racedata, classdata, backdata };
 }
+// getRace(race);
+// getClass(char_class);
+// getBackground(background);
+// return langchoices;
+// console.log("choices " + allchoices[0]);
+// }
+// for (let i = 0; i < data.choose; i++) {
+//     const option = choose[i];
+//     choices.push[{choice: option}]
 
-async function getSaves(data, charid) {
-  var savdata = {};
-  console.log(charid);
-  let saving_throws = data.classdata.saving_throws;
-  for (let i = 0; i < saving_throws.length; i++) {
-    const charsave = saving_throws[i].index;
-    savdata[charsave] = true;
-  }
-  savdata["character_id"] = charid;
-  return savdata;
-  // console.log(characterSave);
-}
-
-async function getSkills(sendskills, apiGet, charid) {
-  var skilldata = {};
-  var skills = sendskills;
-  var backprof = apiGet.backdata.starting_proficiencies;
-  console.log(backprof);
-  for (let i = 0; i < backprof.length; i++) {
-    const skillobj = backprof[i];
-    const skill = skillobj.name;
-    skills.push(skill);
-  }
-  for (let i = 0; i < skills.length; i++) {
-    const charskill = skills[i];
-    if (charskill.includes("Skill")) {
-      let replaced = charskill.replace("Skill: ", "");
-      let skill = replaced.toLowerCase();
-      console.log(skill);
-      skilldata[skill] = true;
-    }
-  }
-  skilldata["character_id"] = charid;
-  console.log(skilldata);
-  return skilldata;
-}
-
-async function getProf(sendprofchoice, sendlangchoices, apiGet, charid) {
-  var profdata = {};
-  const data = apiGet;
-  var choices = sendprofchoice;
-  var tools = [];
-  var armor = [];
-  var weapon = [];
-  const allprofs = [];
-  var language = [];
-  for (let i = 0; i < choices.length; i++) {
-    const prof = choices[i];
-    if (!prof.includes("Skill")) {
-      tools.push(prof);
-    }
-  }
-  const raceprofs = data.racedata.starting_proficiencies;
-  for (let i = 0; i < raceprofs.length; i++) {
-    const profs = raceprofs[i].name;
-    allprofs.push(profs);
-  }
-  const classprofs = data.classdata.proficiencies;
-  for (let i = 0; i < classprofs.length; i++) {
-    const profs = classprofs[i].name;
-    allprofs.push(profs);
-  }
-  for (let i = 0; i < allprofs.length; i++) {
-    const prof = allprofs[i];
-    if (prof.includes("armor") || prof.includes("shield")) {
-      armor.push(prof);
-    } else if (prof.includes(" kit") || prof.includes(" tool")) {
-      tools.push(prof);
-    } else {
-      weapon.push(prof);
-    }
-  }
-  const racelang = data.racedata.languages;
-  const backlang = sendlangchoices;
-  for (let i = 0; i < racelang.length; i++) {
-    const lang = racelang[i].name;
-    language.push(lang);
-  }
-  for (let i = 0; i < backlang.length; i++) {
-    const lang = backlang[i];
-    language.push(lang);
-  }
-  console.log("tools", tools);
-  console.log(weapon);
-  console.log(armor);
-  const stringtool = JSON.stringify(tools);
-  const stringweapon = JSON.stringify(weapon);
-  const stringarmor = JSON.stringify(armor);
-  const stringlang = JSON.stringify(language);
-  const jsontool = JSON.parse(stringtool);
-  const jsonweapon = JSON.parse(stringweapon);
-  const jsonarmor = JSON.parse(stringarmor);
-  const jsonlang = JSON.parse(stringlang);
-
-  console.log("allprofs", allprofs);
-  profdata["tool"] = jsontool;
-
-  profdata["weapon"] = jsonweapon;
-
-  profdata["armor"] = jsonarmor;
-
-  profdata["languages"] = jsonlang;
-  profdata["character_id"] = charid;
-  console.log("profdata", profdata);
-  return profdata;
-}
-
-//       console.log(element.name.toLowerCase())
-//      return element.name.toLowerCase() = true;});
-
+// module.exports.getRace = getRace;
+// module.exports.getClass = getClass;
+// module.exports.getBackground = getBackground;
 module.exports.getAPI = getAPI;
-module.exports.getSaves = getSaves;
-module.exports.getSkills = getSkills;
-module.exports.getProf = getProf;

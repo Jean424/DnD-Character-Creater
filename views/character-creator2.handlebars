@@ -2,8 +2,8 @@
   <form action="/characters/add2" method="POST" id="character-form form2">
     <h1>Character Creator page 2</h1>
     <h2>Race: {{racedata.name}}</h2>
-    <p id="charsize">{{racedata.size_description}}</p>
-    <p id="charspeed" value="{{racedata.speed}}">Your speed is {{racedata.speed}}</p>
+    <p name="charsize">{{racedata.size_description}}</p>
+    <p name="charspeed">Your speed is {{racedata.speed}}</p>
     <h3>You gain the following ability bonuses: </h3>
     <p>you gain {{#each racedata.ability_bonuses as |bonus|}} 
       a +{{bonus.bonus}} to {{bonus.ability_score.name}}</p>
@@ -31,10 +31,10 @@
 
 <!-- Proficiency selection -->
 {{#each classdata.proficiency_choices as |selection|}}
-        <label for="class_prof">Pick {{selection.choose}}: </label>
+        <label for="class-prof">Pick {{selection.choose}}: </label>
     {{#repeat selection.choose}}
       <div>
-        <select id="class_prof" name="class_prof" required>
+        <select id="class-prof" name="class-prof" required>
           {{#each selection.from as |choice|}}
             <option value="{{choice.name}}">{{choice.name}}</option>
           {{/each}}
@@ -66,10 +66,10 @@
 <h3>Your background gives you proficiency in: </h3>
   <p> {{#each backdata.starting_proficiencies as |prof|}}{{prof.name}}{{#unless @last}}, {{/unless}}{{/each}}</p> 
   <h3>in addition, you learn {{backdata.language_options.choose}} languages of your choice</h3>
-        <label for="back_lang">Pick {{backdata.language_options.choose}}: </label>
+        <label for="back-lang">Pick {{backdata.language_options.choose}}: </label>
   {{#repeat backdata.language_options.choose}}
       <div>
-        <select id="back_lang" name="back_lang" required>
+        <select id="back-lang" name="back-lang" required>
           {{#each backdata.language_options.from as |choice|}}
             <option value="{{choice.name}}">{{choice.name}}</option>
           {{/each}}
