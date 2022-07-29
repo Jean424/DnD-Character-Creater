@@ -19,10 +19,7 @@ const db = {};
 // });
 
 if (process.env.JAWSDB_URL) {
-  sequelize = new Sequelize("database", "username", "password", {
-    host: "localhost",
-    dialect: "mysql",
-  });
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
