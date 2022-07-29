@@ -10,7 +10,7 @@ const sequelize = require("./config/connection");
 const helpers = require("./utils/helpers");
 const repeat = require("handlebars-helper-repeat");
 
-const PORT = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
 const sess = {
   secret: "super super secret",
@@ -74,6 +74,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
+  app.listen(port, () => console.log("Now listening"));
 });
 //testing//
