@@ -16,10 +16,17 @@ router.get("/", async (req, res) => {
   res.render("homepage", { loggedIn: req.session.loggedIn });
 });
 
+router.get("/user/profile", async (req, res) => {
+  if (req.session.loggedIn) {
+    res.render("profile", {loggedIn: req.session.loggedIn});
+    return;
+  }
+});
+
 //redirect to homepage once logged in
 router.get("/user/login", async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/", {loggedIn: req.session.loggedIn});
     return;
   }
   res.render("login");
@@ -28,10 +35,19 @@ router.get("/user/login", async (req, res) => {
 //render signup page
 router.get("/user/signup", async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/", {loggedIn: req.session.loggedIn} );
     return;
   }
   res.render("signup");
+});
+
+// logout route
+router.get("/user/logout", async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/", {loggedIn: req.session.loggedIn} );
+    return;
+  }
+  res.render("homepage");
 });
 
 //-- Character Sheet
@@ -48,7 +64,7 @@ router.get("/character-sheet", async (req, res) => {
 
 router.get("/characters/add", async (req, res) => {
   res.render("character-creator", {
-    // loggedIn: req.session.loggedIn,
+    loggedIn: req.session.loggedIn,
   });
 });
 
@@ -56,10 +72,8 @@ router.get("/characters/add2", async (req, res) => {
   let charrace = req.session.charrace;
   let charclass = req.session.charclass;
   let charback = req.session.charback;
-  const apiGet = await getAPI(charrace, charclass, charback, { plain: true });
-  let apistring = JSON.stringify(apiGet);
-  req.session.apidata = apistring;
-  res.render("character-creator2", apiGet);
+  let apiGet = await getAPI(charrace, charclass, charback, { plain: true },);
+  res.render("character-creator2",apiGet);
 });
 
 module.exports = router;

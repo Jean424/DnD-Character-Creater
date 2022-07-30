@@ -219,7 +219,8 @@ async function getAPI(charrace, charclass, charback) {
     .catch(function (error) {
       // console.log(error);
     });
-  return { racedata, classdata, backdata };
+    let loggedIn = true;
+  return { racedata, classdata, backdata, loggedIn};
 }
 
 async function getSaves(data, charid) {

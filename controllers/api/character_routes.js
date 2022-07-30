@@ -112,7 +112,7 @@ router.post("/add", async (req, res) => {
 router.post("/add2", async (req, res) => {
   let characterid = req.session.characterid;
   let apistring = req.session.apidata;
-  const apiGet = JSON.parse(apistring);
+  // const apiGet = JSON.parse(apistring);
   // console.log(apiGet);
   try {
     const characterData = await Character_Main.findByPk(
@@ -129,7 +129,7 @@ router.post("/add2", async (req, res) => {
       }
     );
     const charid = characterid;
-    const saveGet = await getSaves(apiGet, charid, { plain: true });
+    const saveGet = await getSaves(apistring, charid, { plain: true });
     const sendskills = req.body.class_prof;
     const skillGet = await getSkills(sendskills, apiGet, charid, {
       plain: true,
@@ -139,7 +139,7 @@ router.post("/add2", async (req, res) => {
     const profGet = await getProf(
       sendprofchoice,
       sendlangchoices,
-      apiGet,
+      apistring,
       charid
       // {
       //   plain: true,
@@ -206,7 +206,7 @@ router.post("/add2", async (req, res) => {
     //   characterData.char_class,
     //   characterData.background
     // );
-    res.redirect("/characters/" + characterid);
+    res.redirect("/api/characters/" + characterid);
 
     // res.render("character-creator2", { langchoices });
     // res.redirect("character-creator2", characterData);
