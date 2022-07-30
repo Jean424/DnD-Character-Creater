@@ -73,6 +73,8 @@ router.get("/characters/add2", async (req, res) => {
   let charclass = req.session.charclass;
   let charback = req.session.charback;
   let apiGet = await getAPI(charrace, charclass, charback, { plain: true });
+  let apistring = JSON.stringify(apiGet);
+  req.session.apidata = apistring;
   res.render("character-creator2", apiGet);
 });
 

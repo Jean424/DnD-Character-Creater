@@ -1,5 +1,5 @@
 <div class="character-creator">
-  <form action="/api/characters/add2" method="POST" id="character-form form2">
+  <form action="/characters/add2" method="POST" id="character-form form2">
     <h1>Character Creator page 2</h1>
     <h2>Race: {{racedata.name}}</h2>
     <p id="charsize">{{racedata.size_description}}</p>
@@ -81,7 +81,7 @@
 <p>{{start.equipment.name}} X{{start.quantity}}{{#unless @last}}, {{/unless}}{{/each}}</p>
   
         
-            <button id="submitbtn" href="/api/characters/add2" class= " create-submit" >Create your character</button>
+            <button id="submitbtn" href="/characters/add2" class= " create-submit" >Create your character</button>
         </div>
 
   </form>

@@ -112,7 +112,7 @@ router.post("/add", async (req, res) => {
 router.post("/add2", async (req, res) => {
   let characterid = req.session.characterid;
   let apistring = req.session.apidata;
-  // const apiGet = JSON.parse(apistring);
+  const apiGet = JSON.parse(apistring);
   // console.log(apiGet);
   try {
     const characterData = await Character_Main.findByPk(
@@ -129,7 +129,7 @@ router.post("/add2", async (req, res) => {
       }
     );
     const charid = characterid;
-    const saveGet = await getSaves(apistring, charid, { plain: true });
+    const saveGet = await getSaves(apiGet, charid, { plain: true });
     const sendskills = req.body.class_prof;
     const skillGet = await getSkills(sendskills, apiGet, charid, {
       plain: true,
@@ -139,7 +139,7 @@ router.post("/add2", async (req, res) => {
     const profGet = await getProf(
       sendprofchoice,
       sendlangchoices,
-      apistring,
+      apiGet,
       charid
       // {
       //   plain: true,
@@ -151,9 +151,9 @@ router.post("/add2", async (req, res) => {
     const characterProf = await Character_Prof_Lang.create(profGet, {
       // plain: true,
     });
-    console.log("Character Saves", characterSave);
-    console.log("Character Skills", characterSkill);
-    console.log("Character ProfLang", characterProf);
+    // console.log("Character Saves", characterSave);
+    // console.log("Character Skills", characterSkill);
+    // console.log("Character ProfLang", characterProf);
     // function getSave(){apiGet.classdata.saving_throws.forEach(element => {
     //       console.log(element.name.toLowerCase())
     //      return element.name.toLowerCase() = true;
@@ -206,7 +206,7 @@ router.post("/add2", async (req, res) => {
     //   characterData.char_class,
     //   characterData.background
     // );
-    res.redirect("/api/characters/" + characterid);
+    res.redirect("/characters/" + characterid);
 
     // res.render("character-creator2", { langchoices });
     // res.redirect("character-creator2", characterData);
