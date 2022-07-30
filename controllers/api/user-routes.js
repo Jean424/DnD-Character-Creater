@@ -19,38 +19,45 @@ router.get("/", (req, res) => {
 });
 
 // CREATE new user
-router.post("/signup", async (req, res) => {
-  console.log("click");
-  try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-    });
-    res.redirect("/user/login");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+router.post("/signup", (req, res) => {
+  User.create({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+  }).then((dbUserData) => {
+    res.json(dbUserData);
+  });
 });
 
-// // Login
-router.post("/login", async (req, res) => {
-  const user = await User.findOne({ where: { email: req.body.email } });
-  if (user) {
-    const password_valid = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
-    if (password_valid) {
-      req.session.loggedIn = true;
-      res.redirect("/");
-    } else {
-      res.status(400).json({ error: "Email or Password Incorrect" });
+// LOG IN for users/ verify users
+router.post("/login", (req, res) => {
+  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+  User.findOne({
+    where: {
+      email: req.body.email,
+    },
+  }).then((dbUserData) => {
+    if (!dbUserData) {
+      res.status(400).json({ message: "No user with that email address!" });
+      return;
     }
-  } else {
-    res.status(404).json({ error: "User does not exist" });
-  }
+    // res.json({ user: dbUserData});
+    // verify user
+    const validPassword = dbUserData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: "Incorrect email or password!" });
+      return;
+    }
+    req.session.save(() => {
+      // declare session variables
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
+
+      res.json({ user: dbUserData, message: "You are now logged in!" });
+    });
+  });
 });
 
 // Logout
